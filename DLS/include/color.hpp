@@ -12,5 +12,13 @@ namespace dls {
 			char g();
 			char b();
 			char a();
+
+			void save(os& file) const override {
+				file(CEREAL_NVP(_vals));
+			}
+
+			void load(is& file) override {
+				file(CEREAL_NVP(_vals));
+			}
 	};
 }

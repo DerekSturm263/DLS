@@ -25,7 +25,7 @@ namespace dls {
 
 			}
 
-			void load(is& file) const override {
+			void load(is& file) override {
 
 			}
 	};

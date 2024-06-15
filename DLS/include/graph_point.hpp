@@ -6,6 +6,15 @@ namespace dls {
 	template <typename T>
 	class graph_point : public serializable {
 		private:
-			T _value;
+			type<T> _value;
+
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_value));
+			}
+
+			void load(is& file) override {
+				file(CEREAL_NVP(_value));
+			}
 	};
 }

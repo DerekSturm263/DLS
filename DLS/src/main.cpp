@@ -1,7 +1,6 @@
 #include <iostream>
+#include "engine.hpp"
 
-namespace dls {
-	int main() {
-		return -1;
-	}
+int main(int argc, char* argv[]) {
+	return dls::engine::execute(argc, argv);
 }

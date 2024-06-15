@@ -8,12 +8,12 @@ namespace dls {
 		private:
 			long long _internal;
 
-		protected:
+		public:
 			void save(os& file) const override {
 				file(CEREAL_NVP(_internal));
 			}
 
-			void load(is& file) const override {
+			void load(is& file) override {
 				file(_internal);
 			}
 	};

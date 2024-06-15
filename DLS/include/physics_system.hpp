@@ -4,6 +4,7 @@
 #include "physics.hpp"
 #include "rigidbody.hpp"
 #include "vector.hpp"
+#include "tick.hpp"
 
 namespace dls {
     class physics_system : public module_system<physics> {

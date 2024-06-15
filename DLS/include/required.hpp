@@ -12,20 +12,19 @@ namespace dls {
 		private:
 			T _val_or_ref;
 			
-		protected:
+		public:
+			required() : _val_or_ref() { }
+
+			T const& value() const {
+				return _val_or_ref.value();
+			}
+
 			void save(os& file) const override {
 				file(CEREAL_NVP(_val_or_ref));
 			}
 
-			void load(is& file) const override {
+			void load(is& file) override {
 				file(_val_or_ref);
-			}
-
-		public:
-			required() : _val_or_ref() { }
-
-			auto const& value() const {
-				return _val_or_ref.value();
 			}
 	};
 }

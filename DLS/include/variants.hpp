@@ -8,5 +8,14 @@ namespace dls {
 	class variants : public serializable {
 		private:
 			std::vector<T> _variants;
+
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_variants));
+			}
+
+			void load(is& file) override {
+				file(CEREAL_NVP(_variants));
+			}
 	};
 }

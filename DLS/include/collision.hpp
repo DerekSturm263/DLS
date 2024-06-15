@@ -16,19 +16,19 @@ namespace dls {
 			};
 
 		private:
-			type<polygon<fixed<32>, 3>> _shape;
+			//type<polygon<fixed<32>, 3>> _shape;
 			type<passthrough_type> _passthrough;
 
-			type<event<void(collision_callback_context const&)>> _on_collision_enter;
-			type<event<void(collision_callback_context const&)>> _on_collision_tick;
-			type<event<void(collision_callback_context const&)>> _on_collision_exit;
+			//type<event<void(collision_callback_context const&)>> _on_collision_enter;
+			//type<event<void(collision_callback_context const&)>> _on_collision_tick;
+			//type<event<void(collision_callback_context const&)>> _on_collision_exit;
 			
 		protected:
 			void save(os& file) const override {
 
 			}
 
-			void load(is& file) const override {
+			void load(is& file) override {
 
 			}
 	};

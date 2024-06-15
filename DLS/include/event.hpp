@@ -11,10 +11,22 @@ namespace dls {
 			std::vector<val<event_func<TFunc>>> _funcs;
 			
 		public:
-			void invoke(tick& tick, std::vector<void*> const& args) {
+			auto invoke(tick& tick, std::vector<void*> const& args) {
+				typename decltype(std::function<TFunc>()())::type ret{};
+
 				for (auto& func : _funcs) {
-					func.value().invoke(tick, args);
+					ret += func.value().invoke(tick, args);
 				}
+
+				return ret;
+			}
+
+			void save(os& file) const override {
+				file(CEREAL_NVP(_funcs));
+			}
+
+			void load(is& file) override {
+				file(CEREAL_NVP(_funcs));
 			}
 	};
 }

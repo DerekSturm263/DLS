@@ -49,6 +49,6 @@ namespace dls {
             }
 
         private:
-            static std::default_random_engine _engine;
+            static inline std::default_random_engine _engine;
 	};
 }

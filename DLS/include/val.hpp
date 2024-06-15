@@ -13,22 +13,26 @@ namespace dls {
 		private:
 			T _value;
 
-		protected:
-			void save(os& file) const override {
-				file(CEREAL_NVP(this->_id));
-				file(CEREAL_NVP(_value));
-			}
-
-			void load(is& file) const override {
-				file(this->_id);
-				file(_value);
-			}
-
 		public:
+			val() : _value() { }
 			val(T const& value) : _value(value) { }
 
 			T const& value() const {
 				return _value;
+			}
+
+			T& value() {
+				return _value;
+			}
+
+			void save(os& file) const override {
+				file(cereal::make_nvp("_id", this->_id));
+				file(CEREAL_NVP(_value));
+			}
+
+			void load(is& file) override {
+				file(this->_id);
+				file(_value);
 			}
 	};
 }

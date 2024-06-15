@@ -8,6 +8,15 @@
 namespace dls {
 	class project : public serializable {
 		private:
-			val<state_machine<ref<scene>>> _scenes;
+			state_machine<ref<scene>> _scenes;
+			
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_scenes));
+			}
+
+			void load(is& file) override {
+				file(CEREAL_NVP(_scenes));
+			}
 	};
 }

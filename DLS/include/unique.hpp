@@ -15,7 +15,7 @@ namespace dls {
 			guid _id;
 
 			// TODO: ALLOCATE ON HEAP
-			static std::unordered_map<guid, T*> _ids_to_values;
+			static inline std::unordered_map<guid, T*> _ids_to_values;
 
 			unique() : _id(random::next<guid>()) {
 				_ids_to_values[_id] = static_cast<T*>(this);

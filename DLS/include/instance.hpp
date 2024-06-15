@@ -20,5 +20,9 @@ namespace dls {
 			T const& value() const {
 				return _value.value();
 			}
+
+			T& value() {
+				return _value.value();
+			}
 	};
 }

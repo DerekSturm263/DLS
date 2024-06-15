@@ -1,43 +1,54 @@
 #pragma once
 
 #include <string>
+#include <fstream>
 #include "serializable.hpp"
 #include "val.hpp"
 
 namespace dls {
 	/// <summary>
-	/// Stores any given serializable value as an asset in the file explorer
+	/// Stores any given serializable value as a readonly asset in the file explorer
 	/// </summary>
 	/// <typeparam name="T">Type to store (must be serializable)</typeparam>
 	template <typename T>
-	class asset : public serializable {
+	class asset {
 		private:
-			const std::string _name;
-			const val<T> _value;
+			std::string _file_path;
+			val<T> _value;
 
 			template <typename T>
 			friend class instance;
 			
-		protected:
-			void save(os& file) const override {
-				file(CEREAL_NVP(_name));
-				file(CEREAL_NVP(_value));
-			}
-
-			void load(is& file) const override {
-				file(_name);
-				file(_value);
-			}
-
 		public:
-			asset(std::string const& name, T const& value) : _name(name), _value(value) { }
+			asset(std::string const& file_path) : _file_path(file_path), _value() {
+				try {
+					std::ifstream ifstream{ file_path };
 
-			std::string const& name() {
-				return _name;
+					if (ifstream.is_open()) {
+						serializable::is archive{ ifstream };
+						archive(_value);
+					}
+				} catch (std::exception const& e) {
+					// TODO: Add debug message.
+					_value = val<T>{};
+				}
 			}
 
-			static asset<T> from_file(std::string const& full_path) {
+			~asset() {
+				std::ofstream ofstream{ _file_path };
 
+				if (ofstream.is_open()) {
+					serializable::os archive{ ofstream };
+					archive(_value);
+				}
+			}
+
+			std::string const& file_path() const {
+				return _file_path;
+			}
+
+			T const& value() const {
+				return _value.value();
 			}
 	};
 }

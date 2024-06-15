@@ -15,17 +15,6 @@ namespace dls {
 		private:
 			std::variant<val<T>, ref<T>> _internal;
 			bool _is_ref;
-			
-		protected:
-			void save(os& file) const override {
-				file(CEREAL_NVP(_internal));
-				file(CEREAL_NVP(_is_ref));
-			}
-
-			void load(is& file) const override {
-				file(_internal);
-				file(_is_ref);
-			}
 
 		public:
 			t(val<T> const&& value) : _internal(value), _is_ref(false) { }
@@ -36,6 +25,16 @@ namespace dls {
 					return std::get<ref<T>>(_internal).value();
 				else
 					return std::get<val<T>>(_internal).value();
+			}
+
+			void save(os& file) const override {
+				file(CEREAL_NVP(_internal));
+				file(CEREAL_NVP(_is_ref));
+			}
+
+			void load(is& file) override {
+				file(_internal);
+				file(_is_ref);
 			}
 	};
 }

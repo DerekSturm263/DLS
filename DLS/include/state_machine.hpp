@@ -11,5 +11,14 @@ namespace dls {
 	class state_machine : public serializable {
 		private:
 			std::vector<val<state_machine_state<T>>> _states;
+
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_states));
+			}
+
+			void load(is& file) override {
+				file(CEREAL_NVP(_states));
+			}
 	};
 }

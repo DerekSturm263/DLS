@@ -8,6 +8,6 @@ namespace dls {
 		private:
 			const collision& _collider;
 			const collision& _collidee;
-			const vector<fixed<32>, 3> _contact_point;
+			//const vector<fixed<32>, 3> _contact_point;
 	};
 }

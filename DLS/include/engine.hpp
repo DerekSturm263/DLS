@@ -2,6 +2,7 @@
 
 namespace dls {
 	class engine {
-		static void execute();
+		public:
+			static int execute(int, char*[]);
 	};
 }

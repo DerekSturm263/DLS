@@ -6,7 +6,7 @@
 #include "property.hpp"
 
 namespace dls {
-	class save_data {
+	class global_data {
 		private:
 			std::unordered_map<std::string, val<property>> _properties;
 	};

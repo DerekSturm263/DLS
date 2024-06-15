@@ -9,12 +9,12 @@ namespace dls {
 		private:
 			std::map<std::size_t, keyframe_data> _keyframes;
 			
-		protected:
+		public:
 			void save(os& file) const override {
 				file(CEREAL_NVP(_keyframes));
 			}
 
-			void load(is& file) const override {
+			void load(is& file) override {
 				file(_keyframes);
 			}
 	};

@@ -9,5 +9,14 @@ namespace dls {
 	class polygon : public serializable {
 		private:
 			std::vector<vector<T, Size>> _points;
+			
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_points));
+			}
+
+			void load(is& file) override {
+				file(CEREAL_NVP(_points));
+			}
 	};
 }

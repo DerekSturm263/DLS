@@ -1,6 +1,7 @@
 #pragma once
 
 #include <variant>
+#include <tuple>
 #include "serializable.hpp"
 #include "type_templates.hpp"
 
@@ -28,10 +29,48 @@
 
 namespace dls {
 	class property : public serializable {
-		using any = std::variant<animation, clip, color, entity, event, fixed, graph, input_button, mask, material, matrix, mesh, polygon, processor, quaternion, range, rect, state_machine, texture, variants, vector>;
+		public:
+			using any = std::variant<char, int, float, bool, std::string>;
 
 		private:
-			std::string _name;
 			val<any> _value;
+			
+		public:
+			property() : _value() { }
+			property(any const& value) : _value(value) { }
+
+			any const& value() const {
+				return _value.value();
+			}
+
+			any& value() {
+				return _value.value();
+			}
+
+			void save(os& file) const override {
+				file(CEREAL_NVP(_value));
+			}
+
+			void load(is& file) override {
+				file(CEREAL_NVP(_value));
+			}
+			
+		private:
+			class stream_visitor {
+				public:
+					std::ostream& _os;
+
+					stream_visitor(std::ostream& os) : _os(os) { }
+
+					template <typename T>
+					void operator()(T&& value) const {
+						_os << value;
+					}
+			};
+
+			friend std::ostream& operator<< (std::ostream& stream, const property& property) {
+				std::visit(stream_visitor{stream}, property.value());
+				return stream;
+			}
 	};
 }
