@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="include\Interfaces\instantiate.hpp" />
+    <ClCompile Include="include\Interfaces\object.hpp" />
+    <ClCompile Include="include\Interfaces\random_generate.hpp" />
+    <ClCompile Include="include\Types\range.hpp" />
+    <ClCompile Include="include\Types\serialized_func.hpp" />
+    <ClCompile Include="plugins\Modules\c_emitter.hpp" />
+    <ClCompile Include="src\debug.cpp" />
+    <ClCompile Include="src\engine.cpp" />
+    <ClCompile Include="src\engine_system.cpp" />
+    <ClCompile Include="src\engine_system_manager.cpp" />
+    <ClCompile Include="src\module_system_manager.cpp" />
+    <ClCompile Include="src\physics.cpp" />
+    <ClCompile Include="src\random.cpp" />
+    <ClCompile Include="src\scene_manager.cpp" />
+    <ClCompile Include="src\set_acceleration.cpp" />
+    <ClCompile Include="src\set_velocity.cpp" />
+    <ClCompile Include="src\Systems\gui.cpp" />
+    <ClCompile Include="src\Systems\collision.cpp" />
+    <ClCompile Include="src\tick.cpp" />
+    <ClCompile Include="src\Types\audio_clip.cpp" />
+    <ClCompile Include="src\Types\color.cpp" />
+    <ClCompile Include="src\Types\entity.cpp" />
+    <ClCompile Include="src\Types\module.cpp" />
+    <ClCompile Include="src\Types\project.cpp" />
+    <ClCompile Include="src\Types\scene.cpp" />
+    <ClCompile Include="src\glad.cpp" />
+    <ClCompile Include="src\Types\animation.cpp" />
+    <ClCompile Include="src\Systems\graphics.cpp" />
+    <ClCompile Include="src\Types\material.cpp" />
+    <ClCompile Include="src\Types\mesh.cpp" />
+    <ClCompile Include="src\Types\shader.cpp" />
+    <ClCompile Include="src\Types\shader_module.cpp" />
+    <ClCompile Include="src\Types\texture.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Systems\physics.cpp" />
+    <ClCompile Include="src\stb.cpp" />
+    <ClCompile Include="src\Systems\audio.cpp" />
+    <ClCompile Include="src\Systems\debug.cpp" />
+    <ClCompile Include="src\Systems\engine.cpp" />
+    <ClCompile Include="src\Systems\input.cpp" />
+    <ClCompile Include="src\Systems\random.cpp" />
+    <ClCompile Include="src\Systems\scene_manager.cpp" />
+    <ClCompile Include="src\Systems\system_manager.cpp" />
+    <ClCompile Include="src\Systems\time.cpp" />
+    <ClCompile Include="src\Systems\window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\animation.hpp" />
+    <ClInclude Include="include\appearance.hpp" />
+    <ClInclude Include="include\asset.hpp" />
+    <ClInclude Include="include\audio.hpp" />
+    <ClInclude Include="include\camera.hpp" />
+    <ClInclude Include="include\clip.hpp" />
+    <ClInclude Include="include\collision.hpp" />
+    <ClInclude Include="include\collision_callback_context.hpp" />
+    <ClInclude Include="include\collision_system.hpp" />
+    <ClInclude Include="include\color.hpp" />
+    <ClInclude Include="include\debug.hpp" />
+    <ClInclude Include="include\drawable.hpp" />
+    <ClInclude Include="include\emission_system.hpp" />
+    <ClInclude Include="include\emitter.hpp" />
+    <ClInclude Include="include\engine.hpp" />
+    <ClInclude Include="include\engine_system.hpp" />
+    <ClInclude Include="include\engine_system_manager.hpp" />
+    <ClInclude Include="include\entity.hpp" />
+    <ClInclude Include="include\event.hpp" />
+    <ClInclude Include="include\event_func.hpp" />
+    <ClInclude Include="include\fixed.hpp" />
+    <ClInclude Include="include\function.hpp" />
+    <ClInclude Include="include\graph.hpp" />
+    <ClInclude Include="include\graphics.hpp" />
+    <ClInclude Include="include\graph_point.hpp" />
+    <ClInclude Include="include\gui.hpp" />
+    <ClInclude Include="include\gui_drawable.hpp" />
+    <ClInclude Include="include\input.hpp" />
+    <ClInclude Include="include\input_button.hpp" />
+    <ClInclude Include="include\input_callback_context.hpp" />
+    <ClInclude Include="include\input_event_group.hpp" />
+    <ClInclude Include="include\input_system.hpp" />
+    <ClInclude Include="include\instance.hpp" />
+    <ClInclude Include="include\Interfaces\lerp.hpp" />
+    <ClInclude Include="include\Interfaces\numbers.hpp" />
+    <ClInclude Include="include\interpolatable.hpp" />
+    <ClInclude Include="include\keyframe_data.hpp" />
+    <ClInclude Include="include\layout.hpp" />
+    <ClInclude Include="include\mask.hpp" />
+    <ClInclude Include="include\material.hpp" />
+    <ClInclude Include="include\material_settings.hpp" />
+    <ClInclude Include="include\math.hpp" />
+    <ClInclude Include="include\matrix.hpp" />
+    <ClInclude Include="include\mesh.hpp" />
+    <ClInclude Include="include\module.hpp" />
+    <ClInclude Include="include\module_system.hpp" />
+    <ClInclude Include="include\module_system_manager.hpp" />
+    <ClInclude Include="include\optional.hpp" />
+    <ClInclude Include="include\physics.hpp" />
+    <ClInclude Include="include\physics_system.hpp" />
+    <ClInclude Include="include\polygon.hpp" />
+    <ClInclude Include="include\processor.hpp" />
+    <ClInclude Include="include\project.hpp" />
+    <ClInclude Include="include\properties.hpp" />
+    <ClInclude Include="include\property.hpp" />
+    <ClInclude Include="include\property_group.hpp" />
+    <ClInclude Include="include\quaternion.hpp" />
+    <ClInclude Include="include\random.hpp" />
+    <ClInclude Include="include\randomly_generatable.hpp" />
+    <ClInclude Include="include\range.hpp" />
+    <ClInclude Include="include\receiver.hpp" />
+    <ClInclude Include="include\receive_system.hpp" />
+    <ClInclude Include="include\rect.hpp" />
+    <ClInclude Include="include\ref.hpp" />
+    <ClInclude Include="include\required.hpp" />
+    <ClInclude Include="include\rigidbody.hpp" />
+    <ClInclude Include="include\save_data.hpp" />
+    <ClInclude Include="include\scene.hpp" />
+    <ClInclude Include="include\scene_manager.hpp" />
+    <ClInclude Include="include\sender.hpp" />
+    <ClInclude Include="include\send_system.hpp" />
+    <ClInclude Include="include\serializable.hpp" />
+    <ClInclude Include="include\serialize.hpp" />
+    <ClInclude Include="include\set_acceleration.hpp" />
+    <ClInclude Include="include\set_velocity.hpp" />
+    <ClInclude Include="include\shader.hpp" />
+    <ClInclude Include="include\state_machine.hpp" />
+    <ClInclude Include="include\state_machine_agent.hpp" />
+    <ClInclude Include="include\state_machine_state.hpp" />
+    <ClInclude Include="include\state_machine_system.hpp" />
+    <ClInclude Include="include\state_machine_transition.hpp" />
+    <ClInclude Include="include\structure.hpp" />
+    <ClInclude Include="include\Systems\file_io.hpp" />
+    <ClInclude Include="include\t.hpp" />
+    <ClInclude Include="include\texture.hpp" />
+    <ClInclude Include="include\tick.hpp" />
+    <ClInclude Include="include\time.hpp" />
+    <ClInclude Include="include\timer.hpp" />
+    <ClInclude Include="include\timer_system.hpp" />
+    <ClInclude Include="include\transform.hpp" />
+    <ClInclude Include="include\transformer.hpp" />
+    <ClInclude Include="include\Types\animation.hpp" />
+    <ClInclude Include="include\Systems\audio.hpp" />
+    <ClInclude Include="include\Systems\collision.hpp" />
+    <ClInclude Include="include\Types\audio_clip.hpp" />
+    <ClInclude Include="include\Types\color.hpp" />
+    <ClInclude Include="include\Types\executable.hpp" />
+    <ClInclude Include="include\Types\gradient.hpp" />
+    <ClInclude Include="include\Types\graph_curve.hpp" />
+    <ClInclude Include="include\Types\module.hpp" />
+    <ClInclude Include="include\Systems\debug.hpp" />
+    <ClInclude Include="include\Systems\engine.hpp" />
+    <ClInclude Include="include\Types\entity.hpp" />
+    <ClInclude Include="include\Types\event.hpp" />
+    <ClInclude Include="include\Systems\graphics.hpp" />
+    <ClInclude Include="include\Systems\gui.hpp" />
+    <ClInclude Include="include\Systems\input.hpp" />
+    <ClInclude Include="include\Interfaces\property.hpp" />
+    <ClInclude Include="include\Interfaces\unique.hpp" />
+    <ClInclude Include="include\Types\project.hpp" />
+    <ClInclude Include="include\Types\rect.hpp" />
+    <ClInclude Include="include\Types\reference.hpp" />
+    <ClInclude Include="include\Types\ref_or_val.hpp" />
+    <ClInclude Include="include\Types\shader_module.hpp" />
+    <ClInclude Include="include\type_templates.hpp" />
+    <ClInclude Include="include\ui_element.hpp" />
+    <ClInclude Include="include\ui_element_callback_context.hpp" />
+    <ClInclude Include="include\ui_system.hpp" />
+    <ClInclude Include="include\unique.hpp" />
+    <ClInclude Include="include\val.hpp" />
+    <ClInclude Include="include\variants.hpp" />
+    <ClInclude Include="include\vector.hpp" />
+    <ClInclude Include="include\window.hpp" />
+    <ClInclude Include="include\window_manager.hpp" />
+    <ClInclude Include="plugins\Components\AudioSource\c_audio_source.hpp" />
+    <ClInclude Include="plugins\Modules\c_layout.hpp" />
+    <ClInclude Include="plugins\Modules\c_properties.hpp" />
+    <ClInclude Include="plugins\Modules\c_input.hpp" />
+    <ClInclude Include="include\Types\material.hpp" />
+    <ClInclude Include="include\Types\mesh.hpp" />
+    <ClInclude Include="include\Systems\physics.hpp" />
+    <ClInclude Include="include\Math\quaternion.hpp" />
+    <ClInclude Include="include\Systems\random.hpp" />
+    <ClInclude Include="include\Types\scene.hpp" />
+    <ClInclude Include="include\Systems\scene_manager.hpp" />
+    <ClInclude Include="include\Types\shader.hpp" />
+    <ClInclude Include="include\Types\state_machine.hpp" />
+    <ClInclude Include="include\Systems\system_manager.hpp" />
+    <ClInclude Include="include\Types\texture.hpp" />
+    <ClInclude Include="include\Systems\time.hpp" />
+    <ClInclude Include="include\Types\transform.hpp" />
+    <ClInclude Include="include\Systems\window.hpp" />
+    <ClInclude Include="include\Interfaces\serialize.hpp" />
+    <ClInclude Include="include\Math\matrix.hpp" />
+    <ClInclude Include="plugins\Components\Animation\c_animation.hpp" />
+    <ClInclude Include="plugins\Modules\c_appearance.hpp" />
+    <ClInclude Include="plugins\Modules\c_camera.hpp" />
+    <ClInclude Include="plugins\Modules\c_collision.hpp" />
+    <ClInclude Include="plugins\Modules\c_physics.hpp" />
+    <ClInclude Include="plugins\Modules\c_receiver.hpp" />
+    <ClInclude Include="plugins\Modules\c_source.hpp" />
+    <ClInclude Include="plugins\Modules\c_state_machine.hpp" />
+    <ClInclude Include="plugins\Modules\c_structure.hpp" />
+    <ClInclude Include="plugins\Modules\c_stub.hpp" />
+    <ClInclude Include="plugins\Modules\c_tilemap.hpp" />
+    <ClInclude Include="plugins\Modules\c_transform.hpp" />
+    <ClInclude Include="plugins\Modules\c_button.hpp" />
+    <ClInclude Include="plugins\Modules\c_label.hpp" />
+    <ClInclude Include="include\Math\vector.hpp" />
+    <ClInclude Include="plugins\Modules\c_slider.hpp" />
+    <ClInclude Include="plugins\Modules\c_toggle.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="dependencies\lib-vc2022\glfw3.lib" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c96a7758-b7b0-4a37-a9ff-bcc82918ecc4}</ProjectGuid>
+    <RootNamespace>DeDe</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)\include;$(ProjectDir)\lib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(ProjectDir)\include;$(ProjectDir)\lib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)\include;$(ProjectDir)\lib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)\include;$(ProjectDir)\lib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)lib;$(ProjectDir)lib\cereal-1.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)lib;$(ProjectDir)lib\cereal-1.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)lib;$(ProjectDir)lib\cereal-1.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)lib;$(ProjectDir)lib\cereal-1.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)dependencies\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
