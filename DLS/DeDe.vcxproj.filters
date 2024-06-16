@@ -51,618 +51,354 @@
     <ClCompile Include="src\stb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Types\animation.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\collision.cpp">
-      <Filter>Source Files\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\debug.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\audio.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\engine.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\entity.cpp">
-      <Filter>Source Files\Game Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\graphics.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\input.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\material.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\mesh.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\physics.cpp">
-      <Filter>Source Files\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\scene.cpp">
-      <Filter>Source Files\Game Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\random.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\scene_manager.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\system_manager.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\shader.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\texture.cpp">
-      <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\time.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\window.cpp">
-      <Filter>Source Files\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Systems\gui.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Interfaces\object.hpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Interfaces\instantiate.hpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="plugins\Modules\c_emitter.hpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\shader_module.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Types\range.hpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\audio_clip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\project.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\color.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Types\module.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Interfaces\random_generate.hpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Types\serialized_func.hpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\debug.cpp">
+    <ClCompile Include="src\engine systems\debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine_system.cpp">
+    <ClCompile Include="src\engine systems\engine_system_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine_system_manager.cpp">
+    <ClCompile Include="src\engine systems\module_system_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\module_system_manager.cpp">
+    <ClCompile Include="src\engine systems\random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\physics.cpp">
+    <ClCompile Include="src\engine systems\scene_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\random.cpp">
+    <ClCompile Include="src\functions\set_acceleration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\scene_manager.cpp">
+    <ClCompile Include="src\functions\set_velocity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\set_acceleration.cpp">
+    <ClCompile Include="src\miscellaneous\tick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\set_velocity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tick.cpp">
+    <ClCompile Include="src\module systems\physics_system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Types\animation.hpp">
+    <ClInclude Include="include\types\animation.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Systems\audio.hpp">
+    <ClInclude Include="include\modules\appearance.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Systems\collision.hpp">
+    <ClInclude Include="include\type templates\asset.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Types\color.hpp">
+    <ClInclude Include="include\engine systems\audio.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Types\module.hpp">
+    <ClInclude Include="include\modules\camera.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Systems\debug.hpp">
+    <ClInclude Include="include\types\clip.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Systems\engine.hpp">
+    <ClInclude Include="include\modules\collision.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Types\entity.hpp">
+    <ClInclude Include="include\callbacks\collision_callback_context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Systems\graphics.hpp">
+    <ClInclude Include="include\module systems\collision_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Systems\input.hpp">
+    <ClInclude Include="include\types\color.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Types\material.hpp">
+    <ClInclude Include="include\engine systems\debug.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Types\mesh.hpp">
+    <ClInclude Include="include\miscellaneous\drawable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Systems\physics.hpp">
+    <ClInclude Include="include\module systems\emission_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Systems\random.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\scene.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Systems\scene_manager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\shader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\state_machine.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Systems\system_manager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\texture.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Systems\time.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\transform.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Systems\window.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Components\Animation\c_animation.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_appearance.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_camera.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_physics.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_structure.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_stub.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_transform.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_button.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_label.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_collision.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\event.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_input.hpp">
-      <Filter>Header Files\Plugins</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Math\vector.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Math\matrix.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Interfaces\serialize.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Systems\gui.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Math\quaternion.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Interfaces\property.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_properties.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Components\AudioSource\c_audio_source.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_slider.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_toggle.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Interfaces\unique.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\shader_module.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Systems\file_io.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_tilemap.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_state_machine.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\reference.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_layout.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\rect.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_source.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="plugins\Modules\c_receiver.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\audio_clip.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\project.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\gradient.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Interfaces\lerp.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Interfaces\numbers.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\graph_curve.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\executable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Types\ref_or_val.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\animation.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\appearance.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\asset.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\audio.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\camera.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\clip.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\collision.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\collision_callback_context.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\collision_system.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\color.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\debug.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\drawable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\emission_system.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\emitter.hpp">
+    <ClInclude Include="include\modules\emitter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\engine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\engine_system.hpp">
+    <ClInclude Include="include\interfaces\engine_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\engine_system_manager.hpp">
+    <ClInclude Include="include\engine systems\engine_system_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\entity.hpp">
+    <ClInclude Include="include\types\entity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\event.hpp">
+    <ClInclude Include="include\types\event.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\event_func.hpp">
+    <ClInclude Include="include\types\event_func.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\fixed.hpp">
+    <ClInclude Include="include\types\fixed.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\function.hpp">
+    <ClInclude Include="include\interfaces\function.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\graph.hpp">
+    <ClInclude Include="include\types\graph.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\graph_point.hpp">
+    <ClInclude Include="include\types\graph_point.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\graphics.hpp">
+    <ClInclude Include="include\engine systems\graphics.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gui.hpp">
+    <ClInclude Include="include\helpers\gui.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gui_drawable.hpp">
+    <ClInclude Include="include\interfaces\gui_drawable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\input.hpp">
+    <ClInclude Include="include\modules\input.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\input_button.hpp">
+    <ClInclude Include="include\types\input_button.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\input_callback_context.hpp">
+    <ClInclude Include="include\callbacks\input_callback_context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\input_event_group.hpp">
+    <ClInclude Include="include\types\input_event_group.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\input_system.hpp">
+    <ClInclude Include="include\module systems\input_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\instance.hpp">
+    <ClInclude Include="include\type templates\instance.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\interpolatable.hpp">
+    <ClInclude Include="include\interfaces\interpolatable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\keyframe_data.hpp">
+    <ClInclude Include="include\types\keyframe_data.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\layout.hpp">
+    <ClInclude Include="include\modules\layout.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\mask.hpp">
+    <ClInclude Include="include\types\mask.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\material.hpp">
+    <ClInclude Include="include\types\material.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\material_settings.hpp">
+    <ClInclude Include="include\types\material_settings.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\math.hpp">
+    <ClInclude Include="include\helpers\math.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\matrix.hpp">
+    <ClInclude Include="include\types\matrix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\mesh.hpp">
+    <ClInclude Include="include\types\mesh.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\module.hpp">
+    <ClInclude Include="include\types\module.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\module_system.hpp">
+    <ClInclude Include="include\interfaces\module_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\module_system_manager.hpp">
+    <ClInclude Include="include\engine systems\module_system_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\optional.hpp">
+    <ClInclude Include="include\type templates\optional.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\physics.hpp">
+    <ClInclude Include="include\modules\physics.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\physics_system.hpp">
+    <ClInclude Include="include\module systems\physics_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\polygon.hpp">
+    <ClInclude Include="include\types\polygon.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\processor.hpp">
+    <ClInclude Include="include\types\processor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\project.hpp">
+    <ClInclude Include="include\types\project.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\properties.hpp">
+    <ClInclude Include="include\modules\properties.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\property.hpp">
+    <ClInclude Include="include\types\property.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\property_group.hpp">
+    <ClInclude Include="include\types\property_group.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\quaternion.hpp">
+    <ClInclude Include="include\types\quaternion.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\random.hpp">
+    <ClInclude Include="include\engine systems\random.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\randomly_generatable.hpp">
+    <ClInclude Include="include\interfaces\randomly_generatable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\range.hpp">
+    <ClInclude Include="include\types\range.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\receive_system.hpp">
+    <ClInclude Include="include\module systems\receive_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\receiver.hpp">
+    <ClInclude Include="include\modules\receiver.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\rect.hpp">
+    <ClInclude Include="include\types\rect.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ref.hpp">
+    <ClInclude Include="include\type templates\ref.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\required.hpp">
+    <ClInclude Include="include\type templates\required.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\rigidbody.hpp">
+    <ClInclude Include="include\miscellaneous\rigidbody.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\save_data.hpp">
+    <ClInclude Include="include\data\save_data.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\scene.hpp">
+    <ClInclude Include="include\types\scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\scene_manager.hpp">
+    <ClInclude Include="include\engine systems\scene_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\send_system.hpp">
+    <ClInclude Include="include\module systems\send_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\sender.hpp">
+    <ClInclude Include="include\modules\sender.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\serializable.hpp">
+    <ClInclude Include="include\interfaces\serializable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\serialize.hpp">
+    <ClInclude Include="include\engine systems\serialize.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\set_acceleration.hpp">
+    <ClInclude Include="include\functions\set_acceleration.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\set_velocity.hpp">
+    <ClInclude Include="include\functions\set_velocity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\shader.hpp">
+    <ClInclude Include="include\types\shader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\state_machine.hpp">
+    <ClInclude Include="include\types\state_machine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\state_machine_agent.hpp">
+    <ClInclude Include="include\modules\state_machine_agent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\state_machine_state.hpp">
+    <ClInclude Include="include\types\state_machine_state.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\state_machine_system.hpp">
+    <ClInclude Include="include\module systems\state_machine_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\state_machine_transition.hpp">
+    <ClInclude Include="include\types\state_machine_transition.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\structure.hpp">
+    <ClInclude Include="include\modules\structure.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\t.hpp">
+    <ClInclude Include="include\type templates\t.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\texture.hpp">
+    <ClInclude Include="include\types\texture.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\tick.hpp">
+    <ClInclude Include="include\miscellaneous\tick.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\time.hpp">
+    <ClInclude Include="include\engine systems\time.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\timer.hpp">
+    <ClInclude Include="include\modules\timer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\timer_system.hpp">
+    <ClInclude Include="include\module systems\timer_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\transform.hpp">
+    <ClInclude Include="include\types\transform.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\transformer.hpp">
+    <ClInclude Include="include\modules\transformer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\type_templates.hpp">
+    <ClInclude Include="include\type templates\type_templates.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ui_element.hpp">
+    <ClInclude Include="include\modules\ui_element.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ui_element_callback_context.hpp">
+    <ClInclude Include="include\callbacks\ui_element_callback_context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ui_system.hpp">
+    <ClInclude Include="include\module systems\ui_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\unique.hpp">
+    <ClInclude Include="include\interfaces\unique.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\val.hpp">
+    <ClInclude Include="include\type templates\val.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\variants.hpp">
+    <ClInclude Include="include\types\variants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vector.hpp">
+    <ClInclude Include="include\types\vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\window.hpp">
+    <ClInclude Include="include\miscellaneous\window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\window_manager.hpp">
+    <ClInclude Include="include\engine systems\window_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\global_data.hpp">
+    <ClInclude Include="include\data\global_data.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\functions\set_position.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\types\event_statement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\functions\set_scale.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\functions\set_rotation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\functions\set_parameter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\functions\send.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\functions\get.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -671,5 +407,409 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="lib\cereal-1.3.2\doc\footer.html" />
+    <None Include="lib\cereal-1.3.2\include\cereal\external\rapidxml\manual.html" />
+    <None Include="lib\glm\detail\func_common.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_common_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_exponential.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_exponential_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_geometric.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_geometric_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_integer.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_integer_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_matrix.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_matrix_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_packing.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_packing_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_trigonometric.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_trigonometric_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_vector_relational.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\func_vector_relational_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_half.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat2x2.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat2x3.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat2x4.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat3x2.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat3x3.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat3x4.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat4x2.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat4x3.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat4x4.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_mat4x4_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_quat.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_quat_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_vec1.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_vec2.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_vec3.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_vec4.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\detail\type_vec4_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\matrix_clip_space.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\matrix_common.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\matrix_projection.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\matrix_relational.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\matrix_transform.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\quaternion_common.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\quaternion_common_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\quaternion_exponential.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\quaternion_geometric.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\quaternion_relational.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\quaternion_transform.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\quaternion_trigonometric.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\scalar_common.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\scalar_constants.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\scalar_integer.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\scalar_relational.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\scalar_ulp.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\vector_common.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\vector_integer.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\vector_relational.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\ext\vector_ulp.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\bitfield.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\color_space.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\constants.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\epsilon.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\integer.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\matrix_access.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\matrix_inverse.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\matrix_transform.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\noise.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\packing.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\quaternion.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\quaternion_simd.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\random.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\reciprocal.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\round.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\type_precision.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\type_ptr.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtc\ulp.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\associated_min_max.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\bit.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\closest_point.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\color_encoding.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\color_space.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\color_space_YCoCg.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\common.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\compatibility.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\component_wise.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\dual_quaternion.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\easing.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\euler_angles.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\extend.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\extended_min_max.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\exterior_product.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\fast_exponential.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\fast_square_root.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\fast_trigonometry.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\float_notmalize.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\functions.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\gradient_paint.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\handed_coordinate_space.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\hash.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\integer.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\intersect.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\io.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\log_base.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\matrix_cross_product.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\matrix_decompose.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\matrix_factorisation.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\matrix_interpolation.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\matrix_major_storage.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\matrix_operation.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\matrix_query.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\matrix_transform_2d.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\mixed_product.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\norm.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\normal.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\normalize_dot.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\number_precision.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\optimum_pow.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\orthonormalize.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\perpendicular.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\polar_coordinates.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\projection.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\quaternion.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\raw_data.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\rotate_normalized_axis.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\rotate_vector.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\scalar_relational.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\spline.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\std_based_type.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\string_cast.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\texture.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\transform.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\transform2.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\type_aligned.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\type_trait.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\vector_angle.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\vector_query.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="lib\glm\gtx\wrap.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

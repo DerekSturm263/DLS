@@ -1,8 +1,6 @@
 #include "engine.hpp"
-#include "engine_system_manager.hpp"
-#include "debug.hpp"
-#include "scene_manager.hpp"
-#include "property_group.hpp"
+#include "types/entity.hpp"
+#include "types/property_group.hpp"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -30,14 +28,6 @@ namespace dls {
 		std::cout << "Is Male: " << props.value().at("is_male") << std::endl;
 		std::cout << "Health: " << props.value().at("health") << std::endl;
 		std::cout << "Mana: " << props.value().at("mana") << std::endl;
-
-		/*debug debug{};
-		scene_manager scene_manager{};
-
-		std::vector<engine_system*> all_systems{};
-		all_systems.push_back(debug);
-
-		engine_system_manager manager{all_systems};*/
 
 		return 0;
 	}

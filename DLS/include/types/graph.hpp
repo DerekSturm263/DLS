@@ -1,0 +1,23 @@
+#pragma once
+
+#include <map>
+#include "interfaces/serializable.hpp"
+#include "graph_point.hpp"
+#include "fixed.hpp"
+
+namespace dls {
+	template <typename T>
+	class graph : public serializable {
+		private:
+			std::map<fixed<32>, graph_point<T>> _points;
+			
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_points));
+			}
+
+			void load(is& file) override {
+				file(_points);
+			}
+	};
+}

@@ -1,0 +1,15 @@
+#pragma once
+
+#include <unordered_map>
+#include "types/module.hpp"
+#include "type templates/type_templates.hpp"
+#include "types/input_button.hpp"
+#include "types/input_event_group.hpp"
+
+namespace dls {
+	class input : public module<> {
+		std::unordered_map<type<input_button>, type<input_event_group>> _actions;
+	};
+}
+
+REGISTER_MODULE(dls::input);
