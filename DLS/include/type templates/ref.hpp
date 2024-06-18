@@ -3,30 +3,22 @@
 #include "interfaces/unique.hpp"
 #include "val.hpp"
 
-//template <typename... T>
-//using variant = std::variant<T...>;
-
 namespace dls {
 	/// <summary>
 	/// Stores a reference to any given serializable value. This reference is id-based
 	/// </summary>
 	/// <typeparam name="T">Type to reference (must be serializable)</typeparam>
 	template <typename T>
-	class ref : public serializable {
+	class ref : public serializable<ref<T>> {
 		private:
 			unique_base::guid _id;
 
-			//ref() : _id(0) { }
 			ref(unique_base::guid id) : _id(_id) { }
 
 			template <typename T>
 			friend class required;
 
-			//template <typename... T>
-			//friend class variant;
-
 		public:
-			// TODO: Make private
 			ref() : _id(0) { }
 			ref(val<T> const& value) : _id(value._id) { }
 
@@ -38,11 +30,11 @@ namespace dls {
 				return _id != 0;
 			}
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_id));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(_id);
 			}
 

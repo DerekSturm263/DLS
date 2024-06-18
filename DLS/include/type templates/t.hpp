@@ -11,7 +11,7 @@ namespace dls {
 	/// </summary>
 	/// <typeparam name="T">Type to reference or store (must be serializable)</typeparam>
 	template <typename T>
-	class t : public serializable {
+	class t : public serializable<t<T>> {
 		private:
 			std::variant<val<T>, ref<T>> _internal;
 			bool _is_ref;
@@ -28,12 +28,12 @@ namespace dls {
 					return std::get<val<T>>(_internal).value();
 			}
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_internal));
 				file(CEREAL_NVP(_is_ref));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(_internal);
 				file(_is_ref);
 			}

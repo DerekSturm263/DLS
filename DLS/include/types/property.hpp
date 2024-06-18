@@ -21,7 +21,6 @@
 #include "processor.hpp"
 #include "quaternion.hpp"
 #include "range.hpp"
-#include "rect.hpp"
 #include "scene.hpp"
 #include "state_machine.hpp"
 #include "texture.hpp"
@@ -30,9 +29,9 @@
 #include "vector.hpp"
 
 namespace dls {
-	class property : public serializable {
+	class property : public serializable<property> {
 		public:
-			using any = std::variant<animation, clip, color, ref<entity>, fixed<32>, graph<fixed<32>>, graph<color>, input_button, mask<std::string>, material, matrix2x2<fixed<32>>, matrix3x3<fixed<32>>, matrix4x4<fixed<32>>, mesh, polygon<fixed<32>, 3>, quaternion<fixed<32>>, range<fixed<32>>, rect<fixed<32>, 3>, ref<scene>, texture, transform<fixed<32>, 3>, vector2<fixed<32>>, vector3<fixed<32>>, vector4<fixed<32>>, char, int, float, bool, std::string>;
+			using any = std::variant<animation, clip, color, ref<entity>, fixed<32>, graph<fixed<32>>, input_button, material, mesh, ref<scene>, texture, std::string, int, bool>;
 
 		private:
 			val<any> _value;
@@ -49,30 +48,40 @@ namespace dls {
 				return _value.value();
 			}
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_value));
 			}
 
-			void load(is& file) override {
-				file(CEREAL_NVP(_value));
+			void load(serializable_base::is& file) override {
+				file(_value);
 			}
 			
 		private:
-			class stream_visitor {
-				public:
-					std::ostream& _os;
+			template <typename T>
+			std::string to_string(T const& t) const {
+				return t;
+			}
 
-					stream_visitor(std::ostream& os) : _os(os) { }
+			template <>
+			std::string to_string<int>(int const& t) const {
+				return std::to_string(t);
+			}
 
-					template <typename T>
-					void operator()(T&& value) const {
-						_os << value;
-					}
-			};
+			template <>
+			std::string to_string<bool>(bool const& t) const {
+				return std::to_string(t);
+			}
 
-			friend std::ostream& operator<< (std::ostream& stream, const property& property) {
-				std::visit(stream_visitor{stream}, property.value());
-				return stream;
+		public:
+			operator std::string() const override {
+				std::string output = std::visit([&](auto&& arg) { return to_string(arg); }, value());
+				return output;
+			}
+
+			template <typename T>
+			property& operator= (T const& rhs) {
+				_value.value() = rhs;
+				return *this;
 			}
 	};
 }

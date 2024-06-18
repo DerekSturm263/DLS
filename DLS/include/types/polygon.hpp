@@ -2,20 +2,21 @@
 
 #include <vector>
 #include "interfaces/serializable.hpp"
+#include "type templates/type_templates.hpp"
 #include "vector.hpp"
 
 namespace dls {
 	template <typename T, std::size_t Size>
-	class polygon : public serializable {
+	class polygon : public serializable<polygon<T, Size>> {
 		private:
-			std::vector<vector<T, Size>> _points;
+			std::vector<type<vector<T, Size>>> _points;
 			
 		public:
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_points));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(CEREAL_NVP(_points));
 			}
 	};

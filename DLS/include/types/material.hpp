@@ -6,7 +6,7 @@
 #include "material_settings.hpp"
 
 namespace dls {
-	class material : public serializable {
+	class material : public serializable<material> {
 		private:
 			type<shader> _shader;
 			type<material_settings> _settings;

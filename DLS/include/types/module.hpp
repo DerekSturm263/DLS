@@ -5,7 +5,7 @@
 #include "interfaces/function.hpp"
 
 namespace dls {
-	class module_base : public serializable {
+	class module_base : public serializable<module_base> {
 		protected:
 			std::vector<function*> _all_functions;
 
@@ -15,7 +15,7 @@ namespace dls {
 
 	template <typename... TFuncTypes>
 	class module : public module_base {
-		private:
+		protected:
 			module() {
 				(_all_functions.push_back(new TFuncTypes()), ...);
 			}

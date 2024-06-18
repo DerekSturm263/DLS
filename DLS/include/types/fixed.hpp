@@ -4,7 +4,7 @@
 
 namespace dls {
 	template <std::size_t Precision>
-	class fixed : public serializable {
+	class fixed : public serializable<fixed<Precision>> {
 		private:
 			long long _internal;
 
@@ -15,12 +15,41 @@ namespace dls {
 			fixed(fixed const& rhs) : _internal(rhs._internal) { }
 			fixed(fixed const&& rhs) : _internal(rhs._internal) { }
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_internal));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(_internal);
+			}
+
+			fixed<Precision> operator +(fixed<Precision> const& rhs) const {
+				return fixed(_internal + rhs._internal);
+			}
+
+			fixed<Precision> operator -(fixed<Precision> const& rhs) const {
+				return fixed(_internal - rhs._internal);
+			}
+
+			fixed<Precision> operator *(fixed<Precision> const& rhs) const {
+				return fixed(_internal * rhs._internal);
+			}
+
+			fixed<Precision> operator /(fixed<Precision> const& rhs) const {
+				return fixed(_internal / rhs._internal);
+			}
+
+			bool operator >(fixed<Precision> const& rhs) const {
+				return _internal > rhs._internal;
+			}
+
+			bool operator <(fixed<Precision> const& rhs) const {
+				return _internal < rhs._internal;
+			}
+
+			fixed<Precision>& operator =(fixed<Precision> const& rhs) {
+				_internal = rhs._internal;
+				return *this;
 			}
 	};
 }

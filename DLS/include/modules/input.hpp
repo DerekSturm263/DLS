@@ -8,7 +8,17 @@
 
 namespace dls {
 	class input : public module<> {
-		std::unordered_map<type<input_button>, type<input_event_group>> _actions;
+		private:
+			std::unordered_map<type<input_button>, type<input_event_group>> _actions;
+
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_actions));
+			}
+
+			void load(is& file) override {
+				file(_actions);
+			}
 	};
 }
 

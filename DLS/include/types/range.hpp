@@ -1,41 +1,42 @@
 #pragma once
 
 #include "interfaces/serializable.hpp"
+#include "type templates/type_templates.hpp"
 
 namespace dls {
 	template <typename T>
-	class range : public serializable {
+	class range : public serializable<range<T>> {
 		private:
-			T _min;
-			T _max;
+			type<T> _min;
+			type<T> _max;
 
 		public:
 			T const& min() const {
-				return _min;
+				return _min.value();
 			}
 
 			T& min() {
-				return _min;
+				return _min.value();
 			}
 
 			T const& max() const {
-				return _max;
+				return _max.value();
 			}
 
 			T& max() {
-				return _max;
+				return _max.value();
 			}
 
 			T difference() {
-				return _max - _min;
+				return _max.value() - _min.value();
 			}
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_min));
 				file(CEREAL_NVP(_max));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(CEREAL_NVP(_min));
 				file(CEREAL_NVP(_max));
 			}

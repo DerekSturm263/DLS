@@ -10,24 +10,32 @@
 #include <cereal/types/utility.hpp>
 
 namespace dls {
-	class serializable {
+	class serializable_base {
         public:
 			using os = cereal::JSONOutputArchive;
 			using is = cereal::JSONInputArchive;
+			
+			virtual void save(os&) const = 0;
+			virtual void load(is&) = 0;
+	};
 
-			// TODO: Move to debug or build into each class
-			template <typename T>
-			static std::string to_string(T serializable) {
+	template <typename TSelf>
+	class serializable : public serializable_base {
+		public:
+			friend std::ostream& operator<< (std::ostream& stream, TSelf const& rhs) {
+				std::string str = rhs;
+				stream << str;
+
+				return stream;
+			}
+
+			virtual operator std::string() const {
 				std::ostringstream stream;
 
 				os archive{ stream };
-				archive(serializable);
+				archive(*this);
 
 				return stream.str();
 			}
-
-		protected:
-			virtual void save(os&) const = 0;
-			virtual void load(is&) = 0;
 	};
 }

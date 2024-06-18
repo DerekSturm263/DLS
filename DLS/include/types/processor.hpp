@@ -6,16 +6,16 @@
 
 namespace dls {
 	template <typename T>
-	class processor : public serializable {
+	class processor : public serializable<processor<T>> {
 		private:
-			type<event<T const& (T const&)>> _event;
+			val<event<T const& (T const&)>> _event;
 			
 		public:
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_event));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(CEREAL_NVP(_event));
 			}
 	};

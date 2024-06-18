@@ -6,7 +6,7 @@
 #include "property.hpp"
 
 namespace dls {
-	class property_group : public serializable {
+	class property_group : public serializable<property_group> {
 		private:
 			mutable std::unordered_map<std::string, val<property>> _properties;
 			

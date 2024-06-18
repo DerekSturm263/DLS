@@ -6,17 +6,23 @@
 #include "entity.hpp"
 
 namespace dls {
-	class scene : public serializable {
+	class scene : public serializable<scene> {
 		private:
 			val<std::vector<ref<entity>>> _entities;
 
 		public:
+			scene(val<std::vector<ref<entity>>> const& entities) : _entities(entities) { }
+
+			val<std::vector<ref<entity>>> const& entities() const {
+				return _entities;
+			}
+
 			void save(os& file) const override {
 				file(CEREAL_NVP(_entities));
 			}
 
 			void load(is& file) override {
-				file(CEREAL_NVP(_entities));
+				file(_entities);
 			}
 	};
 }

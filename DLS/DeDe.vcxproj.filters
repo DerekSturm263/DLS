@@ -263,9 +263,6 @@
     <ClInclude Include="include\modules\receiver.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\rect.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\type templates\ref.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -399,6 +396,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\functions\get.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\modules\modules.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,7 +3,7 @@
 #include "interfaces/serializable.hpp"
 
 namespace dls {
-	class keyframe_data : public serializable {
+	class keyframe_data : public serializable<keyframe_data> {
 		public:
 			void save(os& file) const override {
 

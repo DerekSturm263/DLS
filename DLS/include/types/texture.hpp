@@ -3,7 +3,7 @@
 #include "interfaces/serializable.hpp"
 
 namespace dls {
-	class texture : public serializable {
+	class texture : public serializable<texture> {
 		public:
 			void save(os& file) const override {
 

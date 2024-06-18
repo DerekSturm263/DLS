@@ -14,6 +14,9 @@ namespace dls {
 		private:
 			val<T> _value;
 
+			template <typename T>
+			friend class asset;
+
 		public:
 			instance(asset<T> const& asset) : _value(asset._value) { }
 

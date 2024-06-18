@@ -7,16 +7,16 @@
 
 namespace dls {
 	template <typename T>
-	class graph : public serializable {
+	class graph : public serializable<graph<T>> {
 		private:
 			std::map<fixed<32>, graph_point<T>> _points;
 			
 		public:
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_points));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(_points);
 			}
 	};

@@ -4,6 +4,7 @@
 #include <fstream>
 #include "interfaces/serializable.hpp"
 #include "val.hpp"
+#include "instance.hpp"
 
 namespace dls {
 	/// <summary>
@@ -16,21 +17,27 @@ namespace dls {
 			std::string _file_path;
 			val<T> _value;
 
+			void set_from_instance(instance<T> const& rhs) {
+				_value = rhs._value;
+			}
+
 			template <typename T>
 			friend class instance;
 			
+			friend class save_data;
+
 		public:
-			asset(std::string const& file_path) : _file_path(file_path), _value() {
+			asset(std::string const& file_path, T const& def) : _file_path(file_path), _value() {
 				try {
 					std::ifstream ifstream{ file_path };
 
 					if (ifstream.is_open()) {
-						serializable::is archive{ ifstream };
+						serializable_base::is archive{ ifstream };
 						archive(_value);
 					}
 				} catch (std::exception const& e) {
 					// TODO: Add debug message.
-					_value = val<T>{};
+					_value = val<T>{ def };
 				}
 			}
 
@@ -38,7 +45,7 @@ namespace dls {
 				std::ofstream ofstream{ _file_path };
 
 				if (ofstream.is_open()) {
-					serializable::os archive{ ofstream };
+					serializable_base::os archive{ ofstream };
 					archive(_value);
 				}
 			}

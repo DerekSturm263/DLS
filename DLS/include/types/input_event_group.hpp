@@ -6,7 +6,7 @@
 #include "callbacks/input_callback_context.hpp"
 
 namespace dls {
-	class input_event_group : public serializable {
+	class input_event_group : public serializable<input_event_group> {
 		private:
 			val<event<void(input_callback_context const&)>> _on_press;
 			val<event<void(input_callback_context const&)>> _on_hold_tick;

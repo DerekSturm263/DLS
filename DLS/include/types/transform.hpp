@@ -4,7 +4,7 @@
 
 namespace dls {
 	template <typename T, std::size_t Size>
-	class transform : public serializable {
+	class transform : public serializable<transform<T, Size>> {
 		private:
 			using vector_type = vector<T, Size>;
 			using quaternion_type = quaternion<T>;
@@ -21,7 +21,7 @@ namespace dls {
 			transform() : _position(vector_type()), _rotation(quaternion_type()), _scale(vector_type(1)), _matrix(matrix_type(1)), _is_dirty(true) { }
 			transform(vector_type const& position, vector_type const& rotation, vector_type const& scale) : _position(position), _rotation(quaternion_type(rotation)), _scale(scale), _matrix(matrix_type(1)), _is_dirty(true) { }
 
-            void translate(vector_type const& position, vector_type const& rotation, vector_type const& scale) {
+            void translate_by(vector_type const& position, vector_type const& rotation, vector_type const& scale) {
                 set_position(get_position() + position);
                 set_rotation(get_rotation() + rotation);
                 set_scale(get_scale() + scale);
@@ -31,10 +31,12 @@ namespace dls {
                 _position = position;
                 _is_dirty = true;
             }
+
             void set_rotation(vector_type const& rotation) {
                 _rotation = quaternion_type(rotation);
                 _is_dirty = true;
             }
+
             void set_scale(vector_type const& scale) {
                 _scale = scale;
                 _is_dirty = true;
@@ -43,9 +45,11 @@ namespace dls {
             vector_type get_position() const {
                 return _position;
             }
+
             vector_type get_rotation() const {
                 return _rotation.to_euler();
             }
+
             vector_type get_scale() const {
                 return _scale;
             }
@@ -68,13 +72,13 @@ namespace dls {
                 return _matrix;
             }
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_position));
 				file(CEREAL_NVP(_rotation));
 				file(CEREAL_NVP(_scale));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(_position);
 				file(_rotation);
 				file(_scale);

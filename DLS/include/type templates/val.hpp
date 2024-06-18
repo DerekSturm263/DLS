@@ -9,7 +9,7 @@ namespace dls {
 	/// </summary>
 	/// <typeparam name="T">Type to store (must be serializable)</typeparam>
 	template <typename T>
-	class val : public unique<val<T>>, public serializable {
+	class val : public unique<val<T>>, public serializable<val<T>> {
 		private:
 			T _value;
 
@@ -25,12 +25,12 @@ namespace dls {
 				return _value;
 			}
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(cereal::make_nvp("_id", this->_id));
 				file(CEREAL_NVP(_value));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(this->_id);
 				file(_value);
 			}

@@ -1,13 +1,11 @@
 #pragma once
 
-#include <unordered_map>
 #include "interfaces/serializable.hpp"
-#include "type templates/type_templates.hpp"
-#include "types/property.hpp"
+#include "types/property_group.hpp"
 
 namespace dls {
-	class global_data : public serializable {
+	class global_data {
 		private:
-			std::unordered_map<std::string, val<property>> _properties;
+			property_group _properties;
 	};
 }

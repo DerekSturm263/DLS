@@ -8,17 +8,20 @@
 
 namespace dls {
 	template <typename T>
-	class state_machine : public serializable {
+	class state_machine : public serializable<state_machine<T>> {
 		private:
 			std::vector<val<state_machine_state<T>>> _states;
+			std::vector<val<state_machine_transition>> _transitions;
 
 		public:
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_states));
+				file(CEREAL_NVP(_transitions));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(CEREAL_NVP(_states));
+				file(CEREAL_NVP(_transitions));
 			}
 	};
 }

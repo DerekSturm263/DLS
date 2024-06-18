@@ -167,6 +167,7 @@
     <ClInclude Include="include\functions\set_position.hpp" />
     <ClInclude Include="include\functions\set_rotation.hpp" />
     <ClInclude Include="include\functions\set_scale.hpp" />
+    <ClInclude Include="include\modules\modules.hpp" />
     <ClInclude Include="include\types\animation.hpp" />
     <ClInclude Include="include\modules\appearance.hpp" />
     <ClInclude Include="include\type templates\asset.hpp" />
@@ -229,7 +230,6 @@
     <ClInclude Include="include\types\range.hpp" />
     <ClInclude Include="include\modules\receiver.hpp" />
     <ClInclude Include="include\module systems\receive_system.hpp" />
-    <ClInclude Include="include\types\rect.hpp" />
     <ClInclude Include="include\type templates\ref.hpp" />
     <ClInclude Include="include\type templates\required.hpp" />
     <ClInclude Include="include\miscellaneous\rigidbody.hpp" />

@@ -9,6 +9,17 @@ namespace dls {
 	class transformer : public module<> {
 		private:
 			type<transform<fixed<32>, 3>> _transform;
+
+		public:
+			transformer() : _transform() { }
+			
+			void save(os& file) const override {
+				file(CEREAL_NVP(_transform));
+			}
+
+			void load(is& file) override {
+				file(_transform);
+			}
 	};
 }
 

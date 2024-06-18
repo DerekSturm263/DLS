@@ -3,7 +3,7 @@
 #include "interfaces/serializable.hpp"
 
 namespace dls {
-	class mesh : public serializable {
+	class mesh : public serializable<mesh> {
 		public:
 			void save(os& file) const override {
 

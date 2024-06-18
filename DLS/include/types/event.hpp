@@ -6,9 +6,9 @@
 
 namespace dls {
 	template <typename TFunc>
-	class event : public serializable {
+	class event : public serializable<event<TFunc>> {
 		private:
-			std::vector<val<event_func<TFunc>>> _funcs;
+			std::vector<type<event_func<TFunc>>> _funcs;
 			
 		public:
 			auto invoke(tick& tick, std::vector<void*> const& args) {
@@ -21,11 +21,11 @@ namespace dls {
 				return ret;
 			}
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_funcs));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(CEREAL_NVP(_funcs));
 			}
 	};

@@ -3,10 +3,11 @@
 #include <glm/mat3x3.hpp>
 #include <glm/mat4x4.hpp>
 #include "interfaces/serializable.hpp"
+#include "interfaces/interpolatable.hpp"
 
 namespace dls {
 	template <typename T, glm::length_t Size>
-	class vector : public serializable, public glm::vec<Size, T, glm::packed_highp> {
+	class vector : public serializable<vector<T, Size>>, public interpolatable<vector<T, Size>>, public glm::vec<Size, T, glm::packed_highp> {
 		public:
 			vector() : glm::vec<Size, T, glm::packed_highp>(0) { }
 			
@@ -19,17 +20,25 @@ namespace dls {
 			vector(T x, T y, T z) : glm::vec<Size, T, glm::packed_highp>(x, y, z) { }
 			vector(T x, T y, T z, T w) : glm::vec<Size, T, glm::packed_highp>(x, y, z, w) { }
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				for (int i = 0; i < Size; ++i) {
 					file((*this)[i]);
 				}
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				for (int i = 0; i < Size; ++i) {
 					file((*this)[i]);
 				}
 			}
+
+			/*vector<T, Size> lerp(vector<T, Size> const& rhs) const override {
+				
+			}
+
+			vector<T, Size> inverse_lerp(vector<T, Size> const& rhs) const override {
+
+			}*/
 	};
 
 	template <typename T>

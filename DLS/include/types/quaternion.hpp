@@ -8,7 +8,7 @@
 
 namespace dls {
 	template <typename T>
-	class quaternion : public serializable, public glm::qua<T, glm::packed_highp> {
+	class quaternion : public serializable<quaternion<T>>, public glm::qua<T, glm::packed_highp> {
 		private:
 			using vector_type = vector<T, 3>;
 			using matrix_type = matrix<T, 4, 4>;
@@ -30,12 +30,12 @@ namespace dls {
 				return glm::toMat4(*this);
 			}
 
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				vector_type euler = to_euler();
 				file(CEREAL_NVP(euler));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				vector_type euler;
 				file(euler);
 
