@@ -15,7 +15,7 @@ namespace dls {
 			std::vector<val<event_statement<TFunc>>> _statements;
 			
 		public:
-			auto invoke(tick& tick, std::vector<void*> const& args) {
+			/*auto invoke(tick& tick, std::vector<void*> const& args) {
 				typename decltype(std::function<TFunc>()())::type ret{};
 
 				for (auto& func : _statements) {
@@ -23,7 +23,7 @@ namespace dls {
 				}
 
 				return ret;
-			}
+			}*/
 
 			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_statements));

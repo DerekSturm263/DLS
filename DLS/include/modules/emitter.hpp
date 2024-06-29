@@ -8,6 +8,15 @@ namespace dls {
 	class emitter : public module<> {
 		private:
 			type<entity> _entity;
+
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_entity));
+			}
+
+			void load(is& file) override {
+				file(_entity);
+			}
 	};
 }
 

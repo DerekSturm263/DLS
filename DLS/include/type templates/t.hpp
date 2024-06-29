@@ -28,6 +28,13 @@ namespace dls {
 					return std::get<val<T>>(_internal).value();
 			}
 
+			T& value() {
+				if (_is_ref)
+					return std::get<ref<T>>(_internal).value();
+				else
+					return std::get<val<T>>(_internal).value();
+			}
+
 			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_internal));
 				file(CEREAL_NVP(_is_ref));

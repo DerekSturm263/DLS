@@ -1,0 +1,58 @@
+{
+    "value0": {
+        "_id": 1799302827895858725,
+        "_value": {
+            "_modules": {
+                "_id": 15028999435905310454,
+                "_value": [
+                    {
+                        "_id": 16708911996216745849,
+                        "_value": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "dls::properties",
+                            "ptr_wrapper": {
+                                "id": 2147483649,
+                                "data": {
+                                    "_properties": {
+                                        "_properties": [
+                                            {
+                                                "key": "name",
+                                                "value": {
+                                                    "_id": 7780122498846849402,
+                                                    "_value": {
+                                                        "_value": {
+                                                            "_id": 16892338847315625991,
+                                                            "_value": {
+                                                                "index": 11,
+                                                                "data": "Neko"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "key": "age",
+                                                "value": {
+                                                    "_id": 16892338847315625991,
+                                                    "_value": {
+                                                        "_value": {
+                                                            "_id": 14613645783398929581,
+                                                            "_value": {
+                                                                "index": 12,
+                                                                "data": 21
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

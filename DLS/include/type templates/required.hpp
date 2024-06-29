@@ -19,6 +19,10 @@ namespace dls {
 				return _val_or_ref.value();
 			}
 
+			T& value() {
+				return _val_or_ref.value();
+			}
+
 			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_val_or_ref));
 			}

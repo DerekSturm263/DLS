@@ -1,8 +1,6 @@
 #pragma once
 
 #include "appearance.hpp"
-#include "camera.hpp"
-#include "collision.hpp"
 #include "emitter.hpp"
 #include "input.hpp"
 #include "layout.hpp"
@@ -10,7 +8,7 @@
 #include "properties.hpp"
 #include "receiver.hpp"
 #include "sender.hpp"
-#include "state_machine_agent.hpp"
+#include "state_machine_resolver.hpp"
 #include "structure.hpp"
 #include "timer.hpp"
 #include "transformer.hpp"

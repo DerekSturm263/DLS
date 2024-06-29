@@ -16,7 +16,28 @@ namespace dls {
 			type<event<void(ui_element_callback_context const&)>> _on_deselect;
 			type<event<void(ui_element_callback_context const&)>> _on_unhover;
 
-			void* _stored_data;
+			void* _held_data;
+
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_on_hover));
+				file(CEREAL_NVP(_on_select));
+				file(CEREAL_NVP(_on_press));
+				file(CEREAL_NVP(_on_hold_tick));
+				file(CEREAL_NVP(_on_release));
+				file(CEREAL_NVP(_on_deselect));
+				file(CEREAL_NVP(_on_unhover));
+			}
+
+			void load(is& file) override {
+				file(_on_hover);
+				file(_on_select);
+				file(_on_press);
+				file(_on_hold_tick);
+				file(_on_release);
+				file(_on_deselect);
+				file(_on_unhover);
+			}
 	};
 }
 

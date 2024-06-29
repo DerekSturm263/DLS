@@ -11,6 +11,10 @@ namespace dls {
 
 			template <typename TFunc>
 			friend class event;
+			
+		public:
+			module_base() : _all_functions() { }
+			virtual ~module_base() { }
 	};
 
 	template <typename... TFuncTypes>
@@ -28,4 +32,5 @@ namespace dls {
 	};
 }
 
-#define REGISTER_MODULE(to_register) CEREAL_REGISTER_TYPE(to_register); CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::module<>, to_register); CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::module_base, dls::module<>)
+CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::module_base, dls::module<>);
+#define REGISTER_MODULE(to_register) CEREAL_REGISTER_TYPE(to_register); CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::module<>, to_register);

@@ -2,6 +2,7 @@
 
 #include "interfaces/unique.hpp"
 #include "val.hpp"
+#include "types/module.hpp"
 
 namespace dls {
 	/// <summary>
@@ -13,7 +14,7 @@ namespace dls {
 		private:
 			unique_base::guid _id;
 
-			ref(unique_base::guid id) : _id(_id) { }
+			ref(unique_base::guid id) : _id(id) { }
 
 			template <typename T>
 			friend class required;
@@ -21,6 +22,10 @@ namespace dls {
 		public:
 			ref() : _id(0) { }
 			ref(val<T> const& value) : _id(value._id) { }
+
+			T& value() {
+				return unique<val<T>>::_ids_to_values[_id]->value();
+			}
 
 			T const& value() const {
 				return unique<val<T>>::_ids_to_values[_id]->value();

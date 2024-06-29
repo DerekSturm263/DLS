@@ -172,9 +172,7 @@
     <ClInclude Include="include\modules\appearance.hpp" />
     <ClInclude Include="include\type templates\asset.hpp" />
     <ClInclude Include="include\engine systems\audio.hpp" />
-    <ClInclude Include="include\modules\camera.hpp" />
     <ClInclude Include="include\types\clip.hpp" />
-    <ClInclude Include="include\modules\collision.hpp" />
     <ClInclude Include="include\callbacks\collision_callback_context.hpp" />
     <ClInclude Include="include\module systems\collision_system.hpp" />
     <ClInclude Include="include\types\color.hpp" />
@@ -191,7 +189,7 @@
     <ClInclude Include="include\types\event_statement.hpp" />
     <ClInclude Include="include\types\fixed.hpp" />
     <ClInclude Include="include\interfaces\function.hpp" />
-    <ClInclude Include="include\data\global_data.hpp" />
+    <ClInclude Include="include\data holders\global_data.hpp" />
     <ClInclude Include="include\types\graph.hpp" />
     <ClInclude Include="include\engine systems\graphics.hpp" />
     <ClInclude Include="include\types\graph_point.hpp" />
@@ -232,8 +230,8 @@
     <ClInclude Include="include\module systems\receive_system.hpp" />
     <ClInclude Include="include\type templates\ref.hpp" />
     <ClInclude Include="include\type templates\required.hpp" />
-    <ClInclude Include="include\miscellaneous\rigidbody.hpp" />
-    <ClInclude Include="include\data\save_data.hpp" />
+    <ClInclude Include="include\miscellaneous\simulation_agent.hpp" />
+    <ClInclude Include="include\data holders\save_data.hpp" />
     <ClInclude Include="include\types\scene.hpp" />
     <ClInclude Include="include\engine systems\scene_manager.hpp" />
     <ClInclude Include="include\modules\sender.hpp" />
@@ -244,7 +242,7 @@
     <ClInclude Include="include\functions\set_velocity.hpp" />
     <ClInclude Include="include\types\shader.hpp" />
     <ClInclude Include="include\types\state_machine.hpp" />
-    <ClInclude Include="include\modules\state_machine_agent.hpp" />
+    <ClInclude Include="include\modules\state_machine_resolver.hpp" />
     <ClInclude Include="include\types\state_machine_state.hpp" />
     <ClInclude Include="include\module systems\state_machine_system.hpp" />
     <ClInclude Include="include\types\state_machine_transition.hpp" />

@@ -2,7 +2,7 @@
 
 #include "interfaces/module_system.hpp"
 #include "modules/physics.hpp"
-#include "miscellaneous/rigidbody.hpp"
+#include "miscellaneous/simulation_agent.hpp"
 #include "types/vector.hpp"
 #include "miscellaneous/tick.hpp"
 
@@ -18,7 +18,7 @@ namespace dls {
             void on_scene_unload(physics&) override;
 
         public:
-            static void set_velocity(tick&, rigidbody&, vector<fixed<32>, 3> const&);
-            static void set_acceleration(tick&, rigidbody&, vector<fixed<32>, 3> const&);
+            static void set_velocity(tick&, simulation_agent&, vector<fixed<32>, 3> const&);
+            static void set_acceleration(tick&, simulation_agent&, vector<fixed<32>, 3> const&);
     };
 }

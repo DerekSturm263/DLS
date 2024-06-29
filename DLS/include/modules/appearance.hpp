@@ -11,11 +11,11 @@ namespace dls {
 
 		public:
 			void save(os& file) const override {
-
+				file(CEREAL_NVP(_material));
 			}
 
 			void load(is& file) override {
-
+				file(_material);
 			}
 	};
 }

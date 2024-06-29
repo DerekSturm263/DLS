@@ -11,7 +11,12 @@ namespace dls {
 			val<state_machine<ref<scene>>> _scenes;
 			
 		public:
-			project(val<state_machine<ref<scene>>> const& scenes) : _scenes(scenes) { }
+			project() : _scenes() { }
+			project(std::vector<val<scene>> const& scenes) : _scenes() {
+				for (auto& scn : scenes) {
+					_scenes.value().add_state(ref<scene>{scn});
+				}
+			}
 
 			val<state_machine<ref<scene>>> const& scenes() const {
 				return _scenes;

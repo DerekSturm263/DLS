@@ -12,8 +12,10 @@ namespace dls {
 			matrix() : glm::mat<Columns, Rows, T, glm::packed_highp>(0) { }
 			
 			matrix(glm::mat<Columns, Rows, T, glm::packed_highp> const& rhs) : glm::mat<Columns, Rows, T, glm::packed_highp>(rhs) { }
+			matrix(glm::mat<Columns, Rows, T, glm::packed_highp>&& rhs) : glm::mat<Columns, Rows, T, glm::packed_highp>(rhs) { }
+
 			matrix(matrix<T, Rows, Columns> const& rhs) : glm::mat<Columns, Rows, T, glm::packed_highp>(rhs) { }
-			matrix(matrix<T, Rows, Columns> const&& rhs) : glm::mat<Columns, Rows, T, glm::packed_highp>(rhs) { }
+			matrix(matrix<T, Rows, Columns>&& rhs) : glm::mat<Columns, Rows, T, glm::packed_highp>(rhs) { }
 
 			matrix(T scalar) : glm::mat<Columns, Rows, T, glm::packed_highp>(scalar) { }
 			matrix(T a1, T a2, T a3, T b1, T b2, T b3, T c1, T c2, T c3) : glm::mat<Columns, Rows, T, glm::packed_highp>(a1, a2, a3, b1, b2, b3, c1, c2, c3) { }

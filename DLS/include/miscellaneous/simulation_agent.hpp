@@ -1,7 +1,7 @@
 #pragma once
 
 namespace dls {
-	class rigidbody {
+	class simulation_agent {
 
 	};
 }

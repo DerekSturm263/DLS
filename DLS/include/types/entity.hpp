@@ -1,39 +1,56 @@
 #pragma once
 
+#include <optional>
 #include "interfaces/serializable.hpp"
 #include "module.hpp"
+#include "event.hpp"
 #include "type templates/type_templates.hpp"
-#include "modules/modules.hpp"
 
 namespace dls {
 	class entity : public serializable<entity> {
 		private:
-			val<transformer> _transform;
-			val<input> _input;
-			val<properties> _properties;
+			val<std::vector<val<std::shared_ptr<module_base>>>> _modules;
+
+			type<event<void()>> _on_scene_load;
+			type<event<void()>> _on_enabled;
+			type<event<void()>> _on_start;
+			type<event<void()>> _on_tick;
+			type<event<void()>> _on_exit;
+			type<event<void()>> _on_disable;
+			type<event<void()>> _on_scene_unload;
 
 		public:
-			entity() : _transform(), _input(), _properties() { }
-			entity(val<transformer> transform, val<input> input, val<properties> properties) : _transform(transform), _input(input), _properties(properties) { }
+			entity() : _modules() { }
+
+			template <typename... Ts>
+			entity(Ts const&& ... modules) : _modules() {
+				([&]{
+					_modules.value().push_back(val<std::shared_ptr<module_base>>(std::make_shared<Ts>(modules)));
+				} (), ...);
+			}
+
+			// TODO: Move into tick.cpp
+			template <typename T>
+			std::optional<T*> get_module() {
+				for (int i = 0; i < _modules.value().size(); ++i) {
+					val<std::shared_ptr<module_base>> base = _modules.value()[i];
+					module_base* base_get = base.value().get();
+
+					T* ret = dynamic_cast<T*>(base_get);
+
+					if (ret)
+						return std::optional<T*>(ret);
+				}
+				
+				return std::optional<T*>();
+			}
 
 			void save(os& file) const override {
-				file(CEREAL_NVP(_transform));
-				file(CEREAL_NVP(_physics));
-				file(CEREAL_NVP(_collision));
-				file(CEREAL_NVP(_input));
-				file(CEREAL_NVP(_appearance));
-				file(CEREAL_NVP(_structure));
-				file(CEREAL_NVP(_properties));
+				file(CEREAL_NVP(_modules));
 			}
 
 			void load(is& file) override {
-				file(_transform);
-				file(_physics);
-				file(_collision);
-				file(_input);
-				file(_appearance);
-				file(_structure);
-				file(_properties);
+				file(_modules);
 			}
 	};
 }

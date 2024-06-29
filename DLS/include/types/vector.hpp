@@ -7,18 +7,36 @@
 
 namespace dls {
 	template <typename T, glm::length_t Size>
-	class vector : public serializable<vector<T, Size>>, public interpolatable<vector<T, Size>>, public glm::vec<Size, T, glm::packed_highp> {
+	class vector : public serializable<vector<T, Size>>, public glm::vec<Size, T, glm::packed_highp> {
 		public:
 			vector() : glm::vec<Size, T, glm::packed_highp>(0) { }
 			
 			vector(glm::vec<Size, T, glm::packed_highp> const& rhs) : glm::vec<Size, T, glm::packed_highp>(rhs) { }
+			vector(glm::vec<Size, T, glm::packed_highp>&& rhs) : glm::vec<Size, T, glm::packed_highp>(rhs) { }
+
 			vector(vector<T, Size> const& rhs) : glm::vec<Size, T, glm::packed_highp>(rhs) { }
-			vector(vector<T, Size> const&& rhs) : glm::vec<Size, T, glm::packed_highp>(rhs) { }
+			vector(vector<T, Size>&& rhs) : glm::vec<Size, T, glm::packed_highp>(rhs) { }
 
 			vector(T scalar) : glm::vec<Size, T, glm::packed_highp>(scalar) { }
 			vector(T x, T y) : glm::vec<Size, T, glm::packed_highp>(x, y) { }
 			vector(T x, T y, T z) : glm::vec<Size, T, glm::packed_highp>(x, y, z) { }
 			vector(T x, T y, T z, T w) : glm::vec<Size, T, glm::packed_highp>(x, y, z, w) { }
+
+			vector<T, Size>& operator =(vector<T, Size> const& rhs) {
+				for (int i = 0; i < Size; ++i) {
+					(*this)[i] = rhs[i];
+				}
+				
+				return *this;
+			}
+
+			vector<T, Size>& operator =(vector<T, Size>&& rhs) {
+				for (int i = 0; i < Size; ++i) {
+					(*this)[i] = std::move(rhs[i]);
+				}
+
+				return *this;
+			}
 
 			void save(serializable_base::os& file) const override {
 				for (int i = 0; i < Size; ++i) {

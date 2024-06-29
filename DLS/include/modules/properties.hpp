@@ -11,7 +11,15 @@ namespace dls {
 
 		public:
 			properties() : _properties() { }
-			properties(property_group properties) : _properties(properties) { }
+			properties(property_group const& properties) : _properties(properties) { }
+
+			property const& at(std::string const& name) const {
+				return _properties.at(name);
+			}
+
+			property& at(std::string const& name) {
+				return _properties.at(name);
+			}
 
 			void save(os& file) const override {
 				file(CEREAL_NVP(_properties));

@@ -6,8 +6,16 @@
 namespace dls {
 	class layout : public module<> {
 		private:
-			type<int> _width;
-			type<int> _height;
+			type<vector2<int>> _dimensions;
+
+		public:
+			void save(os& file) const override {
+				file(CEREAL_NVP(_dimensions));
+			}
+
+			void load(is& file) override {
+				file(_dimensions);
+			}
 	};
 }
 

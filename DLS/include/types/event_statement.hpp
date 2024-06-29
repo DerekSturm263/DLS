@@ -15,12 +15,14 @@ namespace dls {
 			unique_base::guid _function_index;
 
 		public:
-			auto invoke(tick& tick, std::vector<void*> const& args) -> decltype(std::function<TFunc>()()) {
-				std::vector<void*> input{};
-				_module.value()._all_functions[_function_index].invoke(tick, args, &input);
+			/*auto invoke(tick& tick, std::vector<void*> const& args) {
+				std::vector<void*> output{};
+				_module.value()._all_functions[_function_index].invoke(tick, args, &output);
 
-				return input;
-			}
+				typename decltype(std::function<TFunc>()())::type ret{};
+
+				return output;
+			}*/
 
 			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_module));

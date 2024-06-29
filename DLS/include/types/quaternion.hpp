@@ -14,13 +14,15 @@ namespace dls {
 			using matrix_type = matrix<T, 4, 4>;
 
 		public:
-			quaternion() : glm::quat(1, 0, 0, 0) { }
+			quaternion() : glm::qua<T, glm::packed_highp>(1, 0, 0, 0) { }
 
-			quaternion(glm::quat const& rhs) : glm::quat(rhs) { }
-			quaternion(quaternion<T> const& rhs) : glm::quat(rhs) { }
-			quaternion(quaternion<T> const&& rhs) : glm::quat(rhs) { }
+			quaternion(glm::qua<T, glm::packed_highp> const& rhs) : glm::qua<T, glm::packed_highp>(rhs) { }
+			quaternion(glm::qua<T, glm::packed_highp>&& rhs) : glm::qua<T, glm::packed_highp>(rhs) { }
+
+			quaternion(quaternion<T> const& rhs) : glm::qua<T, glm::packed_highp>(rhs) { }
+			quaternion(quaternion<T>&& rhs) : glm::qua<T, glm::packed_highp>(rhs) { }
 			
-			quaternion(vector_type const& rotation) : glm::quat(rotation) { }
+			quaternion(vector_type const& rotation) : glm::qua<T, glm::packed_highp>(rotation) { }
 
 			vector_type to_euler() const {
 				return glm::eulerAngles(*this);
@@ -30,8 +32,18 @@ namespace dls {
 				return glm::toMat4(*this);
 			}
 
+			quaternion<T>& operator =(quaternion<T> const& rhs) {
+				this->data = rhs.data;
+				return *this;
+			}
+
+			quaternion<T>& operator =(quaternion<T>&& rhs) {
+				this->data = std::move(rhs.data);
+				return *this;
+			}
+
 			void save(serializable_base::os& file) const override {
-				vector_type euler = to_euler();
+				vector_type euler{ to_euler() };
 				file(CEREAL_NVP(euler));
 			}
 

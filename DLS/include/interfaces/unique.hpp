@@ -22,7 +22,7 @@ namespace dls {
 			}
 
 			unique(guid id) : _id(id) {
-				_ids_to_values[id] = this;
+				_ids_to_values[id] = static_cast<T*>(this);
 			}
 
 			template <typename T>

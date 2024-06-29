@@ -12,6 +12,9 @@ namespace dls {
 			std::vector<type<vector<T, Size>>> _points;
 			
 		public:
+			polygon() : _points() { }
+			polygon(std::vector<type<vector<T, Size>>> const& points) : _points(points) { }
+
 			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_points));
 			}
