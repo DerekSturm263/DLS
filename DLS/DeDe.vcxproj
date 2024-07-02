@@ -168,6 +168,7 @@
     <ClInclude Include="include\functions\set_rotation.hpp" />
     <ClInclude Include="include\functions\set_scale.hpp" />
     <ClInclude Include="include\modules\modules.hpp" />
+    <ClInclude Include="include\modules\node_group_resolver.hpp" />
     <ClInclude Include="include\types\animation.hpp" />
     <ClInclude Include="include\modules\appearance.hpp" />
     <ClInclude Include="include\type templates\asset.hpp" />
@@ -189,7 +190,6 @@
     <ClInclude Include="include\types\event_statement.hpp" />
     <ClInclude Include="include\types\fixed.hpp" />
     <ClInclude Include="include\interfaces\function.hpp" />
-    <ClInclude Include="include\data holders\global_data.hpp" />
     <ClInclude Include="include\types\graph.hpp" />
     <ClInclude Include="include\engine systems\graphics.hpp" />
     <ClInclude Include="include\types\graph_point.hpp" />
@@ -219,7 +219,6 @@
     <ClInclude Include="include\types\polygon.hpp" />
     <ClInclude Include="include\types\processor.hpp" />
     <ClInclude Include="include\types\project.hpp" />
-    <ClInclude Include="include\modules\properties.hpp" />
     <ClInclude Include="include\types\property.hpp" />
     <ClInclude Include="include\types\property_group.hpp" />
     <ClInclude Include="include\types\quaternion.hpp" />

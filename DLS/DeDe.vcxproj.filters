@@ -230,9 +230,6 @@
     <ClInclude Include="include\types\project.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\modules\properties.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\types\property.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -368,9 +365,6 @@
     <ClInclude Include="include\engine systems\window_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\data holders\global_data.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\functions\set_position.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -393,6 +387,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\modules.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\modules\node_group_resolver.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

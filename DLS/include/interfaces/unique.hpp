@@ -7,6 +7,11 @@ namespace dls {
 	class unique_base {
 		public:
 			using guid = unsigned long long;
+
+			enum class sync_type {
+				local,
+				networked
+			};
 	};
 
 	template <typename T>

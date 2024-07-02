@@ -10,9 +10,10 @@ namespace dls {
 	class entity : public serializable<entity> {
 		private:
 			val<std::vector<val<std::shared_ptr<module_base>>>> _modules;
+			val<property_group> _properties;
 
 			type<event<void()>> _on_scene_load;
-			type<event<void()>> _on_enabled;
+			type<event<void()>> _on_enable;
 			type<event<void()>> _on_start;
 			type<event<void()>> _on_tick;
 			type<event<void()>> _on_exit;
@@ -43,6 +44,10 @@ namespace dls {
 				}
 				
 				return std::optional<T*>();
+			}
+
+			val<property_group> const& properties() const {
+				return _properties;
 			}
 
 			void save(os& file) const override {

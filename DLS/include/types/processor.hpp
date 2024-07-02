@@ -8,7 +8,7 @@ namespace dls {
 	template <typename T>
 	class processor : public serializable<processor<T>> {
 		private:
-			val<event<T const& (T const&)>> _event;
+			val<event<T(T const&)>> _event;
 			
 		public:
 			void save(serializable_base::os& file) const override {

@@ -5,7 +5,6 @@
 #include "input.hpp"
 #include "layout.hpp"
 #include "physics.hpp"
-#include "properties.hpp"
 #include "receiver.hpp"
 #include "sender.hpp"
 #include "state_machine_resolver.hpp"

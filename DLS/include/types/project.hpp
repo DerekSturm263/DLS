@@ -2,6 +2,7 @@
 
 #include "interfaces/serializable.hpp"
 #include "type templates/type_templates.hpp"
+#include "property_group.hpp"
 #include "scene.hpp"
 #include "state_machine.hpp"
 
@@ -9,6 +10,7 @@ namespace dls {
 	class project : public serializable<project> {
 		private:
 			val<state_machine<ref<scene>>> _scenes;
+			val<property_group> _properties;
 			
 		public:
 			project() : _scenes() { }

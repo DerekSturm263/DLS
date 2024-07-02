@@ -4,6 +4,10 @@
 #include "type templates/type_templates.hpp"
 
 namespace dls {
+	/// <summary>
+	/// Represents a range between a minimum and a maximum value.
+	/// </summary>
+	/// <typeparam name="T">The type for the range. Must have an subtraction operator overload.</typeparam>
 	template <typename T>
 	class range : public serializable<range<T>> {
 		private:

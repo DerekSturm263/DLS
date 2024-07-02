@@ -11,10 +11,10 @@ namespace dls {
 	class scene : public serializable<scene> {
 		private:
 			val<std::vector<ref<entity>>> _entities;
-			//val<property_group> _properties;
+			val<property_group> _properties;
 
 			type<event<void()>> _on_load;
-			type<event<void()>> _on_enabled;
+			type<event<void()>> _on_enable;
 			type<event<void()>> _on_start;
 			type<event<void()>> _on_tick;
 			type<event<void()>> _on_exit;
