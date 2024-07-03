@@ -1,6 +1,6 @@
 #pragma once
 
-#include <unordered_map>
+#include <map>
 #include "types/module.hpp"
 #include "type templates/type_templates.hpp"
 #include "types/input_button.hpp"
@@ -9,7 +9,7 @@
 namespace dls {
 	class input : public module<> {
 		private:
-			std::unordered_map<type<input_button>, type<input_event_group>> _actions;
+			std::map<input_button, type<input_event_group>> _actions;
 
 		public:
 			void save(os& file) const override {

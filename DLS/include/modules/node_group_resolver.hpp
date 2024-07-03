@@ -6,10 +6,11 @@
 #include "types/event.hpp"
 
 namespace dls {
+	template <typename T>
 	class node_group_resolver : public module<> {
 		private:
-			type<node_group<void*>> _node_group;
-			type<event<void(void*)>> _on_resolve;
+			type<node_group<T>> _node_group;
+			type<event<void(T)>> _on_resolve;
 
 		public:
 			void save(os& file) const override {

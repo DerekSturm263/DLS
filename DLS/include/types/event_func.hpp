@@ -4,8 +4,6 @@
 #include <functional>
 #include "interfaces/serializable.hpp"
 #include "type templates/type_templates.hpp"
-#include "module.hpp"
-#include "miscellaneous/tick.hpp"
 #include "types/event_statement.hpp"
 
 namespace dls {

@@ -17,7 +17,7 @@ namespace dls {
 		private:
 			type<mesh> _mesh;
 
-			type<polygon<fixed<32>, 3>> _collision_shape;
+			type<polygon<fixed32, 3>> _collision_shape;
 			type<passthrough_type> _passthrough_type;
 
 			type<event<void(collision_callback_context const&)>> _on_collision_enter;

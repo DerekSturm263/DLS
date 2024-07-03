@@ -10,10 +10,10 @@
 namespace dls {
 	class physics : public module<set_velocity, set_acceleration> {
 		private:
-			type<fixed<32>> _mass;
-			type<vector<fixed<32>, 3>> _gravity;
-			type<fixed<32>> _linear_drag;
-			type<fixed<32>> _angular_drag;
+			type<fixed32> _mass;
+			type<vector<fixed32, 3>> _gravity;
+			type<fixed32> _linear_drag;
+			type<fixed32> _angular_drag;
 			
 		protected:
 			void save(os& file) const override {

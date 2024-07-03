@@ -1,4 +1,4 @@
-#include "engine systems/random.hpp"
+#include "systems/random.hpp"
 
 namespace dls {
 	void random::initialize() {
@@ -6,7 +6,7 @@ namespace dls {
 		_engine = std::default_random_engine(seed);
 	}
 
-	void random::update(tick& tick) {
+	void random::on_tick(tick& tick) {
 
 	}
 

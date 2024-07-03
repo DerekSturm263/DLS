@@ -8,6 +8,7 @@
 #include "receiver.hpp"
 #include "sender.hpp"
 #include "state_machine_resolver.hpp"
+#include "node_group_resolver.hpp"
 #include "structure.hpp"
 #include "timer.hpp"
 #include "transformer.hpp"

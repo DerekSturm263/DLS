@@ -5,7 +5,6 @@
 #include "interfaces/serializable.hpp"
 #include "type templates/type_templates.hpp"
 #include "module.hpp"
-#include "miscellaneous/tick.hpp"
 
 namespace dls {
 	template <typename TFunc>

@@ -13,33 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Plugins">
-      <UniqueIdentifier>{2a2ea76c-bdf1-4fff-b155-87f12b8ac5f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Plugins">
-      <UniqueIdentifier>{cb47c7c6-cc8d-4516-b297-ff443efc73b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Systems">
-      <UniqueIdentifier>{19d81618-f08f-4a1c-bae0-06486756c514}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Physics">
-      <UniqueIdentifier>{39821865-ecb6-422e-8524-5155888b84ab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Graphics">
-      <UniqueIdentifier>{f6de2c03-6afa-4f4f-b959-f64a8290eaef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Collision">
-      <UniqueIdentifier>{07b04861-c4be-4bf5-bd42-f1f4ffbfce0e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Types">
-      <UniqueIdentifier>{2929bcd7-2dcf-4ec6-9093-412fddd946f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Game Components">
-      <UniqueIdentifier>{5c3668ef-0090-4969-90ea-a77154c92a38}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Interfaces">
-      <UniqueIdentifier>{d04a01fb-32b7-45ab-b76e-f891c2e45bdc}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\glad.cpp">
@@ -57,16 +30,10 @@
     <ClCompile Include="src\engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine systems\engine_system_manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine systems\module_system_manager.cpp">
+    <ClCompile Include="src\engine systems\system_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engine systems\random.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine systems\scene_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\functions\set_acceleration.cpp">
@@ -78,7 +45,7 @@
     <ClCompile Include="src\miscellaneous\tick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\module systems\physics_system.cpp">
+    <ClCompile Include="src\module systems\simulation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,40 +59,19 @@
     <ClInclude Include="include\type templates\asset.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\engine systems\audio.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\types\clip.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\callbacks\collision_callback_context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\module systems\collision_system.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\types\color.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\engine systems\debug.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\miscellaneous\drawable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\module systems\emission_system.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\modules\emitter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\engine.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\interfaces\engine_system.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\engine systems\engine_system_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\entity.hpp">
@@ -149,9 +95,6 @@
     <ClInclude Include="include\types\graph_point.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\engine systems\graphics.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\helpers\gui.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -168,9 +111,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\input_event_group.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\module systems\input_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\type templates\instance.hpp">
@@ -206,19 +146,13 @@
     <ClInclude Include="include\types\module.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\interfaces\module_system.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\engine systems\module_system_manager.hpp">
+    <ClInclude Include="include\interfaces\system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\type templates\optional.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\physics.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\module systems\physics_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\polygon.hpp">
@@ -239,16 +173,10 @@
     <ClInclude Include="include\types\quaternion.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\engine systems\random.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\interfaces\randomly_generatable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\range.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\module systems\receive_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\receiver.hpp">
@@ -263,25 +191,13 @@
     <ClInclude Include="include\miscellaneous\simulation_agent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\data holders\save_data.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\types\scene.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\engine systems\scene_manager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\module systems\send_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\sender.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\interfaces\serializable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\engine systems\serialize.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\functions\set_acceleration.hpp">
@@ -302,9 +218,6 @@
     <ClInclude Include="include\types\state_machine_state.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\module systems\state_machine_system.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\types\state_machine_transition.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -320,13 +233,7 @@
     <ClInclude Include="include\miscellaneous\tick.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\engine systems\time.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\modules\timer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\module systems\timer_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\transform.hpp">
@@ -344,9 +251,6 @@
     <ClInclude Include="include\callbacks\ui_element_callback_context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\module systems\ui_system.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\interfaces\unique.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -362,9 +266,6 @@
     <ClInclude Include="include\miscellaneous\window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\engine systems\window_manager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\functions\set_position.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -377,19 +278,67 @@
     <ClInclude Include="include\functions\set_rotation.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\functions\set_parameter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\functions\send.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\functions\get.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\modules\modules.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\node_group_resolver.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\audio.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\debug.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\graphics.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\gui.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\input_system.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\random.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\receive.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\scene_manager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\simulation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\system_manager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\time.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\window_manager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\types\node.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\types\node_group.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\miscellaneous\save_data.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\systems\systems.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\miscellaneous\engine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\miscellaneous\game.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\interfaces\singleton.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

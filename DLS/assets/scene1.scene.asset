@@ -1,14 +1,62 @@
 {
     "value0": {
-        "_id": 16848810653347327969,
+        "_id": 12091432948830727563,
         "_value": {
             "_entities": {
-                "_id": 2342493223442167775,
+                "_id": 16892338847315625991,
                 "_value": [
                     {
-                        "_id": 16708911996216745849
+                        "_id": 7780122498846849402
                     }
                 ]
+            },
+            "_properties": {
+                "_id": 14613645783398929581,
+                "_value": {
+                    "_properties": []
+                }
+            },
+            "_on_start": {
+                "_val_or_ref": {
+                    "_internal": {
+                        "index": 0,
+                        "data": {
+                            "_id": 17699511210517465480,
+                            "_value": {
+                                "_funcs": []
+                            }
+                        }
+                    },
+                    "_is_ref": false
+                }
+            },
+            "_on_tick": {
+                "_val_or_ref": {
+                    "_internal": {
+                        "index": 0,
+                        "data": {
+                            "_id": 12096280801357139130,
+                            "_value": {
+                                "_funcs": []
+                            }
+                        }
+                    },
+                    "_is_ref": false
+                }
+            },
+            "_on_exit": {
+                "_val_or_ref": {
+                    "_internal": {
+                        "index": 0,
+                        "data": {
+                            "_id": 658764211421037440,
+                            "_value": {
+                                "_funcs": []
+                            }
+                        }
+                    },
+                    "_is_ref": false
+                }
             }
         }
     }

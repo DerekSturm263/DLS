@@ -2,13 +2,15 @@
 
 #include <random>
 #include <limits>
-#include "interfaces/engine_system.hpp"
+#include "interfaces/system.hpp"
 
 namespace dls {
-	class random : public engine_system {
+	class random : public system {
         protected:
             void initialize() override;
-            void update(tick&) override;
+            void on_scene_load() override;
+            void on_tick(tick&) override;
+            void on_scene_unload() override;
             void shutdown() override;
 
         public:

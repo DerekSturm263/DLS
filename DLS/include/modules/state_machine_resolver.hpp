@@ -6,10 +6,11 @@
 #include "types/event.hpp"
 
 namespace dls {
+	template <typename T>
 	class state_machine_resolver : public module<> {
 		private:
-			type<state_machine<void*>> _state_machine;
-			type<event<void(void*)>> _on_resolve;
+			type<state_machine<T>> _state_machine;
+			type<event<void(T)>> _on_resolve;
 
 		public:
 			void save(os& file) const override {

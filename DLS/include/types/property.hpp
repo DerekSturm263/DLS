@@ -8,20 +8,21 @@
 #include "animation.hpp"
 #include "clip.hpp"
 #include "color.hpp"
-#include "entity.hpp"
 #include "event.hpp"
 #include "fixed.hpp"
 #include "graph.hpp"
 #include "input_button.hpp"
+#include "input_event_group.hpp"
 #include "mask.hpp"
 #include "material.hpp"
 #include "matrix.hpp"
 #include "mesh.hpp"
+#include "node_group.hpp"
 #include "polygon.hpp"
 #include "processor.hpp"
 #include "quaternion.hpp"
 #include "range.hpp"
-#include "scene.hpp"
+#include "shader.hpp"
 #include "state_machine.hpp"
 #include "texture.hpp"
 #include "transform.hpp"
@@ -31,7 +32,7 @@
 namespace dls {
 	class property : public serializable<property> {
 		public:
-			using any = std::variant<animation, clip, color, ref<entity>, fixed<32>, graph<fixed<32>>, input_button, material, mesh, ref<scene>, texture, std::string, int, bool>;
+			using any = std::variant<animation, clip, color, fixed32, graph<fixed32>, input_button, material, mesh, texture, std::string, int, bool>;
 
 		private:
 			val<any> _value;
@@ -64,6 +65,21 @@ namespace dls {
 
 			template <>
 			std::string to_string<int>(int const& t) const {
+				return std::to_string(t);
+			}
+
+			template <>
+			std::string to_string<long long>(long long const& t) const {
+				return std::to_string(t);
+			}
+
+			template <>
+			std::string to_string<float>(float const& t) const {
+				return std::to_string(t);
+			}
+
+			template <>
+			std::string to_string<double>(double const& t) const {
 				return std::to_string(t);
 			}
 

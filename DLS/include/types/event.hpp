@@ -1,7 +1,9 @@
 #pragma once
 
 #include <vector>
+#include <functional>
 #include "interfaces/serializable.hpp"
+#include "type templates/type_templates.hpp"
 #include "event_func.hpp"
 
 namespace dls {

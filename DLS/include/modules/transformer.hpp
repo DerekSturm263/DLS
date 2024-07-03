@@ -6,9 +6,10 @@
 #include "types/fixed.hpp"
 
 namespace dls {
+	template <typename T, size_t Size>
 	class transformer : public module<> {
 		private:
-			type<transform<fixed<32>, 3>> _transform;
+			type<transform<T, Size>> _transform;
 
 		public:
 			transformer() : _transform() { }

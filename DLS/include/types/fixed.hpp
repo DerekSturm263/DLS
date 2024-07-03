@@ -11,9 +11,11 @@ namespace dls {
 		public:
 			fixed() : _internal(0) { }
 
-			fixed(long long fraction) : _internal(fraction) { }
+			fixed(long long fraction) : _internal(fraction * Precision) { }
 			fixed(fixed<Precision> const& rhs) : _internal(rhs._internal) { }
-			fixed(fixed<Precision>&& rhs) : _internal(rhs._internal) { }
+			fixed(fixed<Precision>&& rhs) : _internal(rhs._internal) {
+				rhs._internal = 0;
+			}
 
 			fixed<Precision> operator +(fixed<Precision> const& rhs) const {
 				return fixed(_internal + rhs._internal);
@@ -111,4 +113,7 @@ namespace dls {
 				file(_internal);
 			}
 	};
+
+	//using fixed32 = fixed<32>;
+	using fixed32 = float;
 }

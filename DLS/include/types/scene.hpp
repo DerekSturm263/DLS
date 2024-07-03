@@ -13,13 +13,9 @@ namespace dls {
 			val<std::vector<ref<entity>>> _entities;
 			val<property_group> _properties;
 
-			type<event<void()>> _on_load;
-			type<event<void()>> _on_enable;
 			type<event<void()>> _on_start;
 			type<event<void()>> _on_tick;
 			type<event<void()>> _on_exit;
-			type<event<void()>> _on_disable;
-			type<event<void()>> _on_unload;
 
 		public:
 			scene() : _entities() { }
@@ -32,23 +28,29 @@ namespace dls {
 			std::vector<ref<entity>> const& entities() const {
 				return _entities.value();
 			}
-			/*
-			property const& at(std::string const& name) const {
-				return _properties.value().at(name);
+
+			val<property_group> const& properties() const {
+				return _properties;
 			}
 
-			property& at(std::string const& name) {
-				return _properties.value().at(name);
+			val<property_group>& properties() {
+				return _properties;
 			}
-			*/
+
 			void save(os& file) const override {
 				file(CEREAL_NVP(_entities));
-				//file(CEREAL_NVP(_properties));
+				file(CEREAL_NVP(_properties));
+				file(CEREAL_NVP(_on_start));
+				file(CEREAL_NVP(_on_tick));
+				file(CEREAL_NVP(_on_exit));
 			}
 
 			void load(is& file) override {
 				file(_entities);
-				//file(_properties);
+				file(_properties);
+				file(_on_start);
+				file(_on_tick);
+				file(_on_exit);
 			}
 	};
 }

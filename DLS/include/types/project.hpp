@@ -24,12 +24,22 @@ namespace dls {
 				return _scenes;
 			}
 
+			val<property_group> const& properties() const {
+				return _properties;
+			}
+
+			val<property_group>& properties() {
+				return _properties;
+			}
+
 			void save(os& file) const override {
 				file(CEREAL_NVP(_scenes));
+				file(CEREAL_NVP(_properties));
 			}
 
 			void load(is& file) override {
 				file(_scenes);
+				file(_properties);
 			}
 	};
 }

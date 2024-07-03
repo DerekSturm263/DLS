@@ -8,7 +8,7 @@
 
 namespace dls {
 	template <typename T, glm::length_t Size>
-	class vector : public serializable<vector<T, Size>>, public interpolatable<vector<T, Size>>, public glm::vec<Size, T, glm::packed_highp> {
+	class vector : public serializable<vector<T, Size>>, public glm::vec<Size, T, glm::packed_highp> {
 		public:
 			vector() : glm::vec<Size, T, glm::packed_highp>(0) { }
 			
@@ -49,20 +49,6 @@ namespace dls {
 				for (int i = 0; i < Size; ++i) {
 					file((*this)[i]);
 				}
-			}
-
-			vector<T, Size> lerp(vector<T, Size> const& b, fixed<32> t) const override {
-				vector<T, Size> output{};
-
-				for (int i = 0; i < Size; ++i) {
-					output[i] = *this + (b - *this) * t;
-				}
-
-				return output;
-			}
-
-			fixed<32> inverse_lerp(vector<T, Size> const& b, vector<T, Size> const& v) const override {
-				
 			}
 	};
 

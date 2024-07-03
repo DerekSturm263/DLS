@@ -9,16 +9,16 @@
 namespace dls {
 	class timer : public module<> {
 		private:
-			type<fixed<32>> _starting_time;
-			type<fixed<32>> _multiplier;
-			type<fixed<32>> _ending_time;
-			type<fixed<32>> _event_tick_rate;
+			type<fixed32> _starting_time;
+			type<fixed32> _multiplier;
+			type<fixed32> _ending_time;
+			type<fixed32> _event_tick_rate;
 
-			type<event<void(fixed<32>)>> _on_begin;
-			type<event<void(fixed<32>)>> _on_timer_tick;
-			type<event<void(fixed<32>)>> _on_end;
+			type<event<void(fixed32)>> _on_begin;
+			type<event<void(fixed32)>> _on_timer_tick;
+			type<event<void(fixed32)>> _on_end;
 
-			std::map<type<fixed<32>>, type<event<void()>>> _events;
+			std::map<fixed32, type<event<void()>>> _events;
 			
 		protected:
 			void save(os& file) const override {
