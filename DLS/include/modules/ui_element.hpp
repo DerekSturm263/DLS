@@ -1,22 +1,23 @@
 #pragma once
 
-#include "types/module.hpp"
+#include "types/core/module.hpp"
 #include "type templates/type_templates.hpp"
-#include "types/event.hpp"
+#include "types/events/event.hpp"
 #include "callbacks/ui_element_callback_context.hpp"
 
-namespace dls {
-	class ui_element : public module<> {
+namespace dls::gui::modules {
+	template <typename T>
+	class ui_element : public core::module<> {
 		private:
-			type<event<void(ui_element_callback_context const&)>> _on_hover;
-			type<event<void(ui_element_callback_context const&)>> _on_select;
-			type<event<void(ui_element_callback_context const&)>> _on_press;
-			type<event<void(ui_element_callback_context const&)>> _on_hold_tick;
-			type<event<void(ui_element_callback_context const&)>> _on_release;
-			type<event<void(ui_element_callback_context const&)>> _on_deselect;
-			type<event<void(ui_element_callback_context const&)>> _on_unhover;
+			type<events::event<void(ui_element_callback_context const&)>> _on_hover;
+			type<events::event<void(ui_element_callback_context const&)>> _on_select;
+			type<events::event<void(ui_element_callback_context const&)>> _on_press;
+			type<events::event<void(ui_element_callback_context const&)>> _on_hold_tick;
+			type<events::event<void(ui_element_callback_context const&)>> _on_release;
+			type<events::event<void(ui_element_callback_context const&)>> _on_deselect;
+			type<events::event<void(ui_element_callback_context const&)>> _on_unhover;
 
-			void* _held_data;
+			T* _held_data;
 
 		public:
 			void save(os& file) const override {
@@ -40,5 +41,3 @@ namespace dls {
 			}
 	};
 }
-
-REGISTER_MODULE(dls::ui_element);

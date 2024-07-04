@@ -1,19 +1,18 @@
 #pragma once
 
-#include "types/module.hpp"
+#include "types/core/module.hpp"
 #include "type templates/type_templates.hpp"
-#include "types/fixed.hpp"
-#include "types/vector.hpp"
-#include "functions/set_velocity.hpp"
-#include "functions/set_acceleration.hpp"
+#include "types/math/fixed.hpp"
+#include "types/math/vector.hpp"
 
-namespace dls {
-	class physics : public module<set_velocity, set_acceleration> {
+namespace dls::math::modules {
+	template <typename Decimal, typename Vector>
+	class physics : public core::module<> {
 		private:
-			type<fixed32> _mass;
-			type<vector<fixed32, 3>> _gravity;
-			type<fixed32> _linear_drag;
-			type<fixed32> _angular_drag;
+			type<Decimal> _mass;
+			type<Vector> _gravity;
+			type<Decimal> _linear_drag;
+			type<Decimal> _angular_drag;
 			
 		protected:
 			void save(os& file) const override {
@@ -30,6 +29,25 @@ namespace dls {
 				file(_angular_drag);
 			}
 	};
-}
+	/*
+	class set_acceleration : public function {
+		public:
+			void invoke(tick&, std::vector<void*> const&, std::vector<void*>*) override {
+				simulation_agent* rb = static_cast<simulation_agent*>(input[0]);
+				vector<fixed32, 3>* acc = static_cast<vector<fixed32, 3>*>(input[1]);
 
-REGISTER_MODULE(dls::physics);
+				simulation::set_acceleration(tick, *rb, *acc);
+			}
+	};
+
+	class set_velocity : public function {
+		public:
+			void invoke(tick&, std::vector<void*> const&, std::vector<void*>*) override {
+				simulation_agent* rb = static_cast<simulation_agent*>(input[0]);
+				vector<fixed32, 3>* vel = static_cast<vector<fixed32, 3>*>(input[1]);
+
+				simulation::set_velocity(tick, *rb, *vel);
+			}
+	};
+	*/
+}

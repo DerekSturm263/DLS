@@ -2,7 +2,6 @@
 
 #include "interfaces/unique.hpp"
 #include "val.hpp"
-#include "types/module.hpp"
 
 namespace dls {
 	/// <summary>

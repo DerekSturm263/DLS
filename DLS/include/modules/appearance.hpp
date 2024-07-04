@@ -1,11 +1,11 @@
 #pragma once
 
-#include "types/module.hpp"
+#include "types/core/module.hpp"
 #include "type templates/type_templates.hpp"
-#include "types/material.hpp"
+#include "types/graphics/material.hpp"
 
-namespace dls {
-	class appearance : public module<> {
+namespace dls::graphics::modules {
+	class appearance : public core::module<> {
 		private:
 			type<material> _material;
 
@@ -19,5 +19,3 @@ namespace dls {
 			}
 	};
 }
-
-REGISTER_MODULE(dls::appearance);

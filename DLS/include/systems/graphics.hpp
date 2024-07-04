@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dls {
+namespace dls::graphics::systems {
 	class graphics {
         private:
             void initialize();

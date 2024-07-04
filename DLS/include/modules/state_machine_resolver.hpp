@@ -1,16 +1,16 @@
 #pragma once
 
-#include "types/module.hpp"
+#include "types/core/module.hpp"
 #include "type templates/type_templates.hpp"
-#include "types/state_machine.hpp"
-#include "types/event.hpp"
+#include "types/state machines/state_machine.hpp"
+#include "types/events/event.hpp"
 
-namespace dls {
+namespace dls::state_machines::modules {
 	template <typename T>
-	class state_machine_resolver : public module<> {
+	class state_machine_resolver : public core::module<> {
 		private:
 			type<state_machine<T>> _state_machine;
-			type<event<void(T)>> _on_resolve;
+			type<events::event<void(T)>> _on_resolve;
 
 		public:
 			void save(os& file) const override {
@@ -24,5 +24,3 @@ namespace dls {
 			}
 	};
 }
-
-REGISTER_MODULE(dls::state_machine_resolver);

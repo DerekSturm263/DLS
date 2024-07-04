@@ -1,13 +1,14 @@
 #pragma once
 
-#include "types/module.hpp"
+#include "types/core/module.hpp"
 #include "type templates/type_templates.hpp"
-#include "types/processor.hpp"
+#include "types/miscellaneous/processor.hpp"
 
-namespace dls {
-	class sender : public module<> {
+namespace dls::send_receive::modules {
+	template <typename T>
+	class sender : public core::module<> {
 		private:
-			type<processor<void*>> _pre_processor;
+			type<miscellaneous::processor<T>> _pre_processor;
 
 		public:
 			void save(os& file) const override {
@@ -19,5 +20,3 @@ namespace dls {
 			}
 	};
 }
-
-REGISTER_MODULE(dls::sender);

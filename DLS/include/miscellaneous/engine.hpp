@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dls {
+namespace dls::engine {
 	class engine {
 		public:
 			static int execute(int, char*[]);

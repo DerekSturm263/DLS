@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dls {
+namespace dls::math {
 	class simulation_agent {
 
 	};

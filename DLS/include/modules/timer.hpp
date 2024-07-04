@@ -1,24 +1,25 @@
 #pragma once
 
 #include <map>
-#include "types/module.hpp"
+#include "types/core/module.hpp"
 #include "type templates/type_templates.hpp"
-#include "types/event.hpp"
-#include "types/fixed.hpp"
+#include "types/events/event.hpp"
+#include "types/math/fixed.hpp"
 
-namespace dls {
-	class timer : public module<> {
+namespace dls::time::modules {
+	template <typename T>
+	class timer : public core::module<> {
 		private:
-			type<fixed32> _starting_time;
-			type<fixed32> _multiplier;
-			type<fixed32> _ending_time;
-			type<fixed32> _event_tick_rate;
+			type<T> _starting_time;
+			type<T> _multiplier;
+			type<T> _ending_time;
+			type<T> _event_tick_rate;
 
-			type<event<void(fixed32)>> _on_begin;
-			type<event<void(fixed32)>> _on_timer_tick;
-			type<event<void(fixed32)>> _on_end;
+			type<events::event<void(T)>> _on_begin;
+			type<events::event<void(T)>> _on_timer_tick;
+			type<events::event<void(T)>> _on_end;
 
-			std::map<fixed32, type<event<void()>>> _events;
+			std::map<T, type<events::event<void()>>> _events;
 			
 		protected:
 			void save(os& file) const override {
@@ -44,5 +45,3 @@ namespace dls {
 			}
 	};
 }
-
-REGISTER_MODULE(dls::timer);

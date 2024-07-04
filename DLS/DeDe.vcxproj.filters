@@ -24,33 +24,21 @@
     <ClCompile Include="src\stb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine systems\debug.cpp">
+    <ClCompile Include="src\systems\debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine.cpp">
+    <ClCompile Include="src\miscellaneous\engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine systems\system_manager.cpp">
+    <ClCompile Include="src\systems\system_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine systems\random.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\functions\set_acceleration.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\functions\set_velocity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\miscellaneous\tick.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\module systems\simulation.cpp">
+    <ClCompile Include="src\systems\random.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\types\animation.hpp">
+    <ClInclude Include="include\types\animation\animation.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\appearance.hpp">
@@ -59,13 +47,13 @@
     <ClInclude Include="include\type templates\asset.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\clip.hpp">
+    <ClInclude Include="include\types\audio\clip.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\callbacks\collision_callback_context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\color.hpp">
+    <ClInclude Include="include\types\graphics\color.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\miscellaneous\drawable.hpp">
@@ -74,25 +62,25 @@
     <ClInclude Include="include\modules\emitter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\entity.hpp">
+    <ClInclude Include="include\types\core\entity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\event.hpp">
+    <ClInclude Include="include\types\events\event.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\event_func.hpp">
+    <ClInclude Include="include\types\events\event_func.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\fixed.hpp">
+    <ClInclude Include="include\types\math\fixed.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\interfaces\function.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\graph.hpp">
+    <ClInclude Include="include\types\graphs\graph.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\graph_point.hpp">
+    <ClInclude Include="include\types\graphs\graph_point.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\helpers\gui.hpp">
@@ -104,13 +92,13 @@
     <ClInclude Include="include\modules\input.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\input_button.hpp">
+    <ClInclude Include="include\types\input\input_trigger.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\callbacks\input_callback_context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\input_event_group.hpp">
+    <ClInclude Include="include\types\input\input_event_group.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\type templates\instance.hpp">
@@ -119,31 +107,31 @@
     <ClInclude Include="include\interfaces\interpolatable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\keyframe_data.hpp">
+    <ClInclude Include="include\types\animation\keyframe_data.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\layout.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\mask.hpp">
+    <ClInclude Include="include\types\miscellaneous\mask.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\material.hpp">
+    <ClInclude Include="include\types\graphics\material.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\material_settings.hpp">
+    <ClInclude Include="include\types\graphics\material_settings.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\helpers\math.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\matrix.hpp">
+    <ClInclude Include="include\types\math\matrix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\mesh.hpp">
+    <ClInclude Include="include\types\graphics\mesh.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\module.hpp">
+    <ClInclude Include="include\types\core\module.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\interfaces\system.hpp">
@@ -155,28 +143,28 @@
     <ClInclude Include="include\modules\physics.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\polygon.hpp">
+    <ClInclude Include="include\types\shapes\polygon.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\processor.hpp">
+    <ClInclude Include="include\types\miscellaneous\processor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\project.hpp">
+    <ClInclude Include="include\types\core\project.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\property.hpp">
+    <ClInclude Include="include\types\properties\property.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\property_group.hpp">
+    <ClInclude Include="include\types\properties\property_group.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\quaternion.hpp">
+    <ClInclude Include="include\types\math\quaternion.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\interfaces\randomly_generatable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\range.hpp">
+    <ClInclude Include="include\types\math\range.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\receiver.hpp">
@@ -191,7 +179,7 @@
     <ClInclude Include="include\miscellaneous\simulation_agent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\scene.hpp">
+    <ClInclude Include="include\types\core\scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\sender.hpp">
@@ -200,25 +188,19 @@
     <ClInclude Include="include\interfaces\serializable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\functions\set_acceleration.hpp">
+    <ClInclude Include="include\types\graphics\shader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\functions\set_velocity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\types\shader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\types\state_machine.hpp">
+    <ClInclude Include="include\types\state machines\state_machine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\state_machine_resolver.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\state_machine_state.hpp">
+    <ClInclude Include="include\types\state machines\state_machine_state.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\state_machine_transition.hpp">
+    <ClInclude Include="include\types\state machines\state_machine_transition.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\structure.hpp">
@@ -227,7 +209,7 @@
     <ClInclude Include="include\type templates\t.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\texture.hpp">
+    <ClInclude Include="include\types\graphics\texture.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\miscellaneous\tick.hpp">
@@ -236,10 +218,10 @@
     <ClInclude Include="include\modules\timer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\transform.hpp">
+    <ClInclude Include="include\types\math\transform.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\modules\transformer.hpp">
+    <ClInclude Include="include\modules\transform.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\type templates\type_templates.hpp">
@@ -257,25 +239,16 @@
     <ClInclude Include="include\type templates\val.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\variants.hpp">
+    <ClInclude Include="include\types\miscellaneous\variants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\vector.hpp">
+    <ClInclude Include="include\types\math\vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\miscellaneous\window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\functions\set_position.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\types\event_statement.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\functions\set_scale.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\functions\set_rotation.hpp">
+    <ClInclude Include="include\types\events\event_statement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\modules.hpp">
@@ -296,7 +269,7 @@
     <ClInclude Include="include\systems\gui.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\systems\input_system.hpp">
+    <ClInclude Include="include\systems\input.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\systems\random.hpp">
@@ -320,10 +293,10 @@
     <ClInclude Include="include\systems\window_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\node.hpp">
+    <ClInclude Include="include\types\nodes\node.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\node_group.hpp">
+    <ClInclude Include="include\types\nodes\node_group.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\miscellaneous\save_data.hpp">
@@ -339,6 +312,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\interfaces\singleton.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\miscellaneous\math_defines.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\types\shapes\ellipse.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\types\shapes\rect.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

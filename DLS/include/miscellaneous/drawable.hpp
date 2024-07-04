@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dls {
+namespace dls::graphics {
 	class drawable {
 
 	};

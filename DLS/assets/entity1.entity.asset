@@ -1,87 +1,10 @@
 {
     "value0": {
-        "_id": 16892338847315625991,
+        "_id": 99999,
         "_value": {
             "_modules": {
-                "_id": 15028999435905310454,
-                "_value": []
-            },
-            "_properties": {
-                "_id": 16708911996216745849,
-                "_value": {
-                    "_properties": []
-                }
-            },
-            "_on_enable": {
-                "_val_or_ref": {
-                    "_internal": {
-                        "index": 0,
-                        "data": {
-                            "_id": 2342493223442167775,
-                            "_value": {
-                                "_funcs": []
-                            }
-                        }
-                    },
-                    "_is_ref": false
-                }
-            },
-            "_on_start": {
-                "_val_or_ref": {
-                    "_internal": {
-                        "index": 0,
-                        "data": {
-                            "_id": 16848810653347327969,
-                            "_value": {
-                                "_funcs": []
-                            }
-                        }
-                    },
-                    "_is_ref": false
-                }
-            },
-            "_on_tick": {
-                "_val_or_ref": {
-                    "_internal": {
-                        "index": 0,
-                        "data": {
-                            "_id": 11664969248402573611,
-                            "_value": {
-                                "_funcs": []
-                            }
-                        }
-                    },
-                    "_is_ref": false
-                }
-            },
-            "_on_exit": {
-                "_val_or_ref": {
-                    "_internal": {
-                        "index": 0,
-                        "data": {
-                            "_id": 1799302827895858725,
-                            "_value": {
-                                "_funcs": []
-                            }
-                        }
-                    },
-                    "_is_ref": false
-                }
-            },
-            "_on_disable": {
-                "_val_or_ref": {
-                    "_internal": {
-                        "index": 0,
-                        "data": {
-                            "_id": 5137385360522333466,
-                            "_value": {
-                                "_funcs": []
-                            }
-                        }
-                    },
-                    "_is_ref": false
-                }
-            }
-        }
-    }
-}
+                "_id": 99999,
+                "_value": [
+                    {
+                        "_id": 99999,
+                        "_value"

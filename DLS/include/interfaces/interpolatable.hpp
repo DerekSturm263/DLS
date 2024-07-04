@@ -1,12 +1,12 @@
 #pragma once
 
-#include "types/fixed.hpp"
+#include "miscellaneous/math_defines.hpp"
 
 namespace dls {
 	template <typename T>
 	class interpolatable {
         protected:
-			virtual T lerp(T const&, fixed32) const = 0;
-			virtual fixed32 inverse_lerp(T const&, T const&) const = 0;
+			virtual T lerp(T const&, math::decimal) const = 0;
+			virtual math::decimal inverse_lerp(T const&, T const&) const = 0;
 	};
 }

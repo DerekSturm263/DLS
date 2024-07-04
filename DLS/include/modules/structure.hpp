@@ -1,28 +1,30 @@
 #pragma once
 
-#include "types/module.hpp"
+#include "types/core/module.hpp"
 #include "type templates/type_templates.hpp"
-#include "types/mesh.hpp"
-#include "types/polygon.hpp"
+#include "types/graphics/mesh.hpp"
+#include "types/shapes/polygon.hpp"
 #include "callbacks/collision_callback_context.hpp"
 
-namespace dls {
-	class structure : public module<> {
+namespace dls::math::modules {
+	template <typename Decimal, glm::length_t Size>
+	class structure : public core::module<> {
 		public:
 			enum class passthrough_type {
 				stop = 1 << 0,
-				pass = 1 << 1
+				pass = 1 << 1,
+				one_way = 1 << 2
 			};
 
 		private:
-			type<mesh> _mesh;
+			type<graphics::mesh> _mesh;
 
-			type<polygon<fixed32, 3>> _collision_shape;
+			type<shapes::polygon<Decimal, Size>> _collision_shape;
 			type<passthrough_type> _passthrough_type;
 
-			type<event<void(collision_callback_context const&)>> _on_collision_enter;
-			type<event<void(collision_callback_context const&)>> _on_collision_tick;
-			type<event<void(collision_callback_context const&)>> _on_collision_exit;
+			type<events::event<void(collision_callback_context<math::vector<Decimal, Size>> const&)>> _on_collision_enter;
+			type<events::event<void(collision_callback_context<math::vector<Decimal, Size>> const&)>> _on_collision_tick;
+			type<events::event<void(collision_callback_context<math::vector<Decimal, Size>> const&)>> _on_collision_exit;
 
 			void save(os& file) const override {
 				file(CEREAL_NVP(_mesh));
@@ -43,5 +45,3 @@ namespace dls {
 			}
 	};
 }
-
-REGISTER_MODULE(dls::structure);

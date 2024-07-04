@@ -7,6 +7,6 @@
 namespace dls {
 	class function : public unique<function> {
 		public:
-			virtual void invoke(tick&, std::vector<void*> const&, std::vector<void*>*) = 0;
+			virtual void invoke(game::tick&, std::vector<void*> const&, std::vector<void*>*) = 0;
 	};
 }

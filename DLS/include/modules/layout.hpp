@@ -1,12 +1,14 @@
 #pragma once
 
-#include "types/module.hpp"
+#include "types/core/module.hpp"
 #include "type templates/type_templates.hpp"
 
-namespace dls {
-	class layout : public module<> {
+namespace dls::math::modules {
+	template <typename VectorInteger, typename VectorDecimal>
+	class layout : public core::module<> {
 		private:
-			type<vector2<int>> _dimensions;
+			type<VectorInteger> _dimensions;
+			type<VectorDecimal> _spacing;
 
 		public:
 			void save(os& file) const override {
@@ -18,5 +20,3 @@ namespace dls {
 			}
 	};
 }
-
-REGISTER_MODULE(dls::layout);

@@ -27,11 +27,13 @@ namespace dls {
 
 			void save(serializable_base::os& file) const override {
 				file(cereal::make_nvp("_id", this->_id));
+				file(cereal::make_nvp("_id", this->_sync_type));
 				file(CEREAL_NVP(_value));
 			}
 
 			void load(serializable_base::is& file) override {
 				file(this->_id);
+				file(this->_sync_type);
 				file(_value);
 			}
 	};

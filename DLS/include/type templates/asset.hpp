@@ -17,10 +17,6 @@ namespace dls {
 			std::string _file_path;
 			val<T> _value;
 
-			void set_from_instance(instance<T> const& rhs) {
-				_value = rhs._value;
-			}
-
 			template <typename T>
 			friend class instance;
 			
@@ -56,6 +52,10 @@ namespace dls {
 
 			T const& value() const {
 				return _value.value();
+			}
+
+			void set_from_instance(instance<T> const& rhs) {
+				_value = rhs._value;
 			}
 	};
 }

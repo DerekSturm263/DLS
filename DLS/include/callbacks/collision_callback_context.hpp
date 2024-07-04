@@ -1,13 +1,13 @@
 #pragma once
 
-#include "types/entity.hpp"
-#include "types/vector.hpp"
+#include "types/core/entity.hpp"
 
 namespace dls {
+	template <typename Vector>
 	class collision_callback_context {
 		private:
-			entity const& _collider;
-			entity const& _collidee;
-			const vector<fixed32, 3> _contact_point;
+			core::entity const& _collider;
+			core::entity const& _collidee;
+			const Vector _contact_point;
 	};
 }

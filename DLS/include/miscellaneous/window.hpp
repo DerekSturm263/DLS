@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dls {
+namespace dls::window {
 	class window {
 
 	};

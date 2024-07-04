@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dls {
+namespace dls::game {
 	class tick {
 		private:
 			unsigned long long _index;
