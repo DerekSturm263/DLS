@@ -13,6 +13,6 @@ DLS is a lightweight game engine where users can create any type of game without
 - Easy to use: The built-in modules have all the events and settings you would ever need to create complex games. If you ever needed to, there is a guide on creating custom modules.
 - Intuitive GUI: One of our biggest focuses was on creating a GUI that's easy to use. Easily switch scenes, create assets, and look like a pro while doing it.
 - Built-in editors: Never have to leave DLS to create assets for your game. DLS has a built-in image editor, audio editor, and more.
-- Multi-window support: This is a very niche system, but something we included for fun. Create and manipulate multiple windows on a computer (if people still made DS games, this would also work for that).
+- Multi-window support: This is a very niche feature, but something we included for fun. Create and manipulate multiple windows on a computer (if people still made DS games, this would also work for that).
 
 And those are just some of the benefits! Once you use the engine, you'll never want to go back to anything else.
