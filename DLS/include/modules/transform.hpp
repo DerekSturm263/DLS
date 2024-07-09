@@ -6,14 +6,22 @@
 #include "types/math/fixed.hpp"
 
 namespace dls::math::modules {
-	template <typename Transform>
+	template <typename Decimal, glm::length_t Size>
 	class transform : public core::module<> {
 		private:
-			type<Transform> _transform;
+			type<transform<Decimal, Size>> _transform;
 
 		public:
 			transform() : _transform() { }
-			
+
+			transform<Decimal, Size> const& transform() const {
+				return _transform;
+			}
+
+			transform<Decimal, Size>& transform() {
+				return _transform;
+			}
+
 			void save(os& file) const override {
 				file(CEREAL_NVP(_transform));
 			}

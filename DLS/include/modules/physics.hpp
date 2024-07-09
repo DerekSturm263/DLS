@@ -6,11 +6,11 @@
 #include "types/math/vector.hpp"
 
 namespace dls::math::modules {
-	template <typename Decimal, typename Vector>
+	template <typename Decimal, glm::length_t Size>
 	class physics : public core::module<> {
 		private:
 			type<Decimal> _mass;
-			type<Vector> _gravity;
+			type<vector<Decimal, Size>> _gravity;
 			type<Decimal> _linear_drag;
 			type<Decimal> _angular_drag;
 			

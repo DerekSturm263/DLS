@@ -45,6 +45,22 @@ namespace dls::core {
 				return std::optional<T*>();
 			}
 
+			// TODO: Move into tick.cpp
+			template <typename T>
+			std::optional<T const*> get_module() const {
+				for (int i = 0; i < _modules.value().size(); ++i) {
+					val<std::shared_ptr<module_base>> base = _modules.value()[i];
+					module_base* base_get = base.value().get();
+
+					T* ret = dynamic_cast<T*>(base_get);
+
+					if (ret)
+						return std::optional<T const*>(ret);
+				}
+
+				return std::optional<T const*>();
+			}
+
 			properties::property_group const& properties() const {
 				return _properties.value();
 			}
