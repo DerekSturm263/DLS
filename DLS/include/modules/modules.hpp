@@ -15,4 +15,3 @@
 #include "ui_element.hpp"
 
 REGISTER_MODULE(dls::graphics::modules::appearance);
-REGISTER_MODULE(dls::input::modules::input);

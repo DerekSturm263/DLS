@@ -32,6 +32,11 @@ namespace dls {
             virtual void on_tick(game::tick& tick) { }
 
             /// <summary>
+            /// Update is called every frame, regardless of the tick rate. This should only be used with systems that don't affect the game state.
+            /// </summary>
+            virtual void on_update() { }
+
+            /// <summary>
             /// On Scene Unload is called when a scene is unloaded. This is useful for shutting down scene-specific values like lists of vals.
             /// </summary>
             virtual void on_scene_unload() { }

@@ -5,18 +5,24 @@
 #include "types/core/entity.hpp"
 
 namespace dls::miscellaneous::modules {
-	template <typename T>
+	template <typename T, typename Decimal>
 	class emitter : public core::types::module<> {
 		private:
-			type<T> _to_emit;
+			type<T> _object;
+			type<Decimal> _rate;
+			int _max;
 
 		public:
 			void save(os& file) const override {
-				file(CEREAL_NVP(_to_emit));
+				file(CEREAL_NVP(_object));
+				file(CEREAL_NVP(_rate));
+				file(CEREAL_NVP(_max));
 			}
 
 			void load(is& file) override {
-				file(_to_emit);
+				file(_object);
+				file(_rate);
+				file(_max);
 			}
 	};
 }

@@ -24,11 +24,14 @@ REGISTER_MODULE(strct);
 using trans = dls::math::modules::transform<dls::math::decimal, dls::math::dimensions>;
 REGISTER_MODULE(trans);
 
+using inp = dls::input::modules::input<dls::math::decimal>;
+REGISTER_MODULE(inp);
+
 namespace dls::engine {
 	int engine::execute(int argc, char* argv[]) {
 		asset<core::types::entity> ety{ "assets/entity1.entity.asset", core::types::entity{
 			graphics::modules::appearance{},
-			input::modules::input{},
+			inp{},
 			phys{},
 			strct{},
 			trans{}

@@ -10,6 +10,7 @@
 namespace dls::core::types {
 	class entity : public serializable<entity> {
 		private:
+			val<std::string> _name;
 			val<std::vector<val<std::shared_ptr<module_base>>>> _modules;
 			val<properties::types::property_group> _properties;
 
@@ -70,6 +71,7 @@ namespace dls::core::types {
 			}
 
 			void save(os& file) const override {
+				file(CEREAL_NVP(_name));
 				file(CEREAL_NVP(_modules));
 				file(CEREAL_NVP(_properties));
 				file(CEREAL_NVP(_on_start));
@@ -80,6 +82,7 @@ namespace dls::core::types {
 			}
 
 			void load(is& file) override {
+				file(_name);
 				file(_modules);
 				file(_properties);
 				file(_on_start);

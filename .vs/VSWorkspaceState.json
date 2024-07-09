@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\DLS",
-    "\\DLS\\include",
-    "\\DLS\\include\\interfaces",
-    "\\DLS\\include\\miscellaneous",
-    "\\DLS\\include\\systems",
-    "\\DLS\\include\\types",
-    "\\DLS\\include\\types\\core",
-    "\\DLS\\src",
-    "\\DLS\\src\\miscellaneous"
+    ""
   ],
-  "SelectedNode": "\\LICENSE",
+  "SelectedNode": "\\DeDe.sln",
   "PreviewInSolutionExplorer": false
 }

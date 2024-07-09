@@ -7,44 +7,19 @@
 namespace dls::math {
 	template <typename Decimal, glm::length_t Size>
 	class simulation_agent {
-		private:
-			modules::transform<Decimal, Size>& _trans;
-			modules::physics<Decimal, Size>& _phys;
-			modules::structure<Decimal, Size>& _strct;
+		public:
+			modules::transform<Decimal, Size>& trans;
+			modules::physics<Decimal, Size>& phys;
+			modules::structure<Decimal, Size>& strct;
 
-			types::vector<Decimal, Size> _initial_pos;
-			types::vector<Decimal, Size> _initial_speed;
-			types::vector<Decimal, Size> _acceleration;
+			types::vector<Decimal, Size> initial_pos;
+			types::vector<Decimal, Size> initial_speed;
+			types::vector<Decimal, Size> acceleration;
 
 			simulation_agent(
 				modules::transform<Decimal, Size> const& trans,
 				modules::physics<Decimal, Size> const& phys,
 				modules::structure<Decimal, Size> const& strct
-			) : _trans(trans), _phys(phys), _strct(strct), _initial_pos(trans.transform().position()) { }
-
-		public:
-			modules::transform<Decimal, Size>& trans() {
-				return _trans;
-			}
-
-			modules::physics<Decimal, Size>& phys() {
-				return _phys;
-			}
-
-			modules::structure<Decimal, Size>& strct() {
-				return _strct;
-			}
-
-			types::vector<Decimal, Size>& initial_pos() {
-				return _initial_pos;
-			}
-			
-			types::vector<Decimal, Size>& initial_speed() {
-				return _inital_speed;
-			}
-
-			types::vector<Decimal, Size>& acceleration() {
-				return _acceleration;
-			}
+			) : trans(trans), phys(phys), strct(strct) { }
 	};
 }

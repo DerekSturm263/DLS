@@ -7,9 +7,10 @@
 #include "types/input/input_event_group.hpp"
 
 namespace dls::input::modules {
+	template <typename Decimal>
 	class input : public core::types::module<> {
 		private:
-			std::map<types::input_trigger, type<types::input_event_group>> _actions;
+			std::map<types::input_trigger, type<types::input_event_group<Decimal>>> _actions;
 
 		public:
 			void save(os& file) const override {
