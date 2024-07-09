@@ -19,6 +19,11 @@ namespace dls::core {
 					_scenes.value().add_state(ref<scene>{scn});
 				}
 			}
+			project(std::vector<ref<scene>> const& scenes) : _scenes() {
+				for (auto& scn : scenes) {
+					_scenes.value().add_state(scn);
+				}
+			}
 
 			state_machines::state_machine<ref<scene>> const& scenes() const {
 				return _scenes.value();

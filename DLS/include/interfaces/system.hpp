@@ -1,9 +1,10 @@
 #pragma once
 
+#include "singleton.hpp"
 #include "miscellaneous/tick.hpp"
 
 namespace dls {
-    class system {
+    class system_base {
         public:
             /// <summary>
             /// On Initialize is called immediately when the application is loaded. This is useful for initializing global logic and data.
@@ -30,5 +31,10 @@ namespace dls {
             /// On Shutdown is called right before the application is unloaded. This is useful for shutting down global logic and data.
             /// </summary>
             virtual void shutdown() = 0;
+    };
+
+    template <typename T>
+    class system : public singleton<T>, public system_base {
+
     };
 }

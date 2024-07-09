@@ -1,18 +1,22 @@
 #pragma once
 
+#include <memory>
+
 namespace dls {
     template <typename T>
     class singleton {
-        protected:
-            static T& _instance;
+        private:
+            singleton() { }
 
-            singleton(T const& derived) {
-                _instance = derived;
-            }
+        protected:
+            static std::unique_ptr<T> _instance;
 
         public:
-            static T& instance() {
-                return _instance;
+            static T* instance() {
+                if (!_instance)
+                    _instance = std::unique_ptr<T>();
+
+                return _instance.get();
             }
     };
 }

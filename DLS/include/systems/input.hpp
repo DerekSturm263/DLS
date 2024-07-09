@@ -3,8 +3,7 @@
 #include "interfaces/system.hpp"
 
 namespace dls::input::systems {
-    class input_system : public system {
-        protected:
+    class input : public system<input> {
 
     };
 }

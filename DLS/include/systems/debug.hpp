@@ -5,7 +5,7 @@
 #include "interfaces/system.hpp"
 
 namespace dls::debug::systems {
-	class debug : public system {
+	class debug : public system<debug> {
         protected:
             void initialize() override;
             void shutdown() override;

@@ -11,9 +11,9 @@ namespace dls {
 	template <typename T>
 	class ref : public serializable<ref<T>> {
 		private:
-			unique_base::guid _id;
+			unique_base::guid_type _id;
 
-			ref(unique_base::guid id) : _id(id) { }
+			ref(unique_base::guid_type id) : _id(id) { }
 
 			template <typename T>
 			friend class required;
