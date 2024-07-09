@@ -6,7 +6,7 @@
 #include "state_machine_transition.hpp"
 #include "type templates/type_templates.hpp"
 
-namespace dls::state_machines {
+namespace dls::state_machines::types {
 	template <typename T>
 	class state_machine : public serializable<state_machine<T>> {
 		private:
@@ -14,6 +14,14 @@ namespace dls::state_machines {
 			std::vector<val<state_machine_transition<T>>> _transitions;
 
 		public:
+			T const& at(int i) const {
+				return _states[i].value().value();
+			}
+
+			T& at(int i) {
+				return _states[i].value().value();
+			}
+
 			void add_state(T const& state) {
 				_states.push_back(val<state_machine_state<T>>{state});
 			}

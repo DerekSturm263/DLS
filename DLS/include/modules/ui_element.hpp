@@ -7,15 +7,15 @@
 
 namespace dls::gui::modules {
 	template <typename T>
-	class ui_element : public core::module<> {
+	class ui_element : public core::types::module<> {
 		private:
-			type<events::event<void(ui_element_callback_context const&)>> _on_hover;
-			type<events::event<void(ui_element_callback_context const&)>> _on_select;
-			type<events::event<void(ui_element_callback_context const&)>> _on_press;
-			type<events::event<void(ui_element_callback_context const&)>> _on_hold_tick;
-			type<events::event<void(ui_element_callback_context const&)>> _on_release;
-			type<events::event<void(ui_element_callback_context const&)>> _on_deselect;
-			type<events::event<void(ui_element_callback_context const&)>> _on_unhover;
+			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_hover;
+			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_select;
+			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_press;
+			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_hold_tick;
+			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_release;
+			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_deselect;
+			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_unhover;
 
 			T* _held_data;
 

@@ -3,7 +3,7 @@
 #include <string>
 #include "interfaces/serializable.hpp"
 
-namespace dls::graphics {
+namespace dls::graphics::types {
 	class shader : public serializable<shader> {
 		public:
 			using any = std::variant<int>;

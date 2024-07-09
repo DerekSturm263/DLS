@@ -2,7 +2,7 @@
 
 #include "interfaces/serializable.hpp"
 
-namespace dls::input {
+namespace dls::input::types {
 	class input_trigger : public serializable<input_trigger> {
 		private:
 			int _button_index;

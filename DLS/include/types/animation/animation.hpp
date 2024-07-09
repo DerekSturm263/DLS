@@ -4,7 +4,7 @@
 #include "interfaces/serializable.hpp"
 #include "keyframe_data.hpp"
 
-namespace dls::animation {
+namespace dls::animation::types {
 	class animation : public serializable<animation> {
 		private:
 			std::map<std::size_t, keyframe_data> _keyframes;

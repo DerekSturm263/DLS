@@ -4,7 +4,7 @@
 #include "state_machine_state.hpp"
 #include "type templates/type_templates.hpp"
 
-namespace dls::state_machines {
+namespace dls::state_machines::types {
 	template <typename T>
 	class state_machine_transition : public serializable<state_machine_transition<T>> {
 		private:

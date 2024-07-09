@@ -12,9 +12,9 @@ namespace dls::math {
 			modules::physics<Decimal, Size>& _phys;
 			modules::structure<Decimal, Size>& _strct;
 
-			vector<Decimal, Size> _initial_pos;
-			vector<Decimal, Size> _initial_speed;
-			vector<Decimal, Size> _acceleration;
+			types::vector<Decimal, Size> _initial_pos;
+			types::vector<Decimal, Size> _initial_speed;
+			types::vector<Decimal, Size> _acceleration;
 
 			simulation_agent(
 				modules::transform<Decimal, Size> const& trans,
@@ -35,15 +35,15 @@ namespace dls::math {
 				return _strct;
 			}
 
-			vector<Decimal, Size>& initial_pos() {
+			types::vector<Decimal, Size>& initial_pos() {
 				return _initial_pos;
 			}
 			
-			vector<Decimal, Size>& initial_speed() {
+			types::vector<Decimal, Size>& initial_speed() {
 				return _inital_speed;
 			}
 
-			vector<Decimal, Size>& acceleration() {
+			types::vector<Decimal, Size>& acceleration() {
 				return _acceleration;
 			}
 	};

@@ -6,7 +6,7 @@
 #include "vector.hpp"
 #include "matrix.hpp"
 
-namespace dls::math {
+namespace dls::math::types {
 	template <typename T>
 	class quaternion : public serializable<quaternion<T>>, public glm::qua<T, glm::packed_highp> {
 		private:

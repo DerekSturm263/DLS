@@ -5,7 +5,7 @@
 #include <glm/vec4.hpp>
 #include "interfaces/serializable.hpp"
 
-namespace dls::math {
+namespace dls::math::types {
 	template <typename T, glm::length_t Rows, glm::length_t Columns>
 	class matrix : public serializable<matrix<T, Rows, Columns>>, public glm::mat<Rows, Columns, T, glm::packed_highp> {
 		public:

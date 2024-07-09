@@ -5,17 +5,17 @@
 #include "interfaces/system.hpp"
 
 namespace dls::debug::systems {
-	class debug : public system<debug> {
-        protected:
-            void initialize() override;
-            void shutdown() override;
-
+	class debug : public system<> {
         private:
-            const std::string _file_name;
-            FILE* _debug_file;
+            std::string _file_name;
 
         public:
-            static void log(std::string const&);
-            static void logf(const char*...);
+            void save(os& file) const override {
+                file(CEREAL_NVP(_file_name));
+            }
+
+            void load(is& file) override {
+                file(_file_name);
+            }
 	};
 }

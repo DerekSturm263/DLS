@@ -2,16 +2,18 @@
 
 #include <random>
 #include <limits>
-#include "miscellaneous/game.hpp"
 #include "interfaces/system.hpp"
 
 namespace dls::math::systems {
-	class random : public system<random> {
-        protected:
+	class random : public system<> {
+        private:
+            unsigned int _seed;
+            std::default_random_engine _engine;
+
+        public:
             void initialize() override;
             void shutdown() override;
 
-        public:
             template <typename T>
             T next() {
                 std::uniform_int_distribution<T> distr(std::numeric_limits<T>::min(), std::numeric_limits<T>::max());
@@ -48,7 +50,12 @@ namespace dls::math::systems {
                 return distr(_engine);
             }
 
-        private:
-            std::default_random_engine _engine;
+			void save(serializable_base::os& file) const override {
+                file(CEREAL_NVP(_seed));
+			}
+
+			void load(serializable_base::is& file) override {
+                file(_seed);
+			}
 	};
 }

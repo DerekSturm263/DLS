@@ -6,7 +6,7 @@
 #include "shader.hpp"
 #include "material_settings.hpp"
 
-namespace dls::graphics {
+namespace dls::graphics::types {
 	class material : public serializable<material> {
 		private:
 			type<shader> _shader;

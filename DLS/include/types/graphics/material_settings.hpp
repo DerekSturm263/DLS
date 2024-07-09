@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include "interfaces/serializable.hpp"
 
-namespace dls::graphics {
+namespace dls::graphics::types {
 	class material_settings : public serializable<material_settings> {
 		private:
 			std::unordered_map<std::string, shader::any> _values;

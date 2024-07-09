@@ -5,15 +5,15 @@
 #include "type templates/type_templates.hpp"
 #include "../math/vector.hpp"
 
-namespace dls::shapes {
+namespace dls::shapes::types {
 	template <typename T, std::size_t Size>
 	class polygon : public serializable<polygon<T, Size>> {
 		private:
-			std::vector<type<math::vector<T, Size>>> _points;
+			std::vector<type<math::types::vector<T, Size>>> _points;
 			
 		public:
 			polygon() : _points() { }
-			polygon(std::vector<type<math::vector<T, Size>>> const& points) : _points(points) { }
+			polygon(std::vector<type<math::types::vector<T, Size>>> const& points) : _points(points) { }
 
 			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_points));

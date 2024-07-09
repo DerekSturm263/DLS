@@ -7,20 +7,12 @@
 
 namespace dls::math::modules {
 	template <typename Decimal, glm::length_t Size>
-	class transform : public core::module<> {
+	class transform : public core::types::module<> {
 		private:
-			type<transform<Decimal, Size>> _transform;
+			type<types::transform<Decimal, Size>> _transform;
 
 		public:
 			transform() : _transform() { }
-
-			transform<Decimal, Size> const& transform() const {
-				return _transform;
-			}
-
-			transform<Decimal, Size>& transform() {
-				return _transform;
-			}
 
 			void save(os& file) const override {
 				file(CEREAL_NVP(_transform));

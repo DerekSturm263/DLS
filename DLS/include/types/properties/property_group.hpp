@@ -5,7 +5,7 @@
 #include "type templates/type_templates.hpp"
 #include "property.hpp"
 
-namespace dls::properties {
+namespace dls::properties::types {
 	class property_group : public serializable<property_group> {
 		private:
 			mutable std::unordered_map<std::string, val<property>> _properties;

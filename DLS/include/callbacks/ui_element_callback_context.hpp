@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dls {
+namespace dls::gui::callbacks {
 	class ui_element_callback_context {
 
 	};

@@ -2,7 +2,7 @@
 
 #include "interfaces/serializable.hpp"
 
-namespace dls::graph {
+namespace dls::graph::types {
 	template <typename T>
 	class graph_point : public serializable<graph_point<T>> {
 		private:

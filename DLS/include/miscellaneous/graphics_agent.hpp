@@ -1,7 +1,7 @@
 #pragma once
 
 namespace dls::graphics {
-	class drawable {
+	class graphics_agent {
 
 	};
 }

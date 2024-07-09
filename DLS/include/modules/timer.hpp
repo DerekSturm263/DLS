@@ -8,18 +8,18 @@
 
 namespace dls::time::modules {
 	template <typename T>
-	class timer : public core::module<> {
+	class timer : public core::types::module<> {
 		private:
 			type<T> _starting_time;
 			type<T> _multiplier;
 			type<T> _ending_time;
 			type<T> _event_tick_rate;
 
-			type<events::event<void(T)>> _on_begin;
-			type<events::event<void(T)>> _on_timer_tick;
-			type<events::event<void(T)>> _on_end;
+			type<events::types::event<void(T)>> _on_begin;
+			type<events::types::event<void(T)>> _on_timer_tick;
+			type<events::types::event<void(T)>> _on_end;
 
-			std::map<T, type<events::event<void()>>> _events;
+			std::map<T, type<events::types::event<void()>>> _events;
 			
 		protected:
 			void save(os& file) const override {

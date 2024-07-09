@@ -4,11 +4,11 @@
 #include "type templates/type_templates.hpp"
 #include "../events/event.hpp"
 
-namespace dls::miscellaneous {
+namespace dls::miscellaneous::types {
 	template <typename T>
 	class processor : public serializable<processor<T>> {
 		private:
-			val<events::event<T(T const&)>> _event;
+			val<events::types::event<T(T const&)>> _event;
 			
 		public:
 			void save(serializable_base::os& file) const override {

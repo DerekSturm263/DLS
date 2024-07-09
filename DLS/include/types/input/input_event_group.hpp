@@ -5,12 +5,12 @@
 #include "../events/event.hpp"
 #include "callbacks/input_callback_context.hpp"
 
-namespace dls::input {
+namespace dls::input::types {
 	class input_event_group : public serializable<input_event_group> {
 		private:
-			val<events::event<void(input_callback_context const&)>> _on_press;
-			val<events::event<void(input_callback_context const&)>> _on_hold_tick;
-			val<events::event<void(input_callback_context const&)>> _on_release;
+			val<events::types::event<void(callbacks::input_callback_context const&)>> _on_press;
+			val<events::types::event<void(callbacks::input_callback_context const&)>> _on_hold_tick;
+			val<events::types::event<void(callbacks::input_callback_context const&)>> _on_release;
 
 		public:
 			void save(os& file) const override {

@@ -1,6 +1,6 @@
-#include "systems/system_manager.hpp"
+#include "miscellaneous/system_manager.hpp"
 
-namespace dls::systems::systems {
+namespace dls::systems {
 	void system_manager::initialize() {
 		for (auto& system : _systems) {
 			system->initialize();

@@ -2,7 +2,7 @@
 
 #include "interfaces/serializable.hpp"
 
-namespace dls::math {
+namespace dls::math::types {
 	template <typename T, std::size_t Precision>
 	class fixed : public serializable<fixed<T, Precision>> {
 		private:

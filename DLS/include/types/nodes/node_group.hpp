@@ -5,7 +5,7 @@
 #include "node.hpp"
 #include "type templates/type_templates.hpp"
 
-namespace dls::nodes {
+namespace dls::nodes::types {
 	template <typename T>
 	class node_group : public serializable<node_group<T>> {
 		private:

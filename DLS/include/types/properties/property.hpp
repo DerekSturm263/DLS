@@ -29,10 +29,10 @@
 #include "../math/transform.hpp"
 #include "../math/vector.hpp"
 
-namespace dls::properties {
+namespace dls::properties::types {
 	class property : public serializable<property> {
 		public:
-			using any = std::variant<animation::animation, audio::clip, input::input_trigger, graphics::material, graphics::mesh, graphics::texture, std::string, int, bool>;
+			using any = std::variant<animation::types::animation, audio::types::clip, input::types::input_trigger, graphics::types::material, graphics::types::mesh, graphics::types::texture, std::string, int, bool>;
 
 		private:
 			val<any> _value;

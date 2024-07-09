@@ -2,8 +2,9 @@
 
 #include "interfaces/system.hpp"
 
-namespace dls::input::systems {
-    class input : public system<> {
+namespace dls::math::systems {
+	template <typename Decimal, glm::length_t Size>
+	class simulation : public system<> {
 		public:
 			void save(os& file) const override {
 
@@ -12,5 +13,5 @@ namespace dls::input::systems {
 			void load(is& file) override {
 
 			}
-    };
+	};
 }

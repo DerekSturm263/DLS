@@ -5,7 +5,7 @@
 #include "type templates/type_templates.hpp"
 #include "event_statement.hpp"
 
-namespace dls::events {
+namespace dls::events::types {
 	template <typename TFunc>
 	class event_func : public serializable<event_func<TFunc>> {
 		private:

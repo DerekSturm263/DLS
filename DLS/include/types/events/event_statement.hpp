@@ -6,11 +6,11 @@
 #include "type templates/type_templates.hpp"
 #include "../core/module.hpp"
 
-namespace dls::events {
+namespace dls::events::types {
 	template <typename TFunc>
 	class event_statement : public serializable<TFunc> {
 		private:
-			ref<core::module_base> _module;
+			ref<core::types::module_base> _module;
 			unique_base::guid_type _function_index;
 
 		public:

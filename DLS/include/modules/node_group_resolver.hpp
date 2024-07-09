@@ -7,10 +7,10 @@
 
 namespace dls::nodes::modules {
 	template <typename T>
-	class node_group_resolver : public core::module<> {
+	class node_group_resolver : public core::types::module<> {
 		private:
-			type<node_group<T>> _node_group;
-			type<events::event<void(T)>> _on_resolve;
+			type<types::node_group<T>> _node_group;
+			type<events::types::event<void(T)>> _on_resolve;
 
 		public:
 			void save(os& file) const override {

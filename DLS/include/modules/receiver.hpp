@@ -6,9 +6,9 @@
 
 namespace dls::send_receive::modules {
 	template <typename T>
-	class receiver : public core::module<> {
+	class receiver : public core::types::module<> {
 		private:
-			type<miscellaneous::processor<T>> _post_processor;
+			type<miscellaneous::types::processor<T>> _post_processor;
 
 		public:
 			void save(os& file) const override {

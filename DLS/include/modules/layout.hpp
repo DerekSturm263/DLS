@@ -4,11 +4,11 @@
 #include "type templates/type_templates.hpp"
 
 namespace dls::math::modules {
-	template <typename VectorInteger, typename VectorDecimal>
-	class layout : public core::module<> {
+	template <typename Decimal, glm::length_t Size>
+	class layout : public core::types::module<> {
 		private:
-			type<VectorInteger> _dimensions;
-			type<VectorDecimal> _spacing;
+			type<types::vector<int, Size>> _dimensions;
+			type<types::vector<Decimal, Size>> _spacing;
 
 		public:
 			void save(os& file) const override {

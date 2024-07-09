@@ -2,7 +2,7 @@
 
 #include "interfaces/serializable.hpp"
 
-namespace dls::miscellaneous {
+namespace dls::miscellaneous::types {
 	template <typename T>
 	class mask : public serializable<mask<T>> {
 		private:

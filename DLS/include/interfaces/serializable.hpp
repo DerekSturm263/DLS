@@ -17,6 +17,7 @@ namespace dls {
 			
 			virtual void save(os&) const = 0;
 			virtual void load(is&) = 0;
+			virtual void draw() { }
 	};
 
 	template <typename TSelf>

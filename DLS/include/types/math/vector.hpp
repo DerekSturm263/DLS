@@ -4,7 +4,7 @@
 #include <glm/mat4x4.hpp>
 #include "interfaces/serializable.hpp"
 
-namespace dls::math {
+namespace dls::math::types {
 	template <typename T, glm::length_t Size>
 	class vector : public serializable<vector<T, Size>>, public glm::vec<Size, T, glm::packed_highp> {
 		public:

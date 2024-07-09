@@ -7,9 +7,9 @@
 #include "types/input/input_event_group.hpp"
 
 namespace dls::input::modules {
-	class input : public core::module<> {
+	class input : public core::types::module<> {
 		private:
-			std::map<input_trigger, type<input_event_group>> _actions;
+			std::map<types::input_trigger, type<types::input_event_group>> _actions;
 
 		public:
 			void save(os& file) const override {

@@ -3,7 +3,7 @@
 #include <vector>
 #include "interfaces/serializable.hpp"
 
-namespace dls::miscellaneous {
+namespace dls::miscellaneous::types {
 	template <typename T>
 	class variants : public serializable<variants<T>> {
 		private:

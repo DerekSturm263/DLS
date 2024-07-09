@@ -5,7 +5,7 @@
 #include "graph_point.hpp"
 #include "../math/fixed.hpp"
 
-namespace dls::graph {
+namespace dls::graph::types {
 	template <typename T, typename U>
 	class graph : public serializable<graph<T, U>> {
 		private:

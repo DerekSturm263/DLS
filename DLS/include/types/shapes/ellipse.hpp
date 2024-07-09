@@ -4,11 +4,11 @@
 #include "interfaces/serializable.hpp"
 #include "type templates/type_templates.hpp"
 
-namespace dls::shapes {
+namespace dls::shapes::types {
 	template <typename T, std::size_t Size>
 	class ellipse : public serializable<ellipse<T, Size>> {
 		private:
-			type<vector<T, Size>> _dimensions[Size];
+			type<math::types::vector<T, Size>> _dimensions[Size];
 			
 		public:
 			ellipse() : _dimensions() { }

@@ -5,9 +5,9 @@
 #include "types/graphics/material.hpp"
 
 namespace dls::graphics::modules {
-	class appearance : public core::module<> {
+	class appearance : public core::types::module<> {
 		private:
-			type<material> _material;
+			type<types::material> _material;
 
 		public:
 			void save(os& file) const override {

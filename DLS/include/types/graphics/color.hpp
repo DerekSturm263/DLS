@@ -2,7 +2,7 @@
 
 #include "interfaces/serializable.hpp"
 
-namespace dls::graphics {
+namespace dls::graphics::types {
 	template <typename Precision>
 	class color : public serializable<color<Precision>> {
 		private:

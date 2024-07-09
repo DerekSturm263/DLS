@@ -5,7 +5,7 @@
 #include "quaternion.hpp"
 #include "matrix.hpp"
 
-namespace dls::math {
+namespace dls::math::types {
 	template <typename T, glm::length_t Size>
 	class transform : public serializable<transform<T, Size>> {
 		private:

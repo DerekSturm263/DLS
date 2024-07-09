@@ -30,6 +30,9 @@ namespace dls {
 					if (ifstream.is_open()) {
 						serializable_base::is archive{ ifstream };
 						archive(_value);
+					} else {
+						// TODO: Add debug message.
+						_value = val<T>{ def };
 					}
 				} catch (std::exception const& e) {
 					// TODO: Add debug message.
@@ -43,6 +46,8 @@ namespace dls {
 				if (ofstream.is_open()) {
 					serializable_base::os archive{ ofstream };
 					archive(_value);
+				} else {
+					// TODO: Add debug message.
 				}
 			}
 

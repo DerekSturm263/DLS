@@ -2,7 +2,7 @@
 
 #include "interfaces/serializable.hpp"
 
-namespace dls::nodes {
+namespace dls::nodes::types {
 	template <typename T>
 	class node : public serializable<node<T>> {
 		private:

@@ -8,7 +8,7 @@
 
 namespace dls::math::modules {
 	template <typename Decimal, glm::length_t Size>
-	class structure : public core::module<> {
+	class structure : public core::types::module<> {
 		public:
 			enum class passthrough_type {
 				stop = 1 << 0,
@@ -17,14 +17,14 @@ namespace dls::math::modules {
 			};
 
 		private:
-			type<graphics::mesh> _mesh;
+			type<graphics::types::mesh> _mesh;
 
-			type<shapes::polygon<Decimal, Size>> _collision_shape;
+			type<shapes::types::polygon<Decimal, Size>> _collision_shape;
 			type<passthrough_type> _passthrough_type;
 
-			type<events::event<void(collision_callback_context<math::vector<Decimal, Size>> const&)>> _on_collision_enter;
-			type<events::event<void(collision_callback_context<math::vector<Decimal, Size>> const&)>> _on_collision_tick;
-			type<events::event<void(collision_callback_context<math::vector<Decimal, Size>> const&)>> _on_collision_exit;
+			type<events::types::event<void(callbacks::collision_callback_context<Decimal, Size> const&)>> _on_collision_enter;
+			type<events::types::event<void(callbacks::collision_callback_context<Decimal, Size> const&)>> _on_collision_tick;
+			type<events::types::event<void(callbacks::collision_callback_context<Decimal, Size> const&)>> _on_collision_exit;
 
 			void save(os& file) const override {
 				file(CEREAL_NVP(_mesh));

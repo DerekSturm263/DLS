@@ -7,10 +7,10 @@
 
 namespace dls::state_machines::modules {
 	template <typename T>
-	class state_machine_resolver : public core::module<> {
+	class state_machine_resolver : public core::types::module<> {
 		private:
-			type<state_machine<T>> _state_machine;
-			type<events::event<void(T)>> _on_resolve;
+			type<types::state_machine<T>> _state_machine;
+			type<events::types::event<void(T)>> _on_resolve;
 
 		public:
 			void save(os& file) const override {

@@ -5,11 +5,11 @@
 #include "type templates/type_templates.hpp"
 #include "../math/vector.hpp"
 
-namespace dls::shapes {
+namespace dls::shapes::types {
 	template <typename T, std::size_t Size>
 	class rect : public serializable<rect<T, Size>> {
 		private:
-			type<vector<T, Size>> _corners[Size * 2];
+			type<math::types::vector<T, Size>> _corners[Size * 2];
 			
 		public:
 			rect() : _corners() { }

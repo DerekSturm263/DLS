@@ -2,7 +2,7 @@
 
 #include "interfaces/serializable.hpp"
 
-namespace dls::audio {
+namespace dls::audio::types {
 	class clip : public serializable<clip> {
 		public:
 			void save(os& file) const override {

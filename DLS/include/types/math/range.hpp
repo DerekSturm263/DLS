@@ -3,7 +3,7 @@
 #include "interfaces/serializable.hpp"
 #include "type templates/type_templates.hpp"
 
-namespace dls::math {
+namespace dls::math::types {
 	/// <summary>
 	/// Represents a range between a minimum and a maximum value.
 	/// </summary>

@@ -1,10 +1,9 @@
 #pragma once
 
 #include <vector>
-#include <optional>
 #include "interfaces/system.hpp"
 
-namespace dls::systems::systems {
+namespace dls::systems {
     class system_manager {
         private:
             std::vector<system_base*> _systems;

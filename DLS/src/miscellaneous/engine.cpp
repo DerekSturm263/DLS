@@ -1,35 +1,62 @@
 #include "miscellaneous/engine.hpp"
 
-#include "miscellaneous/game.hpp"
-
+#include "miscellaneous/math_defines.hpp"
 #include "systems/systems.hpp"
-#include "type templates/type_templates.hpp"
 #include "modules/modules.hpp"
 
 #include "types/core/project.hpp"
-#include "types/core/scene.hpp"
-#include "types/core/entity.hpp"
-#include "types/core/module.hpp"
+
+using aud = dls::audio::systems::audio<dls::math::decimal>;
+REGISTER_SYSTEM(aud);
+
+using sim = dls::math::systems::simulation<dls::math::decimal, dls::math::dimensions>;
+REGISTER_SYSTEM(sim);
+
+using tim = dls::time::systems::time<dls::math::decimal>;
+REGISTER_SYSTEM(tim);
+
+using phys = dls::math::modules::physics<dls::math::decimal, dls::math::dimensions>;
+REGISTER_MODULE(phys);
+
+using strct = dls::math::modules::structure<dls::math::decimal, dls::math::dimensions>;
+REGISTER_MODULE(strct);
+
+using trans = dls::math::modules::transform<dls::math::decimal, dls::math::dimensions>;
+REGISTER_MODULE(trans);
 
 namespace dls::engine {
 	int engine::execute(int argc, char* argv[]) {
-		game::game game = game::game{ std::vector<system_base*>{
-			debug::systems::debug::instance(),
-			window::systems::window::instance(),
-			time::systems::time::instance(),
-			audio::systems::audio::instance(),
-			math::systems::simulation<math::vector_t>::instance(),
-			math::systems::random::instance(),
-			core::systems::scene::instance(),
-			input::systems::input::instance(),
-		}};
+		asset<core::types::entity> ety{ "assets/entity1.entity.asset", core::types::entity{
+			graphics::modules::appearance{},
+			input::modules::input{},
+			phys{},
+			strct{},
+			trans{}
+		} };
 
-		asset<core::entity> ety{ "assets/entity1.entity.asset", core::entity{ input::modules::input{} } };
-		asset<core::scene> scn{ "assets/scene1.scene.asset", core::scene{ std::vector<val<core::entity>>{ ety.value() }}};
-		asset<core::project> prj{ "assets/project1.project.asset", core::project{ std::vector<val<core::scene>>{ scn.value() }}};
+		asset<core::types::scene> scn{ "assets/scene1.scene.asset", core::types::scene{ std::vector<val<core::types::entity>>{ ety.value() }}};
 
-		std::cout << ety.value().properties().at("name") << std::endl;
+		asset<core::types::project> prj{ "assets/project1.project.asset", core::types::project{ std::vector<val<core::types::scene>>{ scn.value() },
+			aud{},
+			debug::systems::debug{},
+			graphics::systems::graphics{},
+			input::systems::input{},
+			math::systems::random{},
+			core::systems::scene{},
+			sim{},
+			tim{},
+			graphics::systems::window{}
+		} };
 
+		std::cout << "Project:" << std::endl;
+		std::cout << prj.value() << std::endl;
+
+		std::cout << "Scene:" << std::endl;
+		std::cout << prj.value().scenes().at(0).value() << std::endl;
+
+		std::cout << "Entity:" << std::endl;
+		std::cout << prj.value().scenes().at(0).value().entities().at(0).value() << std::endl;
+		
 		return 0;
 	}
 }

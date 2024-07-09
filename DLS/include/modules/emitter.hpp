@@ -4,9 +4,9 @@
 #include "type templates/type_templates.hpp"
 #include "types/core/entity.hpp"
 
-namespace dls::emitter::modules {
+namespace dls::miscellaneous::modules {
 	template <typename T>
-	class emitter : public core::module<> {
+	class emitter : public core::types::module<> {
 		private:
 			type<T> _to_emit;
 
