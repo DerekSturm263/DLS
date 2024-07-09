@@ -24,6 +24,11 @@ namespace dls::core {
 					_entities.value().push_back(ref<entity>{ety});
 				}
 			}
+			scene(std::vector<ref<entity>> const& entities) : _entities() {
+				for (auto& ety : entities) {
+					_entities.value().push_back(ety);
+				}
+			}
 
 			std::vector<ref<entity>> const& entities() const {
 				return _entities.value();

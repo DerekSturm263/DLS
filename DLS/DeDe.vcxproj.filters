@@ -24,13 +24,10 @@
     <ClCompile Include="src\stb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\systems\debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\miscellaneous\engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\systems\system_manager.cpp">
+    <ClCompile Include="src\miscellaneous\system_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\systems\random.cpp">
@@ -263,10 +260,10 @@
     <ClInclude Include="include\systems\debug.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\systems\graphics.hpp">
+    <ClInclude Include="include\miscellaneous\graphics.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\systems\gui.hpp">
+    <ClInclude Include="include\miscellaneous\gui.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\systems\input.hpp">
@@ -275,22 +272,19 @@
     <ClInclude Include="include\systems\random.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\systems\receive.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\systems\scene_manager.hpp">
+    <ClInclude Include="include\systems\scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\systems\simulation.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\systems\system_manager.hpp">
+    <ClInclude Include="include\miscellaneous\system_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\systems\time.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\systems\window_manager.hpp">
+    <ClInclude Include="include\systems\window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\nodes\node.hpp">

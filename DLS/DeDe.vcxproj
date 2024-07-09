@@ -170,17 +170,16 @@
     <ClInclude Include="include\modules\node_group_resolver.hpp" />
     <ClInclude Include="include\systems\audio.hpp" />
     <ClInclude Include="include\systems\debug.hpp" />
-    <ClInclude Include="include\systems\graphics.hpp" />
-    <ClInclude Include="include\systems\gui.hpp" />
+    <ClInclude Include="include\miscellaneous\graphics.hpp" />
+    <ClInclude Include="include\miscellaneous\gui.hpp" />
     <ClInclude Include="include\systems\input.hpp" />
     <ClInclude Include="include\systems\random.hpp" />
-    <ClInclude Include="include\systems\receive.hpp" />
-    <ClInclude Include="include\systems\scene_manager.hpp" />
+    <ClInclude Include="include\systems\scene.hpp" />
     <ClInclude Include="include\systems\simulation.hpp" />
     <ClInclude Include="include\systems\systems.hpp" />
-    <ClInclude Include="include\systems\system_manager.hpp" />
+    <ClInclude Include="include\miscellaneous\system_manager.hpp" />
     <ClInclude Include="include\systems\time.hpp" />
-    <ClInclude Include="include\systems\window_manager.hpp" />
+    <ClInclude Include="include\systems\window.hpp" />
     <ClInclude Include="include\types\animation\animation.hpp" />
     <ClInclude Include="include\modules\appearance.hpp" />
     <ClInclude Include="include\type templates\asset.hpp" />
@@ -258,9 +257,8 @@
     <ClInclude Include="include\miscellaneous\window.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\systems\debug.cpp" />
     <ClCompile Include="src\miscellaneous\engine.cpp" />
-    <ClCompile Include="src\systems\system_manager.cpp" />
+    <ClCompile Include="src\miscellaneous\system_manager.cpp" />
     <ClCompile Include="src\glad.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\systems\random.cpp" />

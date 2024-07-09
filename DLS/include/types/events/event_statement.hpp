@@ -11,7 +11,7 @@ namespace dls::events {
 	class event_statement : public serializable<TFunc> {
 		private:
 			ref<core::module_base> _module;
-			unique_base::guid _function_index;
+			unique_base::guid_type _function_index;
 
 		public:
 			/*auto invoke(tick& tick, std::vector<void*> const& args) {

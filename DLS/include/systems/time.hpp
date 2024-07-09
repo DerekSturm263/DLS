@@ -3,8 +3,7 @@
 #include "interfaces/system.hpp"
 
 namespace dls::time::systems {
-	class time : public system {
-        protected:
+	class time : public system<time> {
 
 	};
 }

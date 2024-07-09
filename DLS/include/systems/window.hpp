@@ -3,8 +3,7 @@
 #include "interfaces/system.hpp"
 
 namespace dls::window::systems {
-	class window_manager : public system {
-        protected:
+	class window : public system<window> {
 
 	};
 }
