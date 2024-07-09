@@ -11,7 +11,7 @@ DLS is a lightweight game engine where users can create any type of game without
 - Generic design: All modules, systems, and types have been built to be as generic as possible. A map of entity refs to strings? Sure. A state machine that returns an audio clip? Easy.
 - Lightweight: JSON files are used to store everything related to the game, meaning that loading is quick and that it's technically possible to edit the files without ever using the GUI.
 - Easy to use: The built-in modules have all the events and settings you would ever need to create complex games. If you ever needed to, there is a guide on creating custom modules.
-- Multithreaded: Each system is completely standalone, meaning that each can be run in its own thread. Allowing your computer to work as hard as it needs to.
+- Multithreaded: Each system is completely standalone, meaning that each can be run in its own thread. Allowing your CPU to work as efficiently as possible.
 - Intuitive GUI: One of our biggest focuses was on creating a GUI that's easy to use. Easily switch scenes, create assets, and look like a pro while doing it.
 - Built-in editors: Never have to leave DLS to create assets for your game. DLS has a built-in image editor, audio editor, and more.
 
