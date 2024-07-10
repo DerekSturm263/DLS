@@ -1,0 +1,247 @@
+{
+    "value0": {
+        "_id": 23986,
+        "_sync_type": 1,
+        "_value": {
+            "_systems": {
+                "_id": 4639,
+                "_sync_type": 1,
+                "_value": [
+                    {
+                        "_id": 9930,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "Audio",
+                            "ptr_wrapper": {
+                                "id": 2147483649,
+                                "data": {
+                                    "_volume": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 27446,
+                                                "_sync_type": 1,
+                                                "_value": 0.0
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "_id": 13977,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483650,
+                            "polymorphic_name": "Debug",
+                            "ptr_wrapper": {
+                                "id": 2147483650,
+                                "data": {
+                                    "_file_name": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 24370,
+                                                "_sync_type": 1,
+                                                "_value": ""
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "_id": 2306,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483651,
+                            "polymorphic_name": "Graphics",
+                            "ptr_wrapper": {
+                                "id": 2147483651,
+                                "data": {}
+                            }
+                        }
+                    },
+                    {
+                        "_id": 31673,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483652,
+                            "polymorphic_name": "Input",
+                            "ptr_wrapper": {
+                                "id": 2147483652,
+                                "data": {}
+                            }
+                        }
+                    },
+                    {
+                        "_id": 22386,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483653,
+                            "polymorphic_name": "Random",
+                            "ptr_wrapper": {
+                                "id": 2147483653,
+                                "data": {
+                                    "_seed": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 12623,
+                                                "_sync_type": 1,
+                                                "_value": 0
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "_id": 5021,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483654,
+                            "polymorphic_name": "Save Data",
+                            "ptr_wrapper": {
+                                "id": 2147483654,
+                                "data": {}
+                            }
+                        }
+                    },
+                    {
+                        "_id": 28745,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483655,
+                            "polymorphic_name": "Scene",
+                            "ptr_wrapper": {
+                                "id": 2147483655,
+                                "data": {}
+                            }
+                        }
+                    },
+                    {
+                        "_id": 26924,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483656,
+                            "polymorphic_name": "Simulation",
+                            "ptr_wrapper": {
+                                "id": 2147483656,
+                                "data": {}
+                            }
+                        }
+                    },
+                    {
+                        "_id": 19072,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483657,
+                            "polymorphic_name": "Time",
+                            "ptr_wrapper": {
+                                "id": 2147483657,
+                                "data": {
+                                    "_scale": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 21538,
+                                                "_sync_type": 1,
+                                                "_value": 0.0
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    },
+                                    "_tick_rate": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 16118,
+                                                "_sync_type": 1,
+                                                "_value": 0
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "_id": 6270,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483658,
+                            "polymorphic_name": "Window",
+                            "ptr_wrapper": {
+                                "id": 2147483658,
+                                "data": {
+                                    "_title": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 4833,
+                                                "_sync_type": 1,
+                                                "_value": ""
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    },
+                                    "_icon": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 31115,
+                                                "_sync_type": 1,
+                                                "_value": {}
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "_scenes": {
+                "_id": 29658,
+                "_sync_type": 1,
+                "_value": {
+                    "_states": [
+                        {
+                            "_internal": {
+                                "index": 0,
+                                "data": {
+                                    "_id": 5829,
+                                    "_sync_type": 1,
+                                    "_value": {
+                                        "_value": {
+                                            "_id": 1842
+                                        }
+                                    }
+                                }
+                            },
+                            "_is_ref": false
+                        }
+                    ],
+                    "_transitions": []
+                }
+            },
+            "_properties": {
+                "_id": 22704,
+                "_sync_type": 1,
+                "_value": {
+                    "_properties": []
+                }
+            }
+        }
+    }
+}

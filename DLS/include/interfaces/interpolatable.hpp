@@ -1,12 +1,10 @@
 #pragma once
 
-#include "miscellaneous/math_defines.hpp"
-
 namespace dls::math::interfaces {
-	template <typename T>
+	template <typename Decimal, typename TSelf>
 	class interpolatable {
         protected:
-			virtual T lerp(T const&, math::decimal) const = 0;
-			virtual math::decimal inverse_lerp(T const&, T const&) const = 0;
+			virtual TSelf lerp(TSelf const&, Decimal) const = 0;
+			virtual Decimal inverse_lerp(TSelf const&, TSelf const&) const = 0;
 	};
 }

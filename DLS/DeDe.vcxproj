@@ -164,15 +164,14 @@
     <ClInclude Include="include\miscellaneous\engine.hpp" />
     <ClInclude Include="include\miscellaneous\game.hpp" />
     <ClInclude Include="include\miscellaneous\math_defines.hpp" />
-    <ClInclude Include="include\miscellaneous\save_data.hpp" />
     <ClInclude Include="include\modules\modules.hpp" />
     <ClInclude Include="include\modules\node_group_resolver.hpp" />
     <ClInclude Include="include\systems\audio.hpp" />
     <ClInclude Include="include\systems\debug.hpp" />
     <ClInclude Include="include\miscellaneous\graphics.hpp" />
-    <ClInclude Include="include\miscellaneous\gui.hpp" />
     <ClInclude Include="include\systems\input.hpp" />
     <ClInclude Include="include\systems\random.hpp" />
+    <ClInclude Include="include\systems\save_data.hpp" />
     <ClInclude Include="include\systems\scene.hpp" />
     <ClInclude Include="include\systems\simulation.hpp" />
     <ClInclude Include="include\systems\systems.hpp" />

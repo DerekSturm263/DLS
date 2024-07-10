@@ -24,6 +24,7 @@ namespace dls::engine {
 			graphics::systems::graphics{},
 			input::systems::input{},
 			math::systems::random{},
+			serialization::systems::save_data{},
 			core::systems::scene{},
 			simulation::systems::simulation_t{},
 			time::systems::time_t{},
