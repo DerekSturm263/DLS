@@ -2,7 +2,7 @@
 
 #include "systems/random.hpp";
 
-namespace dls {
+namespace dls::math::interfaces {
 	template <typename T>
 	class randomly_generatable {
         protected:

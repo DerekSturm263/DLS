@@ -1,12 +1,13 @@
 #pragma once
 
+#include "miscellaneous/math_defines.hpp"
 #include "types/core/module.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 #include "types/graphics/mesh.hpp"
 #include "types/shapes/polygon.hpp"
 #include "callbacks/collision_callback_context.hpp"
 
-namespace dls::math::modules {
+namespace dls::simulation::modules {
 	template <typename Decimal, glm::length_t Size>
 	class structure : public core::types::module<> {
 		public:
@@ -17,19 +18,19 @@ namespace dls::math::modules {
 			};
 
 		private:
-			type<graphics::types::mesh> _mesh;
+			core::wrappers::type<graphics::types::mesh> _mesh;
 
-			type<shapes::types::polygon<Decimal, Size>> _collision_shape;
-			type<passthrough_type> _passthrough_type;
+			core::wrappers::type<shapes::types::polygon<Decimal, Size>> _collision_shape;
+			core::wrappers::type<passthrough_type> _passthrough_method;
 
-			type<events::types::event<void(callbacks::collision_callback_context<Decimal, Size> const&)>> _on_collision_enter;
-			type<events::types::event<void(callbacks::collision_callback_context<Decimal, Size> const&)>> _on_collision_tick;
-			type<events::types::event<void(callbacks::collision_callback_context<Decimal, Size> const&)>> _on_collision_exit;
+			core::wrappers::type<events::types::event<void(callbacks::collision_callback_context<Decimal, Size> const&)>> _on_collision_enter;
+			core::wrappers::type<events::types::event<void(callbacks::collision_callback_context<Decimal, Size> const&)>> _on_collision_tick;
+			core::wrappers::type<events::types::event<void(callbacks::collision_callback_context<Decimal, Size> const&)>> _on_collision_exit;
 
 			void save(os& file) const override {
 				file(CEREAL_NVP(_mesh));
 				file(CEREAL_NVP(_collision_shape));
-				file(CEREAL_NVP(_passthrough_type));
+				file(CEREAL_NVP(_passthrough_method));
 				file(CEREAL_NVP(_on_collision_enter));
 				file(CEREAL_NVP(_on_collision_tick));
 				file(CEREAL_NVP(_on_collision_exit));
@@ -38,10 +39,23 @@ namespace dls::math::modules {
 			void load(is& file) override {
 				file(_mesh);
 				file(_collision_shape);
-				file(_passthrough_type);
+				file(_passthrough_method);
 				file(_on_collision_enter);
 				file(_on_collision_tick);
 				file(_on_collision_exit);
 			}
+
+			void draw(std::string const& label) const override {
+				_mesh.draw("Mesh");
+				_collision_shape.draw("Collision Shape");
+				_passthrough_method.draw("Passthrough Method");
+				_on_collision_enter.draw("On Collision Enter");
+				_on_collision_tick.draw("On Collision Tick");
+				_on_collision_exit.draw("On Collision Exit");
+			}
 	};
+
+	using structure_t = structure<math::decimal, math::dimensions>;
 }
+
+REGISTER_MODULE("Structure", dls::simulation::modules::structure_t);

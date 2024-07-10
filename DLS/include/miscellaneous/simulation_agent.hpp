@@ -4,20 +4,20 @@
 #include "modules/physics.hpp"
 #include "modules/structure.hpp"
 
-namespace dls::math {
+namespace dls::simulation::systems {
 	template <typename Decimal, glm::length_t Size>
 	class simulation_agent {
 		public:
-			modules::transform<Decimal, Size>& trans;
+			math::modules::transform<Decimal, Size>& trans;
 			modules::physics<Decimal, Size>& phys;
 			modules::structure<Decimal, Size>& strct;
 
-			types::vector<Decimal, Size> initial_pos;
-			types::vector<Decimal, Size> initial_speed;
-			types::vector<Decimal, Size> acceleration;
+			math::types::vector<Decimal, Size> initial_pos;
+			math::types::vector<Decimal, Size> initial_speed;
+			math::types::vector<Decimal, Size> acceleration;
 
 			simulation_agent(
-				modules::transform<Decimal, Size> const& trans,
+				math::modules::transform<Decimal, Size> const& trans,
 				modules::physics<Decimal, Size> const& phys,
 				modules::structure<Decimal, Size> const& strct
 			) : trans(trans), phys(phys), strct(strct) { }

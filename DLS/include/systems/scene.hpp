@@ -1,9 +1,47 @@
 #pragma once
 
-#include "interfaces/system.hpp"
+#include "types/core/system.hpp"
+
+namespace dls::core::functions {
+	class load : public interfaces::function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+
+			void draw(std::string const& label) const override {
+
+			}
+	};
+
+	class spawn : public interfaces::function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+
+			void draw(std::string const& label) const override {
+
+			}
+	};
+
+	class despawn : public interfaces::function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+
+			void draw(std::string const& label) const override {
+
+			}
+	};
+}
 
 namespace dls::core::systems {
-	class scene : public system<> {
+	class scene : public core::types::system<functions::load, functions::spawn, functions::despawn> {
+		//private:
+			//std::vector<wrappers::val<types::entity>> _entities;
+
 		public:
 			void save(os& file) const override {
 
@@ -12,5 +50,11 @@ namespace dls::core::systems {
 			void load(is& file) override {
 
 			}
+
+			void draw(std::string const& label) const override {
+
+			}
 	};
 }
+
+REGISTER_SYSTEM("Scene", dls::core::systems::scene);

@@ -4,7 +4,7 @@
 
 namespace dls::graphics::types {
 	template <typename Precision>
-	class color : public serializable<color<Precision>> {
+	class color : public core::interfaces::serializable<color<Precision>> {
 		private:
 			Precision _vals[4];
 
@@ -45,12 +45,16 @@ namespace dls::graphics::types {
 				return _vals[3];
 			}
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_vals));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				file(_vals);
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

@@ -2,28 +2,37 @@
 
 #include <random>
 #include <limits>
-#include "interfaces/system.hpp"
+#include "wrappers/wrappers.hpp"
+#include "types/core/system.hpp"
 
 namespace dls::math::functions {
-	class next : public function {
+	class next : public core::interfaces::function {
 		public:
 			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
+
+            void draw(std::string const& label) const override {
+
+            }
 	};
 
-	class next_range : public function {
+	class next_range : public core::interfaces::function {
 		public:
 			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
+
+            void draw(std::string const& label) const override {
+
+            }
 	};
 }
 
 namespace dls::math::systems {
-	class random : public system<functions::next, functions::next_range> {
+	class random : public core::types::system<functions::next, functions::next_range> {
         private:
-            unsigned int _seed;
+            core::wrappers::type<unsigned int> _seed;
             std::default_random_engine _engine;
 
         public:
@@ -73,5 +82,11 @@ namespace dls::math::systems {
 			void load(serializable_base::is& file) override {
                 file(_seed);
 			}
+
+            void draw(std::string const& label) const override {
+                _seed.draw("Seed");
+            }
 	};
 }
+
+REGISTER_SYSTEM("Random", dls::math::systems::random);

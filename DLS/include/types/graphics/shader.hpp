@@ -4,7 +4,7 @@
 #include "interfaces/serializable.hpp"
 
 namespace dls::graphics::types {
-	class shader : public serializable<shader> {
+	class shader : public core::interfaces::serializable<shader> {
 		public:
 			using any = std::variant<int>;
 
@@ -16,12 +16,16 @@ namespace dls::graphics::types {
 
 			}
 
-			void save(os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				
 			}
 
-			void load(is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

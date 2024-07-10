@@ -1,7 +1,7 @@
 #pragma once
 
 #include "types/core/module.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 #include "types/state machines/state_machine.hpp"
 #include "types/events/event.hpp"
 
@@ -9,8 +9,8 @@ namespace dls::state_machines::modules {
 	template <typename T>
 	class state_machine_resolver : public core::types::module<> {
 		private:
-			type<types::state_machine<T>> _state_machine;
-			type<events::types::event<void(T)>> _on_resolve;
+			core::wrappers::type<types::state_machine<T>> _state_machine;
+			core::wrappers::type<events::types::event<void(T)>> _on_resolve;
 
 		public:
 			void save(os& file) const override {
@@ -21,6 +21,11 @@ namespace dls::state_machines::modules {
 			void load(is& file) override {
 				file(_state_machine);
 				file(_on_resolve);
+			}
+
+			void draw(std::string const& label) const override {
+				_state_machine.draw("State Machine");
+				_on_resolve.draw("On Resolve");
 			}
 	};
 }

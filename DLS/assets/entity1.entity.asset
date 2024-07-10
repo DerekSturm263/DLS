@@ -1,0 +1,85 @@
+{
+    "value0": {
+        "_id": 32757,
+        "_sync_type": 1,
+        "_value": {
+            "_name": {
+                "_id": 21726,
+                "_sync_type": 1,
+                "_value": "My Entity"
+            },
+            "_modules": {
+                "_id": 14771,
+                "_sync_type": 1,
+                "_value": [
+                    {
+                        "_id": 9894,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483649,
+                            "polymorphic_name": "Appearance",
+                            "ptr_wrapper": {
+                                "id": 2147483649,
+                                "data": {
+                                    "_material": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 6334,
+                                                "_sync_type": 1,
+                                                "_value": {
+                                                    "_shader": {
+                                                        "_internal": {
+                                                            "index": 0,
+                                                            "data": {
+                                                                "_id": 26500,
+                                                                "_sync_type": 1,
+                                                                "_value": {}
+                                                            }
+                                                        },
+                                                        "_is_ref": false
+                                                    },
+                                                    "_settings": {
+                                                        "_internal": {
+                                                            "index": 0,
+                                                            "data": {
+                                                                "_id": 19169,
+                                                                "_sync_type": 1,
+                                                                "_value": {}
+                                                            }
+                                                        },
+                                                        "_is_ref": false
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "_id": 28703,
+                        "_sync_type": 1,
+                        "_value": {
+                            "polymorphic_id": 2147483650,
+                            "polymorphic_name": "Input",
+                            "ptr_wrapper": {
+                                "id": 2147483650,
+                                "data": {
+                                    "_actions": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 29358,
+                                                "_sync_type": 1,
+                                                "_value": []
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    }
+                                }
+                            }
+                        }
+                    

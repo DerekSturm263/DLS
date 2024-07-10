@@ -4,7 +4,7 @@
 
 namespace dls::math::types {
 	template <typename T, std::size_t Precision>
-	class fixed : public serializable<fixed<T, Precision>> {
+	class fixed : public core::interfaces::serializable<fixed<T, Precision>> {
 		private:
 			T _internal;
 
@@ -105,12 +105,16 @@ namespace dls::math::types {
 				return _internal / static_cast<double>(Precision);
 			}
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_internal));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				file(_internal);
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 

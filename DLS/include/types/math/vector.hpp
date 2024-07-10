@@ -6,7 +6,7 @@
 
 namespace dls::math::types {
 	template <typename T, glm::length_t Size>
-	class vector : public serializable<vector<T, Size>>, public glm::vec<Size, T, glm::packed_highp> {
+	class vector : public core::interfaces::serializable<vector<T, Size>>, public glm::vec<Size, T, glm::packed_highp> {
 		public:
 			vector() : glm::vec<Size, T, glm::packed_highp>(0) { }
 			
@@ -37,16 +37,20 @@ namespace dls::math::types {
 				return *this;
 			}
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				for (int i = 0; i < Size; ++i) {
 					file((*this)[i]);
 				}
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				for (int i = 0; i < Size; ++i) {
 					file((*this)[i]);
 				}
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 

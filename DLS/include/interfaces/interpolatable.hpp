@@ -2,7 +2,7 @@
 
 #include "miscellaneous/math_defines.hpp"
 
-namespace dls {
+namespace dls::math::interfaces {
 	template <typename T>
 	class interpolatable {
         protected:

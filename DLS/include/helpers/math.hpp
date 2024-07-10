@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dls {
+namespace dls::math::helpers {
 	class math {
         public:
 			template <typename T>

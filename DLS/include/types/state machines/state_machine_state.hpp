@@ -4,7 +4,7 @@
 
 namespace dls::state_machines::types {
 	template <typename T>
-	class state_machine_state : public serializable<state_machine_state<T>> {
+	class state_machine_state : public core::interfaces::serializable<state_machine_state<T>> {
 		private:
 			T _value;
 
@@ -20,12 +20,16 @@ namespace dls::state_machines::types {
 				return _value;
 			}
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_value));
 			}
 
-			void load(serializable_base::is& file) override {
-				file(CEREAL_NVP(_value));
+			void load(core::interfaces::serializable_base::is& file) override {
+				file(_value);
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

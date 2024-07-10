@@ -4,7 +4,7 @@
 
 namespace dls::miscellaneous::types {
 	template <typename T>
-	class mask : public serializable<mask<T>> {
+	class mask : public core::interfaces::serializable<mask<T>> {
 		private:
 			std::size_t _mask;
 			std::vector<T> _values;
@@ -22,14 +22,18 @@ namespace dls::miscellaneous::types {
 				return output;
 			}
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_mask));
 				file(CEREAL_NVP(_values));
 			}
 
-			void load(serializable_base::is& file) override {
-				file(CEREAL_NVP(_mask));
-				file(CEREAL_NVP(_values));
+			void load(core::interfaces::serializable_base::is& file) override {
+				file(_mask);
+				file(_values);
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

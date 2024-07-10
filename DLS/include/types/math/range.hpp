@@ -1,7 +1,7 @@
 #pragma once
 
 #include "interfaces/serializable.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 
 namespace dls::math::types {
 	/// <summary>
@@ -9,10 +9,10 @@ namespace dls::math::types {
 	/// </summary>
 	/// <typeparam name="T">The type for the range. Must have an subtraction operator overload.</typeparam>
 	template <typename T>
-	class range : public serializable<range<T>> {
+	class range : public core::interfaces::serializable<range<T>> {
 		private:
-			type<T> _min;
-			type<T> _max;
+			core::wrappers::type<T> _min;
+			core::wrappers::type<T> _max;
 
 		public:
 			T const& min() const {
@@ -35,14 +35,19 @@ namespace dls::math::types {
 				return _max.value() - _min.value();
 			}
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_min));
 				file(CEREAL_NVP(_max));
 			}
 
-			void load(serializable_base::is& file) override {
-				file(CEREAL_NVP(_min));
-				file(CEREAL_NVP(_max));
+			void load(core::interfaces::serializable_base::is& file) override {
+				file(_min);
+				file(_max);
+			}
+
+			void draw(std::string const& label) const override {
+				_min.draw("Min");
+				_max.draw("Max");
 			}
 	};
 }

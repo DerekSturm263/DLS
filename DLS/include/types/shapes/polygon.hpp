@@ -2,25 +2,31 @@
 
 #include <vector>
 #include "interfaces/serializable.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 #include "../math/vector.hpp"
 
 namespace dls::shapes::types {
 	template <typename T, std::size_t Size>
-	class polygon : public serializable<polygon<T, Size>> {
+	class polygon : public core::interfaces::serializable<polygon<T, Size>> {
 		private:
-			std::vector<type<math::types::vector<T, Size>>> _points;
+			std::vector<core::wrappers::type<math::types::vector<T, Size>>> _points;
 			
 		public:
 			polygon() : _points() { }
-			polygon(std::vector<type<math::types::vector<T, Size>>> const& points) : _points(points) { }
+			polygon(std::vector<core::wrappers::type<math::types::vector<T, Size>>> const& points) : _points(points) { }
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_points));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				file(CEREAL_NVP(_points));
+			}
+
+			void draw(std::string const& label) const override {
+				for (auto& point : _points) {
+					point.draw("Point");
+				}
 			}
 	};
 }

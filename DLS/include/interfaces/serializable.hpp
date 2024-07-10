@@ -8,16 +8,16 @@
 #include <cereal/types/variant.hpp>
 #include <cereal/types/map.hpp>
 #include <cereal/types/utility.hpp>
+#include "gui_drawable.hpp"
 
-namespace dls {
-	class serializable_base {
+namespace dls::core::interfaces {
+	class serializable_base : public gui::interfaces::gui_drawable {
         public:
 			using os = cereal::JSONOutputArchive;
 			using is = cereal::JSONInputArchive;
 			
 			virtual void save(os&) const = 0;
 			virtual void load(is&) = 0;
-			virtual void draw() { }
 	};
 
 	template <typename TSelf>

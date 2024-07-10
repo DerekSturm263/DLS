@@ -13,5 +13,3 @@
 #include "timer.hpp"
 #include "transform.hpp"
 #include "ui_element.hpp"
-
-REGISTER_MODULE(dls::graphics::modules::appearance);

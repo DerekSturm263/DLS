@@ -3,13 +3,17 @@
 #include "interfaces/serializable.hpp"
 
 namespace dls::audio::types {
-	class clip : public serializable<clip> {
+	class clip : public core::interfaces::serializable<clip> {
 		public:
-			void save(os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 
 			}
 
-			void load(is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
+
+			}
+
+			void draw(std::string const& label) const override {
 
 			}
 	};

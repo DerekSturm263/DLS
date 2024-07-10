@@ -5,21 +5,22 @@
 #include "val.hpp"
 #include "ref.hpp"
 
-namespace dls {
+namespace dls::core::wrappers {
 	/// <summary>
 	/// Stores a reference to or value of for any given serializable value. This can be changed at edit-time but not run-time
 	/// </summary>
 	/// <typeparam name="T">Type to reference or store (must be serializable)</typeparam>
 	template <typename T>
-	class t : public serializable<t<T>> {
+	class type : public interfaces::serializable<type<T>> {
 		private:
 			std::variant<val<T>, ref<T>> _internal;
 			bool _is_ref;
 
 		public:
-			t() : _internal(val<T>{}), _is_ref(false) { }
-			t(val<T> const&& value) : _internal(value), _is_ref(false) { }
-			t(ref<T> const&& reference) : _internal(reference), _is_ref(true) { }
+			type() : _internal(val<T>{}), _is_ref(false) { }
+			type(T const&& value) : _internal(val<T>{ value }), _is_ref(false) { }
+			type(val<T> const&& value) : _internal(value), _is_ref(false) { }
+			type(ref<T> const&& reference) : _internal(reference), _is_ref(true) { }
 
 			T const& value() const {
 				if (_is_ref)
@@ -35,14 +36,18 @@ namespace dls {
 					return std::get<val<T>>(_internal).value();
 			}
 
-			void save(serializable_base::os& file) const override {
+			void save(interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_internal));
 				file(CEREAL_NVP(_is_ref));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(interfaces::serializable_base::is& file) override {
 				file(_internal);
 				file(_is_ref);
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

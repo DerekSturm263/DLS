@@ -6,7 +6,7 @@
 #include "val.hpp"
 #include "instance.hpp"
 
-namespace dls {
+namespace dls::core::wrappers {
 	/// <summary>
 	/// Stores any given serializable value as a readonly asset in the file explorer
 	/// </summary>
@@ -28,7 +28,7 @@ namespace dls {
 					std::ifstream ifstream{ file_path };
 
 					if (ifstream.is_open()) {
-						serializable_base::is archive{ ifstream };
+						interfaces::serializable_base::is archive{ ifstream };
 						archive(_value);
 					} else {
 						// TODO: Add debug message.
@@ -44,7 +44,7 @@ namespace dls {
 				std::ofstream ofstream{ _file_path };
 
 				if (ofstream.is_open()) {
-					serializable_base::os archive{ ofstream };
+					interfaces::serializable_base::os archive{ ofstream };
 					archive(_value);
 				} else {
 					// TODO: Add debug message.

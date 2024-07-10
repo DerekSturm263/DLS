@@ -161,7 +161,6 @@
     <None Include="lib\glm\gtx\wrap.inl" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\interfaces\singleton.hpp" />
     <ClInclude Include="include\miscellaneous\engine.hpp" />
     <ClInclude Include="include\miscellaneous\game.hpp" />
     <ClInclude Include="include\miscellaneous\math_defines.hpp" />
@@ -182,7 +181,6 @@
     <ClInclude Include="include\systems\window.hpp" />
     <ClInclude Include="include\types\animation\animation.hpp" />
     <ClInclude Include="include\modules\appearance.hpp" />
-    <ClInclude Include="include\type templates\asset.hpp" />
     <ClInclude Include="include\types\audio\clip.hpp" />
     <ClInclude Include="include\callbacks\collision_callback_context.hpp" />
     <ClInclude Include="include\types\graphics\color.hpp" />
@@ -202,7 +200,6 @@
     <ClInclude Include="include\types\input\input_trigger.hpp" />
     <ClInclude Include="include\callbacks\input_callback_context.hpp" />
     <ClInclude Include="include\types\input\input_event_group.hpp" />
-    <ClInclude Include="include\type templates\instance.hpp" />
     <ClInclude Include="include\interfaces\interpolatable.hpp" />
     <ClInclude Include="include\types\animation\keyframe_data.hpp" />
     <ClInclude Include="include\modules\layout.hpp" />
@@ -213,8 +210,6 @@
     <ClInclude Include="include\types\math\matrix.hpp" />
     <ClInclude Include="include\types\graphics\mesh.hpp" />
     <ClInclude Include="include\types\core\module.hpp" />
-    <ClInclude Include="include\interfaces\system.hpp" />
-    <ClInclude Include="include\type templates\optional.hpp" />
     <ClInclude Include="include\modules\physics.hpp" />
     <ClInclude Include="include\types\nodes\node.hpp" />
     <ClInclude Include="include\types\nodes\node_group.hpp" />
@@ -228,8 +223,6 @@
     <ClInclude Include="include\interfaces\randomly_generatable.hpp" />
     <ClInclude Include="include\types\math\range.hpp" />
     <ClInclude Include="include\modules\receiver.hpp" />
-    <ClInclude Include="include\type templates\ref.hpp" />
-    <ClInclude Include="include\type templates\required.hpp" />
     <ClInclude Include="include\miscellaneous\simulation_agent.hpp" />
     <ClInclude Include="include\types\core\scene.hpp" />
     <ClInclude Include="include\modules\sender.hpp" />
@@ -241,20 +234,25 @@
     <ClInclude Include="include\types\state machines\state_machine_state.hpp" />
     <ClInclude Include="include\types\state machines\state_machine_transition.hpp" />
     <ClInclude Include="include\modules\structure.hpp" />
-    <ClInclude Include="include\type templates\t.hpp" />
     <ClInclude Include="include\types\graphics\texture.hpp" />
     <ClInclude Include="include\miscellaneous\tick.hpp" />
     <ClInclude Include="include\modules\timer.hpp" />
     <ClInclude Include="include\types\math\transform.hpp" />
     <ClInclude Include="include\modules\transform.hpp" />
-    <ClInclude Include="include\type templates\type_templates.hpp" />
     <ClInclude Include="include\modules\ui_element.hpp" />
     <ClInclude Include="include\callbacks\ui_element_callback_context.hpp" />
     <ClInclude Include="include\interfaces\unique.hpp" />
-    <ClInclude Include="include\type templates\val.hpp" />
     <ClInclude Include="include\types\miscellaneous\variants.hpp" />
     <ClInclude Include="include\types\math\vector.hpp" />
     <ClInclude Include="include\miscellaneous\window.hpp" />
+    <ClInclude Include="include\wrappers\asset.hpp" />
+    <ClInclude Include="include\wrappers\instance.hpp" />
+    <ClInclude Include="include\wrappers\optional.hpp" />
+    <ClInclude Include="include\wrappers\ref.hpp" />
+    <ClInclude Include="include\wrappers\required.hpp" />
+    <ClInclude Include="include\wrappers\type.hpp" />
+    <ClInclude Include="include\wrappers\val.hpp" />
+    <ClInclude Include="include\wrappers\wrappers.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\miscellaneous\engine.cpp" />

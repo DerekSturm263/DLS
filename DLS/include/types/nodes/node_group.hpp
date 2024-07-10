@@ -3,20 +3,24 @@
 #include <vector>
 #include "interfaces/serializable.hpp"
 #include "node.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 
 namespace dls::nodes::types {
 	template <typename T>
-	class node_group : public serializable<node_group<T>> {
+	class node_group : public core::interfaces::serializable<node_group<T>> {
 		private:
 			std::vector<node<T>> _nodes;
 
 		public:
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
+
+			}
+
+			void draw(std::string const& label) const override {
 
 			}
 	};

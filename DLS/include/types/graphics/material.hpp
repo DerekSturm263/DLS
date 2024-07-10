@@ -2,15 +2,15 @@
 
 #include <string>
 #include "interfaces/serializable.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 #include "shader.hpp"
 #include "material_settings.hpp"
 
 namespace dls::graphics::types {
-	class material : public serializable<material> {
+	class material : public core::interfaces::serializable<material> {
 		private:
-			type<shader> _shader;
-			type<material_settings> _settings;
+			core::wrappers::type<shader> _shader;
+			core::wrappers::type<material_settings> _settings;
 
 		public:
 			template <typename T>
@@ -34,6 +34,11 @@ namespace dls::graphics::types {
 			void load(is& file) override {
 				file(CEREAL_NVP(_shader));
 				file(CEREAL_NVP(_settings));
+			}
+
+			void draw(std::string const& label) const override {
+				_shader.draw("Shader");
+				_settings.draw("Settings");
 			}
 	};
 }

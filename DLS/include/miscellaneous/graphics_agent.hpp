@@ -3,7 +3,7 @@
 #include "types/graphics/material.hpp"
 #include "types/graphics/mesh.hpp"
 
-namespace dls::graphics {
+namespace dls::graphics::systems {
 	class graphics_agent {
 		public:
 			types::material const& material;

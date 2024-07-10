@@ -2,14 +2,14 @@
 
 #include <vector>
 #include "interfaces/serializable.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 #include "event_func.hpp"
 
 namespace dls::events::types {
 	template <typename TFunc>
-	class event : public serializable<event<TFunc>> {
+	class event : public core::interfaces::serializable<event<TFunc>> {
 		private:
-			std::vector<type<event_func<TFunc>>> _funcs;
+			std::vector<core::wrappers::type<event_func<TFunc>>> _funcs;
 			
 		public:
 			/*auto invoke(tick& tick, std::vector<void*> const& args) {
@@ -22,12 +22,16 @@ namespace dls::events::types {
 				return ret;
 			}*/
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_funcs));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				file(CEREAL_NVP(_funcs));
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

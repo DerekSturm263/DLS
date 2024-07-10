@@ -4,31 +4,26 @@
 #include "vector.hpp"
 #include "quaternion.hpp"
 #include "matrix.hpp"
+#include "wrappers/wrappers.hpp"
 
 namespace dls::math::types {
 	template <typename T, glm::length_t Size>
-	class transform : public serializable<transform<T, Size>> {
+	class transform : public core::interfaces::serializable<transform<T, Size>> {
 		private:
 			using vector_type = vector<T, Size>;
 			using quaternion_type = quaternion<T>;
 			using matrix_type = matrix<T, Size + 1, Size + 1>;
 
-			vector_type _position;
-			quaternion_type _rotation;
-			vector_type _scale;
+			core::wrappers::type<vector_type> _position;
+			core::wrappers::type<quaternion_type> _rotation;
+			core::wrappers::type<vector_type> _scale;
 
 			mutable matrix_type _matrix;
 			mutable bool _is_dirty;
 
 		public:
-			transform() : _position(vector_type()), _rotation(quaternion_type()), _scale(vector_type(1)), _matrix(matrix_type(1)), _is_dirty(true) { }
-			transform(vector_type const& position, vector_type const& rotation, vector_type const& scale) : _position(position), _rotation(quaternion_type(rotation)), _scale(scale), _matrix(matrix_type(1)), _is_dirty(true) { }
-
-            void translate_by(vector_type const& position, vector_type const& rotation, vector_type const& scale) {
-                set_position(get_position() + position);
-                set_rotation(get_rotation() + rotation);
-                set_scale(get_scale() + scale);
-            }
+			transform() : _position(vector_type{}), _rotation(quaternion_type{}), _scale(vector_type{ 1 }), _matrix(matrix_type{ 1 }), _is_dirty(true) { }
+			transform(vector_type const& position, vector_type const& rotation, vector_type const& scale) : _position(position), _rotation(quaternion_type(rotation)), _scale(scale), _matrix(matrix_type{ 1 }), _is_dirty(true) { }
 
             void set_position(vector_type const& position) {
                 _position = position;
@@ -75,16 +70,22 @@ namespace dls::math::types {
                 return _matrix;
             }
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_position));
 				file(CEREAL_NVP(_rotation));
 				file(CEREAL_NVP(_scale));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				file(_position);
 				file(_rotation);
 				file(_scale);
+			}
+
+			void draw(std::string const& label) const override {
+				_position.draw("Position");
+				_rotation.draw("Rotation");
+				_scale.draw("Scale");
 			}
 	};
 

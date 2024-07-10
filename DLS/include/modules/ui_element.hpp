@@ -1,7 +1,7 @@
 #pragma once
 
 #include "types/core/module.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 #include "types/events/event.hpp"
 #include "callbacks/ui_element_callback_context.hpp"
 
@@ -9,13 +9,13 @@ namespace dls::gui::modules {
 	template <typename T>
 	class ui_element : public core::types::module<> {
 		private:
-			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_hover;
-			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_select;
-			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_press;
-			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_hold_tick;
-			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_release;
-			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_deselect;
-			type<events::types::event<void(callbacks::ui_element_callback_context const&)>> _on_unhover;
+			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_hover;
+			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_select;
+			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_press;
+			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_hold_tick;
+			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_release;
+			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_deselect;
+			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_unhover;
 
 			T* _held_data;
 
@@ -38,6 +38,16 @@ namespace dls::gui::modules {
 				file(_on_release);
 				file(_on_deselect);
 				file(_on_unhover);
+			}
+
+			void draw(std::string const& label) const override {
+				_on_hover.draw("On Hover");
+				_on_select.draw("On Select");
+				_on_press.draw("On Press");
+				_on_hold_tick.draw("On Hold Tick");
+				_on_release.draw("On Release");
+				_on_deselect.draw("On Deselect");
+				_on_unhover.draw("On Unhover");
 			}
 	};
 }

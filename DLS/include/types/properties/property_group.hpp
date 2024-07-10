@@ -2,13 +2,13 @@
 
 #include <unordered_map>
 #include "interfaces/serializable.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 #include "property.hpp"
 
 namespace dls::properties::types {
-	class property_group : public serializable<property_group> {
+	class property_group : public core::interfaces::serializable<property_group> {
 		private:
-			mutable std::unordered_map<std::string, val<property>> _properties;
+			mutable std::unordered_map<std::string, core::wrappers::val<property>> _properties;
 			
 		public:
 			property const& at(std::string const& name) const {
@@ -19,12 +19,16 @@ namespace dls::properties::types {
 				return _properties[name].value();
 			}
 
-			void save(os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_properties));
 			}
 
-			void load(is& file) override {
-				file(CEREAL_NVP(_properties));
+			void load(core::interfaces::serializable_base::is& file) override {
+				file(_properties);
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

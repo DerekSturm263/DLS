@@ -6,7 +6,7 @@ namespace dls::input::types {
 	/// <summary>
 	/// Represents a trigger for an input, including which buttons trigger it and when it's resolved.
 	/// </summary>
-	class input_trigger : public serializable<input_trigger> {
+	class input_trigger : public core::interfaces::serializable<input_trigger> {
 		public:
 			/// <summary>
 			/// Determines when an input trigger is resolved.
@@ -276,6 +276,10 @@ namespace dls::input::types {
 				file(_resolution_type);
 				file(_keyboard);
 				file(_generic);
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

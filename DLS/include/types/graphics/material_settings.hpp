@@ -4,7 +4,7 @@
 #include "interfaces/serializable.hpp"
 
 namespace dls::graphics::types {
-	class material_settings : public serializable<material_settings> {
+	class material_settings : public core::interfaces::serializable<material_settings> {
 		private:
 			std::unordered_map<std::string, shader::any> _values;
 
@@ -22,6 +22,10 @@ namespace dls::graphics::types {
 			}
 
 			void load(is& file) override {
+
+			}
+
+			void draw(std::string const& label) const override {
 
 			}
 	};

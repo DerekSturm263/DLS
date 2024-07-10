@@ -5,7 +5,7 @@
 #include "keyframe_data.hpp"
 
 namespace dls::animation::types {
-	class animation : public serializable<animation> {
+	class animation : public core::interfaces::serializable<animation> {
 		private:
 			std::map<std::size_t, keyframe_data> _keyframes;
 			
@@ -19,6 +19,10 @@ namespace dls::animation::types {
 
 			void load(is& file) override {
 				file(_keyframes);
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

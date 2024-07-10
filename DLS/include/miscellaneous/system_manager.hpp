@@ -1,15 +1,15 @@
 #pragma once
 
 #include <vector>
-#include "interfaces/system.hpp"
+#include "types/core/system.hpp"
 
 namespace dls::systems {
     class system_manager {
         private:
-            std::vector<system_base*> _systems;
+            std::vector<core::types::system_base*> _systems;
 
         public:
-            system_manager(std::vector<system_base*> const& systems) : _systems(systems) { }
+            system_manager(std::vector<core::types::system_base*> const& systems) : _systems(systems) { }
             
         protected:
             void initialize();

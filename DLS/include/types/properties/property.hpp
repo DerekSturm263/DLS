@@ -3,7 +3,7 @@
 #include <variant>
 #include <tuple>
 #include "interfaces/serializable.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 
 #include "../animation/animation.hpp"
 #include "../audio/clip.hpp"
@@ -30,12 +30,12 @@
 #include "../math/vector.hpp"
 
 namespace dls::properties::types {
-	class property : public serializable<property> {
+	class property : public core::interfaces::serializable<property> {
 		public:
 			using any = std::variant<animation::types::animation, audio::types::clip, input::types::input_trigger, graphics::types::material, graphics::types::mesh, graphics::types::texture, std::string, int, bool>;
 
 		private:
-			val<any> _value;
+			core::wrappers::val<any> _value;
 			
 		public:
 			property() : _value() { }
@@ -49,12 +49,16 @@ namespace dls::properties::types {
 				return _value.value();
 			}
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_value));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				file(_value);
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 			
 		private:

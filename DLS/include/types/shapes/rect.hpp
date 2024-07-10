@@ -9,7 +9,7 @@ namespace dls::shapes::types {
 	template <typename T, std::size_t Size>
 	class rect : public serializable<rect<T, Size>> {
 		private:
-			type<math::types::vector<T, Size>> _corners[Size * 2];
+			math::types::vector<type<T>, Size> _corners[Size * 2];
 			
 		public:
 			rect() : _corners() { }
@@ -21,6 +21,12 @@ namespace dls::shapes::types {
 
 			void load(serializable_base::is& file) override {
 				file(CEREAL_NVP(_corners));
+			}
+
+			void draw(std::string const& label) const override {
+				for (int i = 0; i < Size * 2; ++i) {
+					_corners[i].draw("Corner");
+				}
 			}
 	};
 }

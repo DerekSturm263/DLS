@@ -8,7 +8,7 @@ namespace dls::shapes::types {
 	template <typename T, std::size_t Size>
 	class ellipse : public serializable<ellipse<T, Size>> {
 		private:
-			type<math::types::vector<T, Size>> _dimensions[Size];
+			math::types::vector<type<T>, Size> _dimensions[Size];
 			
 		public:
 			ellipse() : _dimensions() { }
@@ -20,6 +20,12 @@ namespace dls::shapes::types {
 
 			void load(serializable_base::is& file) override {
 				file(CEREAL_NVP(_dimensions));
+			}
+
+			void draw(std::string const& label) const override {
+				for (int i = 0; i < Size; ++i) {
+					_dimensions[i].draw("Dimension");
+				}
 			}
 	};
 }

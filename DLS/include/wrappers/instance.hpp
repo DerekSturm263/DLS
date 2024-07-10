@@ -4,7 +4,7 @@
 #include "asset.hpp"
 #include "val.hpp"
 
-namespace dls {
+namespace dls::core::wrappers {
 	/// <summary>
 	/// Runtime instance of an assetT so that the original doesn't get modified
 	/// </summary>

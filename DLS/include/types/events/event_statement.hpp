@@ -3,15 +3,14 @@
 #include <vector>
 #include <functional>
 #include "interfaces/serializable.hpp"
-#include "type templates/type_templates.hpp"
-#include "../core/module.hpp"
+#include "interfaces/function.hpp"
+#include "wrappers/wrappers.hpp"
 
 namespace dls::events::types {
 	template <typename TFunc>
-	class event_statement : public serializable<TFunc> {
+	class event_statement : public core::interfaces::serializable<TFunc> {
 		private:
-			ref<core::types::module_base> _module;
-			unique_base::guid_type _function_index;
+			core::wrappers::ref<core::interfaces::function> _function;
 
 		public:
 			/*auto invoke(tick& tick, std::vector<void*> const& args) {
@@ -23,14 +22,16 @@ namespace dls::events::types {
 				return output;
 			}*/
 
-			void save(serializable_base::os& file) const override {
-				file(CEREAL_NVP(_module));
-				file(CEREAL_NVP(_function_index));
+			void save(core::interfaces::serializable_base::os& file) const override {
+				file(CEREAL_NVP(_function));
 			}
 
-			void load(serializable_base::is& file) override {
-				file(CEREAL_NVP(_module));
-				file(CEREAL_NVP(_function_index));
+			void load(core::interfaces::serializable_base::is& file) override {
+				file(CEREAL_NVP(_function));
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 }

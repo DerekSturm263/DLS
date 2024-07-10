@@ -5,17 +5,23 @@
 
 namespace dls::miscellaneous::types {
 	template <typename T>
-	class variants : public serializable<variants<T>> {
+	class variants : public core::interfaces::serializable<variants<T>> {
 		private:
-			std::vector<type<T>> _variants;
+			std::vector<core::wrappers::type<T>> _variants;
 
 		public:
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_variants));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				file(CEREAL_NVP(_variants));
+			}
+
+			void draw(std::string const& label) const override {
+				for (auto& variant : _variants) {
+					variant.draw("Variant");
+				}
 			}
 	};
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace dls {
+namespace dls::gui::helpers {
 	class gui {
         public:
 

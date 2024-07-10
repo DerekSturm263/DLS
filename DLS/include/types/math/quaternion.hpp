@@ -8,7 +8,7 @@
 
 namespace dls::math::types {
 	template <typename T>
-	class quaternion : public serializable<quaternion<T>>, public glm::qua<T, glm::packed_highp> {
+	class quaternion : public core::interfaces::serializable<quaternion<T>>, public glm::qua<T, glm::packed_highp> {
 		private:
 			using vector_type = vector<T, 3>;
 			using matrix_type = matrix<T, 4, 4>;
@@ -42,16 +42,20 @@ namespace dls::math::types {
 				return *this;
 			}
 
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				vector_type euler{ to_euler() };
 				file(CEREAL_NVP(euler));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				vector_type euler;
 				file(euler);
 
 				*this = quaternion{ euler };
+			}
+
+			void draw(std::string const& label) const override {
+
 			}
 	};
 

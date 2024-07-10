@@ -3,19 +3,23 @@
 #include "interfaces/serializable.hpp"
 #include "interfaces/function.hpp"
 
-namespace dls::functions {
-	class set_enabled : public function {
+namespace dls::core::functions {
+	class set_sys_enabled : public interfaces::function {
 		public:
 			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
+
+            void draw(std::string const& label) const override {
+
+            }
 	};
 }
 
-namespace dls {
-    class system_base : public serializable<system_base> {
+namespace dls::core::types {
+    class system_base : public interfaces::serializable<system_base> {
 		protected:
-			std::vector<std::shared_ptr<function>> _all_functions;
+			std::vector<std::shared_ptr<interfaces::function>> _all_functions;
 
 			template <typename TFunc>
 			friend class event;
@@ -57,16 +61,21 @@ namespace dls {
 
     template <typename... TFuncTypes>
     class system : public system_base {
+		public:
+            using base_type = typename system<TFuncTypes...>;
+
 		protected:
             system() {
+                _all_functions.push_back(std::make_shared<functions::set_sys_enabled>(functions::set_sys_enabled{}));
+
 				([&] {
 					_all_functions.push_back(std::make_shared<TFuncTypes>(TFuncTypes{}));
 				} (), ...);
-
-                _all_functions.push_back(std::make_shared<functions::set_enabled>(functions::set_enabled{}));
 			}
     };
 }
 
-CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::system_base, dls::system<>);
-#define REGISTER_SYSTEM(to_register) CEREAL_REGISTER_TYPE(to_register); CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::system<>, to_register);
+#define REGISTER_SYSTEM(name, derived)								                        \
+	CEREAL_REGISTER_TYPE_WITH_NAME(derived, name);									        \
+	CEREAL_REGISTER_POLYMORPHIC_RELATION(derived::base_type, derived);			            \
+	CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::core::types::system_base, derived::base_type);

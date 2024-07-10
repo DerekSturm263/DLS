@@ -1,14 +1,18 @@
 #pragma once
 
 #include "types/core/module.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 #include "types/miscellaneous/processor.hpp"
 
 namespace dls::send_receive::functions {
 	template <typename T>
-	class send : public function {
+	class send : public core::interfaces::function {
 		public:
 			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+
+			void draw(std::string const& label) const override {
 
 			}
 	};
@@ -18,15 +22,19 @@ namespace dls::send_receive::modules {
 	template <typename T>
 	class sender : public core::types::module<functions::send<T>> {
 		private:
-			type<miscellaneous::types::processor<T>> _pre_processor;
+			core::wrappers::type<miscellaneous::types::processor<T>> _pre_processor;
 
 		public:
-			void save(serializable_base::os& file) const override {
+			void save(core::interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_pre_processor));
 			}
 
-			void load(serializable_base::is& file) override {
+			void load(core::interfaces::serializable_base::is& file) override {
 				file(_pre_processor);
+			}
+
+			void draw(std::string const& label) const override {
+				_pre_processor.draw("Pre-Processor");
 			}
 	};
 }
