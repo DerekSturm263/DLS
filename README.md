@@ -1,6 +1,6 @@
 # DLS
 
-DLS is a lightweight game engine where users can create any type of game without any coding knowledge required!
+DLS is a lightweight game engine where users can create any type of game without any coding knowledge!
 
 - No code: What most people will enjoy about DLS is that it uses an event-system that allows users to create complex logic without writing any code!
 - Online built-in: Creating online experiences has never been easier. A simple toggle on any value will allow it to either be local or networked. It's that easy.
