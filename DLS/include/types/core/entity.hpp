@@ -24,7 +24,7 @@ namespace dls::core::types {
 			entity() : _modules() { }
 
 			template <typename... Ts>
-			entity(Ts const&& ... modules) : _modules() {
+			entity(std::string const&& name, Ts const&& ... modules) : _name(name), _modules() {
 				([&] {
 					_modules.value().push_back(val<std::shared_ptr<module_base>>(std::make_shared<Ts>(modules)));
 				} (), ...);

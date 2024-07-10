@@ -6,23 +6,57 @@
 #include "types/events/event.hpp"
 #include "types/math/fixed.hpp"
 
+namespace dls::time::functions {
+	template <typename Decimal>
+	class play : public function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+	};
+
+	template <typename Decimal>
+	class pause : public function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+	};
+
+	template <typename Decimal>
+	class resume : public function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+	};
+
+	template <typename Decimal>
+	class stop : public function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+	};
+}
+
 namespace dls::time::modules {
-	template <typename T>
-	class timer : public core::types::module<> {
+	template <typename Decimal>
+	class timer : public core::types::module<functions::play<Decimal>, functions::pause<Decimal>, functions::resume<Decimal>, functions::stop<Decimal>> {
 		private:
-			type<T> _starting_time;
-			type<T> _multiplier;
-			type<T> _ending_time;
-			type<T> _event_tick_rate;
+			type<Decimal> _starting_time;
+			type<Decimal> _multiplier;
+			type<Decimal> _ending_time;
+			type<Decimal> _event_tick_rate;
 
-			type<events::types::event<void(T)>> _on_begin;
-			type<events::types::event<void(T)>> _on_timer_tick;
-			type<events::types::event<void(T)>> _on_end;
+			type<events::types::event<void(Decimal)>> _on_begin;
+			type<events::types::event<void(Decimal)>> _on_timer_tick;
+			type<events::types::event<void(Decimal)>> _on_end;
 
-			std::map<T, type<events::types::event<void()>>> _events;
+			std::map<Decimal, type<events::types::event<void()>>> _events;
 			
 		protected:
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_starting_time));
 				file(CEREAL_NVP(_multiplier));
 				file(CEREAL_NVP(_ending_time));
@@ -33,7 +67,7 @@ namespace dls::time::modules {
 				file(CEREAL_NVP(_events));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(_starting_time);
 				file(_multiplier);
 				file(_ending_time);

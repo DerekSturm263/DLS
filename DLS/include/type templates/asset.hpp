@@ -55,8 +55,8 @@ namespace dls {
 				return _file_path;
 			}
 
-			T const& value() const {
-				return _value.value();
+			val<T> const& value() const {
+				return _value;
 			}
 
 			void set_from_instance(instance<T> const& rhs) {

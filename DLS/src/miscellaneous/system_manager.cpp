@@ -19,6 +19,12 @@ namespace dls::systems {
 		}
 	}
 
+	void system_manager::on_update() {
+		for (auto& system : _systems) {
+			system->on_update();
+		}
+	}
+
 	void system_manager::on_scene_unload() {
 		for (auto& system : _systems) {
 			system->on_scene_unload();

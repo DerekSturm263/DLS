@@ -3,6 +3,15 @@
 #include "interfaces/serializable.hpp"
 #include "interfaces/function.hpp"
 
+namespace dls::core::functions {
+	class set_enabled : public function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+	};
+}
+
 namespace dls::core::types {
 	class module_base : public serializable<module_base> {
 		protected:
@@ -22,6 +31,8 @@ namespace dls::core::types {
 				([&] {
 					_all_functions.push_back(std::make_shared<TFuncTypes>(TFuncTypes{}));
 				} (), ...);
+
+				_all_functions.push_back(std::make_shared<functions::set_enabled>(functions::set_enabled{}));
 			}
 	};
 }

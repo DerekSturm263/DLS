@@ -15,6 +15,7 @@ namespace dls::systems {
             void initialize();
             void on_scene_load();
             void on_tick(game::tick&);
+            void on_update();
             void on_scene_unload();
             void shutdown();
     };

@@ -2,7 +2,15 @@
 
 #include "interfaces/serializable.hpp"
 #include "interfaces/function.hpp"
-#include "miscellaneous/tick.hpp"
+
+namespace dls::functions {
+	class set_enabled : public function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+	};
+}
 
 namespace dls {
     class system_base : public serializable<system_base> {
@@ -54,6 +62,8 @@ namespace dls {
 				([&] {
 					_all_functions.push_back(std::make_shared<TFuncTypes>(TFuncTypes{}));
 				} (), ...);
+
+                _all_functions.push_back(std::make_shared<functions::set_enabled>(functions::set_enabled{}));
 			}
     };
 }

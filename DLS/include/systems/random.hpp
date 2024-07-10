@@ -4,8 +4,24 @@
 #include <limits>
 #include "interfaces/system.hpp"
 
+namespace dls::math::functions {
+	class next : public function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+	};
+
+	class next_range : public function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+
+			}
+	};
+}
+
 namespace dls::math::systems {
-	class random : public system<> {
+	class random : public system<functions::next, functions::next_range> {
         private:
             unsigned int _seed;
             std::default_random_engine _engine;

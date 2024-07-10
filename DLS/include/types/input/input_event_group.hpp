@@ -14,13 +14,13 @@ namespace dls::input::types {
 			val<events::types::event<void(callbacks::input_callback_context<T> const&)>> _on_end;
 
 		public:
-			void save(os& file) const override {
+			void save(serializable_base::os& file) const override {
 				file(CEREAL_NVP(_on_begin));
 				file(CEREAL_NVP(_on_hold_tick));
 				file(CEREAL_NVP(_on_end));
 			}
 
-			void load(is& file) override {
+			void load(serializable_base::is& file) override {
 				file(_on_begin);
 				file(_on_hold_tick);
 				file(_on_end);
