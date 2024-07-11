@@ -27,7 +27,7 @@ namespace dls::events::types {
 			}
 
 			void load(core::interfaces::serializable_base::is& file) override {
-				file(CEREAL_NVP(_statements));
+				file(_statements);
 			}
 
 			void draw(std::string const& label) const override {

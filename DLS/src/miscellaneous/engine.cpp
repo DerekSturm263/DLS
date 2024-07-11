@@ -6,22 +6,22 @@
 #include "types/core/project.hpp"
 
 namespace dls::engine {
+	systems::system_manager engine::_manager{};
+
 	int engine::execute(int argc, char* argv[]) {
-		core::wrappers::asset<core::types::entity> ety{ "assets/entity1.entity.asset", core::types::entity{
-			"My Entity",
-			graphics::modules::appearance{},
-			input::modules::input_t{},
-			simulation::modules::physics_t{},
-			simulation::modules::structure_t{},
-			math::modules::transform_t{}
-		} };
+		if (initialize(argc, argv)) {
 
-		core::wrappers::asset<core::types::scene> scn{ "assets/scene1.scene.asset", core::types::scene{ std::vector<core::wrappers::ref<core::types::entity>>{ ety.value() }}};
+		}
 
-		core::wrappers::asset<core::types::project> prj{ "assets/project1.project.asset", core::types::project{ std::vector<core::wrappers::ref<core::types::scene>>{ scn.value() },
+		shutdown();
+		return 0;
+	}
+
+	bool engine::initialize(int argc, char* argv[]) {
+		core::wrappers::asset<core::types::project> project{ "assets/project1.project.asset", core::types::project{ std::vector<core::wrappers::ref<core::types::scene>>{},
 			audio::systems::audio_t{},
 			debug::systems::debug{},
-			graphics::systems::graphics{},
+			graphics::systems::graphics_t{},
 			input::systems::input{},
 			math::systems::random{},
 			serialization::systems::save_data{},
@@ -31,14 +31,16 @@ namespace dls::engine {
 			graphics::systems::window{}
 		} };
 
-#if 0
+		_manager = systems::system_manager{ project.value().value().systems() };
 
-		std::cout << ety.value() << std::endl;
-		std::cout << scn.value() << std::endl;
-		std::cout << prj.value() << std::endl;
+		return _manager.initialize();
+	}
 
-#endif
+	void engine::tick(game::tick& tick) {
+		_manager.on_tick(tick);
+	}
 
-		return 0;
+	void engine::shutdown() {
+		_manager.shutdown();
 	}
 }

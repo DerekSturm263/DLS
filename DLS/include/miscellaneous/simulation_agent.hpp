@@ -12,8 +12,8 @@ namespace dls::simulation::systems {
 			modules::physics<Decimal, Size>& phys;
 			modules::structure<Decimal, Size>& strct;
 
-			math::types::vector<Decimal, Size> initial_pos;
-			math::types::vector<Decimal, Size> initial_speed;
+			const math::types::vector<Decimal, Size> initial_pos;
+			const math::types::vector<Decimal, Size> initial_speed;
 			math::types::vector<Decimal, Size> acceleration;
 
 			simulation_agent(

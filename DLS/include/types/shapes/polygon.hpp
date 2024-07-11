@@ -20,7 +20,7 @@ namespace dls::shapes::types {
 			}
 
 			void load(core::interfaces::serializable_base::is& file) override {
-				file(CEREAL_NVP(_points));
+				file(_points);
 			}
 
 			void draw(std::string const& label) const override {

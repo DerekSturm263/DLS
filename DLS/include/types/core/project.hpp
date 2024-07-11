@@ -9,7 +9,7 @@
 namespace dls::core::types {
 	class project : public interfaces::serializable<project> {
 		private:
-			wrappers::val<std::vector<wrappers::val<std::shared_ptr<system_base>>>> _systems;
+			wrappers::val<std::vector<wrappers::val<std::unique_ptr<system_base>>>> _systems;
 			wrappers::val<state_machines::types::state_machine<wrappers::ref<scene>>> _scenes;
 			wrappers::val<properties::types::property_group> _properties;
 			
@@ -17,9 +17,12 @@ namespace dls::core::types {
 			project() : _systems(), _scenes(), _properties() { }
 
 			template <typename... Ts>
-			project(std::vector<core::wrappers::val<scene>> const& scenes, Ts const&& ... systems) : _systems(), _scenes(), _properties() {
+			project(std::vector<core::wrappers::val<scene>> const& scenes, Ts&& ... systems) : _systems(), _scenes(), _properties() {
 				([&] {
-					_systems.value().push_back(wrappers::val<std::shared_ptr<system_base>>(std::make_shared<Ts>(systems)));
+					std::unique_ptr<system_base> ptr = std::make_unique<Ts>(std::move(systems));
+					wrappers::val<std::unique_ptr<system_base>> val{ std::move(ptr) };
+
+					_systems.value().push_back(std::move(val));
 				} (), ...);
 
 				for (auto& scn : scenes) {
@@ -28,14 +31,27 @@ namespace dls::core::types {
 			}
 
 			template <typename... Ts>
-			project(std::vector<core::wrappers::ref<scene>> const& scenes, Ts const&& ... systems) : _systems(), _scenes(), _properties() {
+			project(std::vector<core::wrappers::ref<scene>> const& scenes, Ts&& ... systems) : _systems(), _scenes(), _properties() {
 				([&] {
-					_systems.value().push_back(wrappers::val<std::shared_ptr<system_base>>(std::make_shared<Ts>(systems)));
+					std::unique_ptr<system_base> ptr = std::make_unique<Ts>(std::move(systems));
+					wrappers::val<std::unique_ptr<system_base>> val{ std::move(ptr) };
+
+					_systems.value().push_back(std::move(val));
 				} (), ...);
 
 				for (auto& scn : scenes) {
 					_scenes.value().add_state(scn);
 				}
+			}
+
+			std::vector<system_base*> systems() const {
+				std::vector<system_base*> output{};
+
+				/*for (auto& system : _systems.value()) {
+					output.push_back(system.value().get());
+				}*/
+
+				return output;
 			}
 
 			state_machines::types::state_machine<core::wrappers::ref<scene>> const& scenes() const {

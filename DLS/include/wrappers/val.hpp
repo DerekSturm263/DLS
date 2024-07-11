@@ -16,6 +16,7 @@ namespace dls::core::wrappers {
 		public:
 			val() : _value() { }
 			val(T const& value) : _value(value) { }
+			val(T&& value) : _value(std::move(value)) { }
 
 			T const& value() const {
 				return _value;

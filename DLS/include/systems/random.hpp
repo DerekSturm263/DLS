@@ -36,7 +36,7 @@ namespace dls::math::systems {
             std::default_random_engine _engine;
 
         public:
-            void initialize() override;
+            bool initialize() override;
             void shutdown() override;
 
             template <typename T>

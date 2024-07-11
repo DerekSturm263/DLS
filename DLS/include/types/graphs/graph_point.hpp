@@ -14,7 +14,7 @@ namespace dls::graph::types {
 			}
 
 			void load(core::interfaces::serializable_base::is& file) override {
-				file(CEREAL_NVP(_value));
+				file(_value);
 			}
 
 			void draw(std::string const& label) const override {

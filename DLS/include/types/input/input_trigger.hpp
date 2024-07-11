@@ -140,7 +140,8 @@ namespace dls::input::types {
 				right_control,
 				right_alt,
 				right_super,
-				menu
+				menu,
+				any
 			};
 
 			/// <summary>
@@ -150,7 +151,11 @@ namespace dls::input::types {
 				none = -1,
 				left,
 				middle,
-				right
+				right,
+				scroll,
+				cursor_pos,
+				cursor_delta,
+				any
 			};
 
 			/// <summary>
@@ -163,16 +168,19 @@ namespace dls::input::types {
 				y,
 				x,
 				d_pad,
-				left_stick,
+				left_stick_pos,
+				left_stick_delta,
 				left_stick_press,
-				right_stick,
+				right_stick_pos,
+				right_stick_delta,
 				right_stick_press,
 				l_bumper,
 				r_bumper,
 				l_trigger,
 				r_trigger,
 				view,
-				menu
+				menu,
+				any
 			};
 
 			/// <summary>
@@ -185,16 +193,19 @@ namespace dls::input::types {
 				triangle,
 				square,
 				d_pad,
-				left_stick,
+				left_stick_pos,
+				left_stick_delta,
 				left_stick_press,
-				right_stick,
+				right_stick_pos,
+				right_stick_delta,
 				right_stick_press,
 				l1,
 				r1,
 				l2,
 				r2,
 				share,
-				options
+				options,
+				any
 			};
 
 			/// <summary>
@@ -207,16 +218,19 @@ namespace dls::input::types {
 				x,
 				y,
 				d_pad,
-				left_stick,
+				left_stick_pos,
+				left_stick_delta,
 				left_stick_press,
-				right_stick,
+				right_stick_pos,
+				right_stick_delta,
 				right_stick_press,
 				l,
 				r,
 				zl,
 				zr,
 				minus,
-				plus
+				plus,
+				any
 			};
 
 			/// <summary>
@@ -229,16 +243,19 @@ namespace dls::input::types {
 				north,
 				west,
 				d_pad,
-				left_stick,
+				left_stick_pos,
+				left_stick_delta,
 				left_stick_press,
-				right_stick,
+				right_stick_pos,
+				right_stick_delta,
 				right_stick_press,
 				l_bumper,
 				r_bumper,
 				l_trigger,
 				r_trigger,
 				options,
-				menu
+				menu,
+				any
 			};
 
 		private:

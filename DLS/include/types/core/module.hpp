@@ -19,13 +19,14 @@ namespace dls::core::functions {
 namespace dls::core::types {
 	class module_base : public interfaces::serializable<module_base> {
 		protected:
-			std::vector<std::shared_ptr<interfaces::function>> _all_functions;
+			std::vector<std::unique_ptr<interfaces::function>> _all_functions;
 
 			template <typename TFunc>
 			friend class event;
 			
 		public:
 			module_base() : _all_functions() { }
+			~module_base() { }
 	};
 
 	template <typename... TFuncTypes>
@@ -35,10 +36,13 @@ namespace dls::core::types {
 
 		protected:
 			module() {
-				_all_functions.push_back(std::make_shared<functions::set_mod_enabled>(functions::set_mod_enabled{}));
+				std::unique_ptr<interfaces::function> ptr = std::make_unique<functions::set_mod_enabled>(functions::set_mod_enabled{});
+				_all_functions.push_back(std::move(ptr));
 
 				([&] {
-					_all_functions.push_back(std::make_shared<TFuncTypes>(TFuncTypes{}));
+					std::unique_ptr<interfaces::function> ptr = std::make_unique<TFuncTypes>(TFuncTypes{});
+
+					_all_functions.push_back(std::move(ptr));
 				} (), ...);
 			}
 	};

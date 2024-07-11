@@ -3,6 +3,7 @@
 #include "interfaces/serializable.hpp"
 #include "state_machine_state.hpp"
 #include "wrappers/wrappers.hpp"
+#include "types/events/event.hpp"
 
 namespace dls::state_machines::types {
 	template <typename T>
@@ -10,6 +11,7 @@ namespace dls::state_machines::types {
 		private:
 			core::wrappers::ref<state_machine_state<T>> _from;
 			core::wrappers::ref<state_machine_state<T>> _to;
+			core::wrappers::type<events::types::event<bool()>> _transition;
 
 		public:
 			void save(core::interfaces::serializable_base::os& file) const override {

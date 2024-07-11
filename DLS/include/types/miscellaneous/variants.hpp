@@ -15,7 +15,7 @@ namespace dls::miscellaneous::types {
 			}
 
 			void load(core::interfaces::serializable_base::is& file) override {
-				file(CEREAL_NVP(_variants));
+				file(_variants);
 			}
 
 			void draw(std::string const& label) const override {

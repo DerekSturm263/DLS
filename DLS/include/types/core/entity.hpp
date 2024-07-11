@@ -1,6 +1,7 @@
 #pragma once
 
 #include <optional>
+#include <type_traits>
 #include "interfaces/serializable.hpp"
 #include "wrappers/wrappers.hpp"
 #include "../properties/property_group.hpp"
@@ -11,7 +12,7 @@ namespace dls::core::types {
 	class entity : public interfaces::serializable<entity> {
 		private:
 			wrappers::val<std::string> _name;
-			wrappers::val<std::vector<wrappers::val<std::shared_ptr<module_base>>>> _modules;
+			wrappers::val<std::unordered_map<size_t, wrappers::val<std::unique_ptr<module_base>>>> _modules;
 			wrappers::val<properties::types::property_group> _properties;
 
 			wrappers::type<events::types::event<void()>> _on_start;
@@ -26,38 +27,37 @@ namespace dls::core::types {
 			template <typename... Ts>
 			entity(std::string const&& name, Ts const&& ... modules) : _name(name), _modules() {
 				([&] {
-					_modules.value().push_back(wrappers::val<std::shared_ptr<module_base>>(std::make_shared<Ts>(modules)));
+					std::unique_ptr<module_base> ptr = std::make_unique<Ts>(std::move(modules));
+					wrappers::val<std::unique_ptr<module_base>> val{ std::move(ptr) };
+
+					_modules.value().push_back(std::move(val));
 				} (), ...);
 			}
 
-			// TODO: Move into tick.cpp
+			std::string const& name() const {
+				return _name.value();
+			}
+
+			std::string& name() {
+				return _name.value();
+			}
+
 			template <typename T>
 			std::optional<T const*> get_module() const {
-				for (int i = 0; i < _modules.value().size(); ++i) {
-					wrappers::val<std::shared_ptr<module_base>> base = _modules.value()[i];
-					module_base* base_get = base.value().get();
+				size_t index = typeid(T).hash_code();
 
-					T* ret = dynamic_cast<T*>(base_get);
-
-					if (ret)
-						return std::optional<T const*>(ret);
-				}
+				if (_modules.value().contains(index))
+					return std::optional<T const*>{ _modules.value().at(index).value().get() };
 
 				return std::optional<T const*>();
 			}
 
-			// TODO: Move into tick.cpp
 			template <typename T>
 			std::optional<T*> get_module() {
-				for (int i = 0; i < _modules.value().size(); ++i) {
-					wrappers::val<std::shared_ptr<module_base>> base = _modules.value()[i];
-					module_base* base_get = base.value().get();
+				size_t index = typeid(T).hash_code();
 
-					T* ret = dynamic_cast<T*>(base_get);
-
-					if (ret)
-						return std::optional<T*>(ret);
-				}
+				if (_modules.value().contains(index))
+					return std::optional<T*>{ _modules.value().at(index).value().get() };
 
 				return std::optional<T*>();
 			}

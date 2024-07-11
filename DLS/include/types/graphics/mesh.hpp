@@ -4,6 +4,11 @@
 
 namespace dls::graphics::types {
 	class mesh : public core::interfaces::serializable<mesh> {
+		private:
+			float* _vertices;
+			unsigned int* _indices;
+			unsigned int _vbo, _vao, _ebo;
+
 		public:
 			void save(os& file) const override {
 

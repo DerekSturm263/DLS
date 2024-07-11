@@ -2,31 +2,29 @@
 
 #include <vector>
 #include "interfaces/serializable.hpp"
-#include "type templates/type_templates.hpp"
+#include "wrappers/wrappers.hpp"
 #include "../math/vector.hpp"
 
 namespace dls::shapes::types {
 	template <typename T, std::size_t Size>
-	class rect : public serializable<rect<T, Size>> {
+	class rect : public core::interfaces::serializable<rect<T, Size>> {
 		private:
-			math::types::vector<type<T>, Size> _corners[Size * 2];
+			math::types::vector<core::wrappers::type<T>, Size> _dimensions[Size];
 			
 		public:
-			rect() : _corners() { }
-			rect(type<vector<T, Size>> (const& corners)[Size * 2]) : _corners(corners) { }
+			rect() : _dimensions() { }
+			rect(core::wrappers::type<vector<T, Size>> (const& dimensions)[Size]) : _dimensions(dimensions) { }
 
 			void save(serializable_base::os& file) const override {
-				file(CEREAL_NVP(_corners));
+				file(CEREAL_NVP(_dimensions));
 			}
 
 			void load(serializable_base::is& file) override {
-				file(CEREAL_NVP(_corners));
+				file(_dimensions);
 			}
 
 			void draw(std::string const& label) const override {
-				for (int i = 0; i < Size * 2; ++i) {
-					_corners[i].draw("Corner");
-				}
+				_dimensions->draw("Dimensions");
 			}
 	};
 }

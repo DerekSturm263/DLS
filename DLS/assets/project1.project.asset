@@ -1,14 +1,14 @@
 {
     "value0": {
-        "_id": 23986,
+        "_id": 16512,
         "_sync_type": 1,
         "_value": {
             "_systems": {
-                "_id": 4639,
+                "_id": 6868,
                 "_sync_type": 1,
                 "_value": [
                     {
-                        "_id": 9930,
+                        "_id": 32662,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483649,
@@ -20,7 +20,7 @@
                                         "_internal": {
                                             "index": 0,
                                             "data": {
-                                                "_id": 27446,
+                                                "_id": 2995,
                                                 "_sync_type": 1,
                                                 "_value": 0.0
                                             }
@@ -32,7 +32,7 @@
                         }
                     },
                     {
-                        "_id": 13977,
+                        "_id": 32757,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483650,
@@ -44,7 +44,7 @@
                                         "_internal": {
                                             "index": 0,
                                             "data": {
-                                                "_id": 24370,
+                                                "_id": 32391,
                                                 "_sync_type": 1,
                                                 "_value": ""
                                             }
@@ -56,7 +56,7 @@
                         }
                     },
                     {
-                        "_id": 2306,
+                        "_id": 20037,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483651,
@@ -68,7 +68,7 @@
                         }
                     },
                     {
-                        "_id": 31673,
+                        "_id": 12859,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483652,
@@ -80,7 +80,7 @@
                         }
                     },
                     {
-                        "_id": 22386,
+                        "_id": 8723,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483653,
@@ -92,7 +92,7 @@
                                         "_internal": {
                                             "index": 0,
                                             "data": {
-                                                "_id": 12623,
+                                                "_id": 19718,
                                                 "_sync_type": 1,
                                                 "_value": 0
                                             }
@@ -104,7 +104,7 @@
                         }
                     },
                     {
-                        "_id": 5021,
+                        "_id": 9741,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483654,
@@ -116,7 +116,7 @@
                         }
                     },
                     {
-                        "_id": 28745,
+                        "_id": 27529,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483655,
@@ -128,7 +128,7 @@
                         }
                     },
                     {
-                        "_id": 26924,
+                        "_id": 778,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483656,
@@ -140,7 +140,7 @@
                         }
                     },
                     {
-                        "_id": 19072,
+                        "_id": 12316,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483657,
@@ -152,7 +152,7 @@
                                         "_internal": {
                                             "index": 0,
                                             "data": {
-                                                "_id": 21538,
+                                                "_id": 23811,
                                                 "_sync_type": 1,
                                                 "_value": 0.0
                                             }
@@ -163,7 +163,7 @@
                                         "_internal": {
                                             "index": 0,
                                             "data": {
-                                                "_id": 16118,
+                                                "_id": 31322,
                                                 "_sync_type": 1,
                                                 "_value": 0
                                             }
@@ -175,7 +175,7 @@
                         }
                     },
                     {
-                        "_id": 6270,
+                        "_id": 3035,
                         "_sync_type": 1,
                         "_value": {
                             "polymorphic_id": 2147483658,
@@ -187,7 +187,7 @@
                                         "_internal": {
                                             "index": 0,
                                             "data": {
-                                                "_id": 4833,
+                                                "_id": 15141,
                                                 "_sync_type": 1,
                                                 "_value": ""
                                             }
@@ -198,9 +198,28 @@
                                         "_internal": {
                                             "index": 0,
                                             "data": {
-                                                "_id": 31115,
+                                                "_id": 7711,
                                                 "_sync_type": 1,
-                                                "_value": {}
+                                                "_value": {
+                                                    "_dimensions": {
+                                                        "value0": 0,
+                                                        "value1": 0
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "_is_ref": false
+                                    },
+                                    "_dimensions": {
+                                        "_internal": {
+                                            "index": 0,
+                                            "data": {
+                                                "_id": 28253,
+                                                "_sync_type": 1,
+                                                "_value": {
+                                                    "value0": 0,
+                                                    "value1": 0
+                                                }
                                             }
                                         },
                                         "_is_ref": false
@@ -212,7 +231,7 @@
                 ]
             },
             "_scenes": {
-                "_id": 29658,
+                "_id": 25547,
                 "_sync_type": 1,
                 "_value": {
                     "_states": [
@@ -220,7 +239,7 @@
                             "_internal": {
                                 "index": 0,
                                 "data": {
-                                    "_id": 5829,
+                                    "_id": 22190,
                                     "_sync_type": 1,
                                     "_value": {
                                         "_value": {
@@ -236,7 +255,7 @@
                 }
             },
             "_properties": {
-                "_id": 22704,
+                "_id": 27644,
                 "_sync_type": 1,
                 "_value": {
                     "_properties": []

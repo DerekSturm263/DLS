@@ -1,10 +1,13 @@
 #include "miscellaneous/system_manager.hpp"
 
 namespace dls::systems {
-	void system_manager::initialize() {
+	bool system_manager::initialize() {
 		for (auto& system : _systems) {
-			system->initialize();
+			if (!system->initialize())
+				return false;
 		}
+
+		return true;
 	}
 
 	void system_manager::on_scene_load() {
@@ -16,12 +19,6 @@ namespace dls::systems {
 	void system_manager::on_tick(game::tick& tick) {
 		for (auto& system : _systems) {
 			system->on_tick(tick);
-		}
-	}
-
-	void system_manager::on_update() {
-		for (auto& system : _systems) {
-			system->on_update();
 		}
 	}
 

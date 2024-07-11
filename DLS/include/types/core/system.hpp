@@ -19,18 +19,19 @@ namespace dls::core::functions {
 namespace dls::core::types {
     class system_base : public interfaces::serializable<system_base> {
 		protected:
-			std::vector<std::shared_ptr<interfaces::function>> _all_functions;
+			std::vector<std::unique_ptr<interfaces::function>> _all_functions;
 
 			template <typename TFunc>
 			friend class event;
 
 		public:
             system_base() : _all_functions() { }
+            ~system_base() { }
 
             /// <summary>
             /// Initialize is called immediately when the application is loaded. This is useful for initializing global logic and data.
             /// </summary>
-            virtual void initialize() { }
+            virtual bool initialize() { return true; }
 
             /// <summary>
             /// On Scene Load is called when a scene is loaded. This is useful for initializing scene-specific values like lists of vals.
@@ -42,11 +43,6 @@ namespace dls::core::types {
             /// </summary>
             /// <param name="tick">The current tick being executed.</param>
             virtual void on_tick(game::tick& tick) { }
-
-            /// <summary>
-            /// Update is called every frame, regardless of the tick rate. This should only be used with systems that don't affect the game state.
-            /// </summary>
-            virtual void on_update() { }
 
             /// <summary>
             /// On Scene Unload is called when a scene is unloaded. This is useful for shutting down scene-specific values like lists of vals.
@@ -66,10 +62,13 @@ namespace dls::core::types {
 
 		protected:
             system() {
-                _all_functions.push_back(std::make_shared<functions::set_sys_enabled>(functions::set_sys_enabled{}));
+                std::unique_ptr<interfaces::function> ptr = std::make_unique<functions::set_sys_enabled>(functions::set_sys_enabled{});
+                _all_functions.push_back(std::move(ptr));
 
 				([&] {
-					_all_functions.push_back(std::make_shared<TFuncTypes>(TFuncTypes{}));
+                    std::unique_ptr<interfaces::function> ptr = std::make_unique<TFuncTypes>(TFuncTypes{});
+
+					_all_functions.push_back(std::move(ptr));
 				} (), ...);
 			}
     };

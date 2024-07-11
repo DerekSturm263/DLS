@@ -32,8 +32,8 @@ namespace dls::graphics::types {
 			}
 
 			void load(is& file) override {
-				file(CEREAL_NVP(_shader));
-				file(CEREAL_NVP(_settings));
+				file(_shader);
+				file(_settings);
 			}
 
 			void draw(std::string const& label) const override {

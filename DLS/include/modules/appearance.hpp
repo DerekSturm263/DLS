@@ -5,7 +5,7 @@
 #include "types/graphics/material.hpp"
 
 namespace dls::graphics::functions {
-	class render : public core::interfaces::function {
+	class set_parameter : public core::interfaces::function {
 		public:
 			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
@@ -18,7 +18,7 @@ namespace dls::graphics::functions {
 }
 
 namespace dls::graphics::modules {
-	class appearance : public core::types::module<functions::render> {
+	class appearance : public core::types::module<functions::set_parameter> {
 		private:
 			core::wrappers::type<types::material> _material;
 

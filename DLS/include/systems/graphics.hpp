@@ -3,29 +3,13 @@
 #include "types/core/system.hpp"
 #include "miscellaneous/graphics_agent.hpp"
 
-namespace dls::graphics::systems {
-	class graphics : public core::types::system<> {
-		private:
-			std::vector<graphics_agent> _agents;
-
-        public:
-			void on_update() override {
-				for (auto& agent : _agents) {
-					update_agent(agent);
-				}
-			}
-
-			void update_agent(graphics_agent& agent) {
+namespace dls::graphics::functions {
+	template <typename Decimal, glm::length_t Size>
+	class render : public core::interfaces::function {
+		public:
+			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
-
-            void save(os& file) const override {
-
-            }
-
-            void load(is& file) override {
-
-            }
 
 			void draw(std::string const& label) const override {
 
@@ -33,4 +17,37 @@ namespace dls::graphics::systems {
 	};
 }
 
-REGISTER_SYSTEM("Graphics", dls::graphics::systems::graphics);
+namespace dls::graphics::systems {
+	template <typename Decimal, glm::length_t Size>
+	class graphics : public core::types::system<functions::render<Decimal, Size>> {
+		private:
+			std::vector<graphics_agent<Decimal, Size>> _agents;
+
+        public:
+			void update() {
+				for (auto& agent : _agents) {
+					update_agent(agent);
+				}
+			}
+
+			void update_agent(graphics_agent<Decimal, Size> const& agent) {
+
+			}
+
+            void save(core::interfaces::serializable_base::os& file) const override {
+
+            }
+
+            void load(core::interfaces::serializable_base::is& file) override {
+
+            }
+
+			void draw(std::string const& label) const override {
+
+			}
+	};
+
+	using graphics_t = graphics<math::decimal, math::dimensions>;
+}
+
+REGISTER_SYSTEM("Graphics", dls::graphics::systems::graphics_t);

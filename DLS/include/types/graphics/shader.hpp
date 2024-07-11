@@ -8,6 +8,10 @@ namespace dls::graphics::types {
 		public:
 			using any = std::variant<int>;
 
+		private:
+			int _id;
+
+		public:
 			void set(std::string const& name, any const& value) {
 
 			}

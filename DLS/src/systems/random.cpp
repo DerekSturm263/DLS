@@ -1,8 +1,9 @@
 #include "systems/random.hpp"
 
 namespace dls::math::systems {
-	void random::initialize() {
-		_engine = std::default_random_engine(_seed.value());
+	bool random::initialize() {
+		_engine = std::default_random_engine{ _seed.value() };
+		return true;
 	}
 
 	void random::shutdown() {

@@ -13,9 +13,7 @@ namespace dls::math::types {
 
 			fixed(T fraction) : _internal(fraction * Precision) { }
 			fixed(fixed<T, Precision> const& rhs) : _internal(rhs._internal) { }
-			fixed(fixed<T, Precision>&& rhs) : _internal(rhs._internal) {
-				rhs._internal = 0;
-			}
+			fixed(fixed<T, Precision>&& rhs) : _internal(std::move(rhs._internal)) { }
 
 			fixed<T, Precision> operator +(fixed<T, Precision> const& rhs) const {
 				return fixed(_internal + rhs._internal);

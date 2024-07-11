@@ -18,9 +18,9 @@ namespace dls::core::wrappers {
 
 		public:
 			type() : _internal(val<T>{}), _is_ref(false) { }
-			type(T const&& value) : _internal(val<T>{ value }), _is_ref(false) { }
-			type(val<T> const&& value) : _internal(value), _is_ref(false) { }
-			type(ref<T> const&& reference) : _internal(reference), _is_ref(true) { }
+			type(T&& value) : _internal(val<T>{ std::move(value) }), _is_ref(false) { }
+			type(val<T>&& value) : _internal(std::move(value)), _is_ref(false) { }
+			type(ref<T>&& reference) : _internal(std::move(reference)), _is_ref(true) { }
 
 			T const& value() const {
 				if (_is_ref)
