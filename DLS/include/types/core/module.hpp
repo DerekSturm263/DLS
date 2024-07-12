@@ -36,14 +36,14 @@ namespace dls::core::types {
 
 		protected:
 			module() {
-				std::unique_ptr<interfaces::function> ptr = std::make_unique<functions::set_mod_enabled>(functions::set_mod_enabled{});
+				/*std::unique_ptr<interfaces::function> ptr = std::make_unique<functions::set_mod_enabled>(functions::set_mod_enabled{});
 				_all_functions.push_back(std::move(ptr));
 
 				([&] {
 					std::unique_ptr<interfaces::function> ptr = std::make_unique<TFuncTypes>(TFuncTypes{});
 
 					_all_functions.push_back(std::move(ptr));
-				} (), ...);
+				} (), ...);*/
 			}
 	};
 }

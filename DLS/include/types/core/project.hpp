@@ -18,12 +18,12 @@ namespace dls::core::types {
 
 			template <typename... Ts>
 			project(std::vector<core::wrappers::val<scene>> const& scenes, Ts&& ... systems) : _systems(), _scenes(), _properties() {
-				([&] {
+				/*([&] {
 					std::unique_ptr<system_base> ptr = std::make_unique<Ts>(std::move(systems));
 					wrappers::val<std::unique_ptr<system_base>> val{ std::move(ptr) };
 
 					_systems.value().push_back(std::move(val));
-				} (), ...);
+				} (), ...);*/
 
 				for (auto& scn : scenes) {
 					_scenes.value().add_state(wrappers::ref<scene>{ scn });
@@ -32,12 +32,12 @@ namespace dls::core::types {
 
 			template <typename... Ts>
 			project(std::vector<core::wrappers::ref<scene>> const& scenes, Ts&& ... systems) : _systems(), _scenes(), _properties() {
-				([&] {
+				/*([&] {
 					std::unique_ptr<system_base> ptr = std::make_unique<Ts>(std::move(systems));
 					wrappers::val<std::unique_ptr<system_base>> val{ std::move(ptr) };
 
 					_systems.value().push_back(std::move(val));
-				} (), ...);
+				} (), ...);*/
 
 				for (auto& scn : scenes) {
 					_scenes.value().add_state(scn);
@@ -71,19 +71,19 @@ namespace dls::core::types {
 			}
 
 			void save(core::interfaces::serializable_base::os& file) const override {
-				file(CEREAL_NVP(_systems));
+				//file(CEREAL_NVP(_systems));
 				file(CEREAL_NVP(_scenes));
 				file(CEREAL_NVP(_properties));
 			}
 
 			void load(core::interfaces::serializable_base::is& file) override {
-				file(_systems);
+				//file(_systems);
 				file(_scenes);
 				file(_properties);
 			}
 
 			void draw(std::string const& label) const override {
-				_systems.draw("Systems");
+				//_systems.draw("Systems");
 				_scenes.draw("Scenes");
 				_properties.draw("Properties");
 			}

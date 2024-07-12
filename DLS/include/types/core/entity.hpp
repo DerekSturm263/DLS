@@ -26,12 +26,12 @@ namespace dls::core::types {
 
 			template <typename... Ts>
 			entity(std::string const&& name, Ts const&& ... modules) : _name(name), _modules() {
-				([&] {
+				/*([&] {
 					std::unique_ptr<module_base> ptr = std::make_unique<Ts>(std::move(modules));
 					wrappers::val<std::unique_ptr<module_base>> val{ std::move(ptr) };
 
 					_modules.value().push_back(std::move(val));
-				} (), ...);
+				} (), ...);*/
 			}
 
 			std::string const& name() const {
@@ -44,21 +44,21 @@ namespace dls::core::types {
 
 			template <typename T>
 			std::optional<T const*> get_module() const {
-				size_t index = typeid(T).hash_code();
+				/*size_t index = typeid(T).hash_code();
 
 				if (_modules.value().contains(index))
 					return std::optional<T const*>{ _modules.value().at(index).value().get() };
-
+				*/
 				return std::optional<T const*>();
 			}
 
 			template <typename T>
 			std::optional<T*> get_module() {
-				size_t index = typeid(T).hash_code();
+				/*size_t index = typeid(T).hash_code();
 
 				if (_modules.value().contains(index))
 					return std::optional<T*>{ _modules.value().at(index).value().get() };
-
+				*/
 				return std::optional<T*>();
 			}
 
@@ -72,7 +72,7 @@ namespace dls::core::types {
 
 			void save(os& file) const override {
 				file(CEREAL_NVP(_name));
-				file(CEREAL_NVP(_modules));
+				//file(CEREAL_NVP(_modules));
 				file(CEREAL_NVP(_properties));
 				file(CEREAL_NVP(_on_start));
 				file(CEREAL_NVP(_on_enable));
@@ -83,7 +83,7 @@ namespace dls::core::types {
 
 			void load(is& file) override {
 				file(_name);
-				file(_modules);
+				//file(_modules);
 				file(_properties);
 				file(_on_start);
 				file(_on_enable);

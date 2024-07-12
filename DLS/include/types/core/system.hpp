@@ -62,14 +62,14 @@ namespace dls::core::types {
 
 		protected:
             system() {
-                std::unique_ptr<interfaces::function> ptr = std::make_unique<functions::set_sys_enabled>(functions::set_sys_enabled{});
+                /*std::unique_ptr<interfaces::function> ptr = std::make_unique<functions::set_sys_enabled>(functions::set_sys_enabled{});
                 _all_functions.push_back(std::move(ptr));
 
 				([&] {
                     std::unique_ptr<interfaces::function> ptr = std::make_unique<TFuncTypes>(TFuncTypes{});
 
 					_all_functions.push_back(std::move(ptr));
-				} (), ...);
+				} (), ...);*/
 			}
     };
 }
