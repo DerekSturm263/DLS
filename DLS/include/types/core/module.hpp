@@ -1,12 +1,15 @@
 #pragma once
 
+#include <optional>
+#include <type_traits>
 #include "interfaces/serializable.hpp"
 #include "interfaces/function.hpp"
+#include "wrappers/wrappers.hpp"
 
 namespace dls::core::functions {
-	class set_mod_enabled : public interfaces::function {
+	class set_mod_enabled : public interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -19,14 +22,24 @@ namespace dls::core::functions {
 namespace dls::core::types {
 	class module_base : public interfaces::serializable<module_base> {
 		protected:
-			std::vector<std::unique_ptr<interfaces::function>> _all_functions;
+			std::unordered_map<size_t, wrappers::val<std::unique_ptr<interfaces::function_base>>> _functions;
 
 			template <typename TFunc>
 			friend class event;
 			
 		public:
-			module_base() : _all_functions() { }
-			~module_base() { }
+			module_base() : _functions() { }
+			module_base(module_base&& rhs) : _functions(std::move(rhs._functions)) { }
+
+			template <typename T>
+			std::optional<T const*> get_function() const {
+				size_t index = typeid(T).hash_code();
+
+				if (_functions.contains(index))
+					return static_cast<T const*>(functions.at(index).value().get());
+				
+				return std::nullopt;
+			}
 	};
 
 	template <typename... TFuncTypes>
@@ -36,14 +49,14 @@ namespace dls::core::types {
 
 		protected:
 			module() {
-				/*std::unique_ptr<interfaces::function> ptr = std::make_unique<functions::set_mod_enabled>(functions::set_mod_enabled{});
-				_all_functions.push_back(std::move(ptr));
+				std::unique_ptr<interfaces::function_base> ptr = std::make_unique<functions::set_mod_enabled>(functions::set_mod_enabled{});
+				_functions.insert(std::make_pair(typeid(functions::set_mod_enabled).hash_code(), std::move(ptr)));
 
 				([&] {
-					std::unique_ptr<interfaces::function> ptr = std::make_unique<TFuncTypes>(TFuncTypes{});
+					std::unique_ptr<interfaces::function_base> ptr = std::make_unique<TFuncTypes>(TFuncTypes{});
 
-					_all_functions.push_back(std::move(ptr));
-				} (), ...);*/
+					_functions.insert(std::make_pair(typeid(TFuncTypes).hash_code(), std::move(ptr)));
+				} (), ...);
 			}
 	};
 }

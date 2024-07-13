@@ -6,9 +6,9 @@
 
 namespace dls::simulation::functions {
 	template <typename Decimal, glm::length_t Size>
-	class shape_cast : public core::interfaces::function {
+	class shape_cast : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -25,9 +25,9 @@ namespace dls::simulation::systems {
 			std::vector<simulation_agent<Decimal, Size>> _agents;
 
 		public:
-			void on_tick(game::tick& tick) override {
+			void on_tick(game::game& game) override {
 				for (auto& agent : _agents) {
-					update_agent(tick, agent);
+					update_agent(game.tick(), agent);
 				}
 			}
 

@@ -6,9 +6,9 @@
 
 namespace dls::send_receive::functions {
 	template <typename T>
-	class send : public core::interfaces::function {
+	class send : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 

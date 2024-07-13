@@ -11,6 +11,11 @@ namespace dls::properties::types {
 			mutable std::unordered_map<std::string, core::wrappers::val<property>> _properties;
 			
 		public:
+			property_group() : _properties() { }
+
+			property_group(property_group const& rhs) : _properties(rhs._properties) { }
+			property_group(property_group&& rhs) : _properties(std::move(rhs._properties)) { }
+
 			property const& at(std::string const& name) const {
 				return _properties[name].value();
 			}
@@ -29,6 +34,16 @@ namespace dls::properties::types {
 
 			void draw(std::string const& label) const override {
 
+			}
+
+			property_group & operator= (property_group const& rhs) {
+				_properties = rhs._properties;
+				return *this;
+			}
+
+			property_group& operator= (property_group&& rhs) {
+				_properties = std::move(_properties);
+				return *this;
 			}
 	};
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "system_manager.hpp"
+#include "game.hpp"
 
 namespace dls::engine {
 	class engine {
@@ -8,10 +8,10 @@ namespace dls::engine {
 			static int execute(int, char*[]);
 
 		private:
-			static systems::system_manager _manager;
+			static game::game _game;
 
 			static bool initialize(int, char* []);
-			static void tick(game::tick&);
+			static void tick();
 			static void shutdown();
 	};
 }

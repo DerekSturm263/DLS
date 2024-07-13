@@ -23,6 +23,8 @@ namespace dls::core::wrappers {
 			friend class save_data;
 
 		public:
+			asset() : _file_path(), _value() { }
+
 			asset(std::string const& file_path, T const& def) : _file_path(file_path), _value() {
 				try {
 					std::ifstream ifstream{ file_path };
@@ -32,13 +34,34 @@ namespace dls::core::wrappers {
 						archive(_value);
 					} else {
 						// TODO: Add debug message.
-						_value = val<T>{ def };
+						_value = def;
 					}
 				} catch (std::exception const& e) {
 					// TODO: Add debug message.
-					_value = val<T>{ def };
+					_value = def;
 				}
 			}
+			asset(std::string const& file_path, T&& def) : _file_path(file_path), _value() {
+				try {
+					std::ifstream ifstream{ file_path };
+
+					if (ifstream.is_open()) {
+						interfaces::serializable_base::is archive{ ifstream };
+						archive(_value);
+					}
+					else {
+						// TODO: Add debug message.
+						_value = std::move(def);
+					}
+				}
+				catch (std::exception const& e) {
+					// TODO: Add debug message.
+					_value = std::move(def);
+				}
+			}
+
+			asset(asset<T> const& rhs) : _file_path(rhs._file_path), _value(rhs._value) { }
+			asset(asset<T>&& rhs) : _file_path(std::move(rhs._file_path)), _value(std::move(rhs._value)) { }
 
 			~asset() {
 				std::ofstream ofstream{ _file_path };
@@ -55,12 +78,34 @@ namespace dls::core::wrappers {
 				return _file_path;
 			}
 
-			val<T> const& value() const {
-				return _value;
+			T const& value() const {
+				return _value.value();
+			}
+
+			T& value() {
+				return _value.value();
 			}
 
 			void set_from_instance(instance<T> const& rhs) {
 				_value = rhs._value;
+			}
+
+			void set_from_instance(instance<T>&& rhs) {
+				_value = std::move(rhs._value);
+			}
+
+			asset<T>& operator= (asset<T> const& rhs) {
+				_file_path = rhs._file_path;
+				_value = rhs._value;
+
+				return *this;
+			}
+
+			asset<T>& operator= (asset<T>&& rhs) {
+				_file_path = std::move(rhs._file_path);
+				_value = std::move(rhs._value);
+
+				return *this;
 			}
 	};
 }

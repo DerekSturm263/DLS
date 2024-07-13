@@ -6,9 +6,9 @@
 #include "types/core/system.hpp"
 
 namespace dls::math::functions {
-	class next : public core::interfaces::function {
+	class next : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -17,9 +17,9 @@ namespace dls::math::functions {
             }
 	};
 
-	class next_range : public core::interfaces::function {
+	class next_range : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -36,8 +36,26 @@ namespace dls::math::systems {
             std::default_random_engine _engine;
 
         public:
-            bool initialize() override;
-            void shutdown() override;
+            bool initialize(game::game& game) override {
+                _engine = std::default_random_engine{ _seed.value() };
+
+                auto optional = game.project().get_system<debug::systems::debug>();
+                if (optional.has_value())
+                {
+                    optional.value()->log_out("Initialized System: Random");
+                }
+
+                return true;
+            }
+
+            void shutdown(game::game& game) override {
+                auto optional = game.project().get_system<debug::systems::debug>();
+
+                if (optional.has_value())
+                {
+                    optional.value()->log_out("Shut Down System: Random");
+                }
+            }
 
             template <typename T>
             T next() {

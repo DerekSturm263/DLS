@@ -18,6 +18,9 @@ namespace dls::core::wrappers {
 			val(T const& value) : _value(value) { }
 			val(T&& value) : _value(std::move(value)) { }
 
+			val(val<T> const& rhs) : _value(rhs._value) { }
+			val(val<T>&& rhs) : _value(std::move(rhs._value)) { }
+
 			T const& value() const {
 				return _value;
 			}
@@ -40,6 +43,16 @@ namespace dls::core::wrappers {
 
 			void draw(std::string const& label) const override {
 
+			}
+
+			val<T>& operator= (val<T> const& rhs) {
+				_value = rhs._value;
+				return *this;
+			}
+
+			val<T>& operator= (val<T>&& rhs) {
+				_value = std::move(rhs._value);
+				return *this;
 			}
 	};
 }

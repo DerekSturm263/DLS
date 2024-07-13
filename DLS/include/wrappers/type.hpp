@@ -14,40 +14,51 @@ namespace dls::core::wrappers {
 	class type : public interfaces::serializable<type<T>> {
 		private:
 			std::variant<val<T>, ref<T>> _internal;
-			bool _is_ref;
 
 		public:
-			type() : _internal(val<T>{}), _is_ref(false) { }
-			type(T&& value) : _internal(val<T>{ std::move(value) }), _is_ref(false) { }
-			type(val<T>&& value) : _internal(std::move(value)), _is_ref(false) { }
-			type(ref<T>&& reference) : _internal(std::move(reference)), _is_ref(true) { }
+			type() : _internal(val<T>{}) { }
+			type(T&& value) : _internal(val<T>{ std::move(value) }) { }
+			type(val<T>&& value) : _internal(std::move(value)) { }
+			type(ref<T>&& reference) : _internal(std::move(reference)) { }
+
+			type(type<T> const& rhs) : _internal(rhs._internal) { }
 
 			T const& value() const {
-				if (_is_ref)
-					return std::get<ref<T>>(_internal).value();
-				else
+				if (_internal.index() == 0)
 					return std::get<val<T>>(_internal).value();
+				else
+					return std::get<ref<T>>(_internal).value();
 			}
 
 			T& value() {
-				if (_is_ref)
-					return std::get<ref<T>>(_internal).value();
-				else
+				if (_internal.index() == 0)
 					return std::get<val<T>>(_internal).value();
+				else
+					return std::get<ref<T>>(_internal).value();
 			}
 
 			void save(interfaces::serializable_base::os& file) const override {
 				file(CEREAL_NVP(_internal));
-				file(CEREAL_NVP(_is_ref));
 			}
 
 			void load(interfaces::serializable_base::is& file) override {
 				file(_internal);
-				file(_is_ref);
 			}
 
 			void draw(std::string const& label) const override {
 
+			}
+
+			type<T>& operator= (type<T> const& rhs) {
+				_internal = rhs._internal;
+
+				return *this;
+			}
+
+			type<T>& operator= (type<T>&& rhs) {
+				_internal = std::move(rhs._internal);
+
+				return *this;
 			}
 	};
 }

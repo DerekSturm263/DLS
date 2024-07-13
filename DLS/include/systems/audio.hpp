@@ -6,9 +6,9 @@
 
 namespace dls::audio::functions {
     template <typename Decimal>
-	class play : public core::interfaces::function {
+	class play : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 

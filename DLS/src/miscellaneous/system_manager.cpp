@@ -1,36 +1,36 @@
 #include "miscellaneous/system_manager.hpp"
 
 namespace dls::systems {
-	bool system_manager::initialize() {
+	bool system_manager::initialize(game::game& game) {
 		for (auto& system : _systems) {
-			if (!system->initialize())
+			if (!system->initialize(game))
 				return false;
 		}
 
 		return true;
 	}
 
-	void system_manager::on_scene_load() {
+	void system_manager::on_scene_load(game::game& game) {
 		for (auto& system : _systems) {
-			system->on_scene_load();
+			system->on_scene_load(game);
 		}
 	}
 
-	void system_manager::on_tick(game::tick& tick) {
+	void system_manager::on_tick(game::game& game) {
 		for (auto& system : _systems) {
-			system->on_tick(tick);
+			system->on_tick(game);
 		}
 	}
 
-	void system_manager::on_scene_unload() {
+	void system_manager::on_scene_unload(game::game& game) {
 		for (auto& system : _systems) {
-			system->on_scene_unload();
+			system->on_scene_unload(game);
 		}
 	}
 
-	void system_manager::shutdown() {
+	void system_manager::shutdown(game::game& game) {
 		for (auto& system : _systems) {
-			system->shutdown();
+			system->shutdown(game);
 		}
 	}
 }

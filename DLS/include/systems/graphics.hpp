@@ -5,9 +5,9 @@
 
 namespace dls::graphics::functions {
 	template <typename Decimal, glm::length_t Size>
-	class render : public core::interfaces::function {
+	class render : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -24,7 +24,7 @@ namespace dls::graphics::systems {
 			std::vector<graphics_agent<Decimal, Size>> _agents;
 
         public:
-			void update() {
+			void update(game::game& game) {
 				for (auto& agent : _agents) {
 					update_agent(agent);
 				}

@@ -5,9 +5,9 @@
 #include "types/math/vector.hpp"
 
 namespace dls::graphics::functions {
-	class open : public core::interfaces::function {
+	class open : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -16,9 +16,9 @@ namespace dls::graphics::functions {
 			}
 	};
 	
-	class close : public core::interfaces::function {
+	class close : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 

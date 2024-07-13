@@ -5,9 +5,9 @@
 #include "wrappers/wrappers.hpp"
 
 namespace dls::math::functions {
-	class get_from_position : public core::interfaces::function {
+	class get_from_position : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 

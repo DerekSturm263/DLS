@@ -162,13 +162,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\miscellaneous\engine.hpp" />
+    <ClInclude Include="include\miscellaneous\functions.hpp" />
     <ClInclude Include="include\miscellaneous\game.hpp" />
+    <ClInclude Include="include\miscellaneous\graphics_agent.hpp" />
     <ClInclude Include="include\miscellaneous\math_defines.hpp" />
     <ClInclude Include="include\modules\modules.hpp" />
     <ClInclude Include="include\modules\node_group_resolver.hpp" />
     <ClInclude Include="include\systems\audio.hpp" />
     <ClInclude Include="include\systems\debug.hpp" />
     <ClInclude Include="include\miscellaneous\graphics.hpp" />
+    <ClInclude Include="include\systems\graphics.hpp" />
     <ClInclude Include="include\systems\input.hpp" />
     <ClInclude Include="include\systems\random.hpp" />
     <ClInclude Include="include\systems\save_data.hpp" />
@@ -182,6 +185,7 @@
     <ClInclude Include="include\modules\appearance.hpp" />
     <ClInclude Include="include\types\audio\clip.hpp" />
     <ClInclude Include="include\callbacks\collision_callback_context.hpp" />
+    <ClInclude Include="include\types\core\system.hpp" />
     <ClInclude Include="include\types\graphics\color.hpp" />
     <ClInclude Include="include\miscellaneous\drawable.hpp" />
     <ClInclude Include="include\modules\emitter.hpp" />
@@ -258,7 +262,6 @@
     <ClCompile Include="src\miscellaneous\system_manager.cpp" />
     <ClCompile Include="src\glad.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\systems\random.cpp" />
     <ClCompile Include="src\stb.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

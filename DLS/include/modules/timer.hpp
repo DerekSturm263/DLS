@@ -8,9 +8,9 @@
 
 namespace dls::time::functions {
 	template <typename Decimal>
-	class play : public core::interfaces::function {
+	class begin : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -20,9 +20,9 @@ namespace dls::time::functions {
 	};
 
 	template <typename Decimal>
-	class pause : public core::interfaces::function {
+	class pause : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -32,9 +32,9 @@ namespace dls::time::functions {
 	};
 
 	template <typename Decimal>
-	class resume : public core::interfaces::function {
+	class resume : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -44,9 +44,9 @@ namespace dls::time::functions {
 	};
 
 	template <typename Decimal>
-	class stop : public core::interfaces::function {
+	class stop : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -58,7 +58,7 @@ namespace dls::time::functions {
 
 namespace dls::time::modules {
 	template <typename Decimal>
-	class timer : public core::types::module<functions::play<Decimal>, functions::pause<Decimal>, functions::resume<Decimal>, functions::stop<Decimal>> {
+	class timer : public core::types::module<functions::begin<Decimal>, functions::pause<Decimal>, functions::resume<Decimal>, functions::stop<Decimal>> {
 		private:
 			core::wrappers::type<Decimal> _starting_time;
 			core::wrappers::type<Decimal> _multiplier;

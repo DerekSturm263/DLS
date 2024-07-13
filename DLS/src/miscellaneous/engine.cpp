@@ -3,10 +3,8 @@
 #include "systems/systems.hpp"
 #include "modules/modules.hpp"
 
-#include "types/core/project.hpp"
-
 namespace dls::engine {
-	systems::system_manager engine::_manager{};
+	game::game _game{};
 
 	int engine::execute(int argc, char* argv[]) {
 		if (initialize(argc, argv)) {
@@ -18,7 +16,7 @@ namespace dls::engine {
 	}
 
 	bool engine::initialize(int argc, char* argv[]) {
-		core::wrappers::asset<core::types::project> project{ "assets/project1.project.asset", core::types::project{ std::vector<core::wrappers::ref<core::types::scene>>{},
+		_game = game::game(core::wrappers::asset<core::types::project>{ "assets/project1.project.asset", core::types::project{ std::vector<core::wrappers::ref<core::types::scene>>{},
 			audio::systems::audio_t{},
 			debug::systems::debug{},
 			graphics::systems::graphics_t{},
@@ -29,18 +27,16 @@ namespace dls::engine {
 			simulation::systems::simulation_t{},
 			time::systems::time_t{},
 			graphics::systems::window{}
-		} };
+		} });
 
-		_manager = systems::system_manager{ project.value().value().systems() };
-
-		return _manager.initialize();
+		return _game.system_manager().initialize(_game);
 	}
 
-	void engine::tick(game::tick& tick) {
-		_manager.on_tick(tick);
+	void engine::tick() {
+		_game.system_manager().on_tick(_game);
 	}
 
 	void engine::shutdown() {
-		_manager.shutdown();
+		_game.system_manager().shutdown(_game);
 	}
 }

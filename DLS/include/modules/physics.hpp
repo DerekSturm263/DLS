@@ -7,11 +7,11 @@
 
 namespace dls::simulation::functions {
 	template <typename Decimal, glm::length_t Size>
-	class set_acceleration : public core::interfaces::function {
+	class set_acceleration : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-				//simulation_agent* rb = static_cast<simulation_agent*>(inputs[0]);
-				//types::vector<Decimal, Size>* acc = static_cast<types::vector<Decimal, Size>*>(inputs[1]);
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+				//systems::simulation_agent* rb = static_cast<systems::simulation_agent*>(inputs[0]);
+				//math::types::vector<Decimal, Size>* acc = static_cast<math::types::vector<Decimal, Size>*>(inputs[1]);
 			}
 
 			void draw(std::string const& label) const override {
@@ -20,11 +20,11 @@ namespace dls::simulation::functions {
 	};
 
 	template <typename Decimal, glm::length_t Size>
-	class set_velocity : public core::interfaces::function {
+	class set_velocity : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-				//simulation_agent* rb = static_cast<simulation_agent*>(inputs[0]);
-				//types::vector<Decimal, Size>* vel = static_cast<types::vector<Decimal, Size>*>(inputs[1]);
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+				//systems::simulation_agent* rb = static_cast<systems::simulation_agent*>(inputs[0]);
+				//math::types::vector<Decimal, Size>* vel = static_cast<math::types::vector<Decimal, Size>*>(inputs[1]);
 			}
 
 			void draw(std::string const& label) const override {

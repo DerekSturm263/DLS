@@ -6,9 +6,9 @@
 #include "wrappers/wrappers.hpp"
 
 namespace dls::debug::functions {
-	class out : public core::interfaces::function {
+	class out : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -17,9 +17,9 @@ namespace dls::debug::functions {
 			}
 	};
 
-	class in : public core::interfaces::function {
+	class in : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -35,6 +35,14 @@ namespace dls::debug::systems {
             core::wrappers::type<std::string> _file_name;
 
         public:
+			void log_out(std::string const& output) {
+				std::cout << output << std::endl;
+			}
+
+			void log_in(std::string& input) {
+				std::cin >> input;
+			}
+
             void save(os& file) const override {
                 file(CEREAL_NVP(_file_name));
             }

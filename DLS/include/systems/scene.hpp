@@ -3,9 +3,9 @@
 #include "types/core/system.hpp"
 
 namespace dls::core::functions {
-	class load : public interfaces::function {
+	class load : public interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -14,9 +14,9 @@ namespace dls::core::functions {
 			}
 	};
 
-	class spawn : public interfaces::function {
+	class spawn : public interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -25,9 +25,9 @@ namespace dls::core::functions {
 			}
 	};
 
-	class despawn : public interfaces::function {
+	class despawn : public interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 

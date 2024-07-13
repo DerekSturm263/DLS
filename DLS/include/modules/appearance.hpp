@@ -5,9 +5,9 @@
 #include "types/graphics/material.hpp"
 
 namespace dls::graphics::functions {
-	class set_parameter : public core::interfaces::function {
+	class set_parameter : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 

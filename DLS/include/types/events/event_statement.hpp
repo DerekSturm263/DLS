@@ -10,7 +10,7 @@ namespace dls::events::types {
 	template <typename TFunc>
 	class event_statement : public core::interfaces::serializable<TFunc> {
 		private:
-			core::wrappers::ref<core::interfaces::function> _function;
+			core::wrappers::ref<core::interfaces::function_base> _function;
 
 		public:
 			/*auto invoke(tick& tick, std::vector<void*> const& args) {

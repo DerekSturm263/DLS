@@ -5,9 +5,9 @@
 
 namespace dls::time::functions {
 	template <typename Decimal>
-	class set_scale : public core::interfaces::function {
+	class set_scale : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 

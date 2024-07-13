@@ -7,9 +7,9 @@
 
 namespace dls::math::functions {
 	template <typename Decimal, glm::length_t Size>
-	class set_position : public core::interfaces::function {
+	class set_position : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -19,9 +19,9 @@ namespace dls::math::functions {
 	};
 
 	template <typename Decimal, glm::length_t Size>
-	class set_rotation : public core::interfaces::function {
+	class set_rotation : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -31,9 +31,9 @@ namespace dls::math::functions {
 	};
 
 	template <typename Decimal, glm::length_t Size>
-	class set_scale : public core::interfaces::function {
+	class set_scale : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 

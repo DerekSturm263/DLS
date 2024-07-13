@@ -4,9 +4,9 @@
 #include "types/core/system.hpp"
 
 namespace dls::input::functions {
-	class set_max_players : public core::interfaces::function {
+	class set_max_players : public core::interfaces::function<std::tuple<>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
@@ -19,7 +19,7 @@ namespace dls::input::functions {
 namespace dls::input::systems {
     class input : public core::types::system<functions::set_max_players> {
 		public:
-			void on_tick(game::tick& tick) override {
+			void on_tick(game::game& game) override {
 
 			}
 

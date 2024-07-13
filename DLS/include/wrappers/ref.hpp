@@ -22,6 +22,9 @@ namespace dls::core::wrappers {
 			ref() : _id(0) { }
 			ref(val<T> const& value) : _id(value._id) { }
 
+			ref(ref<T> const& rhs) : _id(rhs._id) { }
+			ref(ref<T>&& rhs) : _id(std::move(rhs._id)) { }
+
 			T& value() {
 				return interfaces::unique<val<T>>::_ids_to_values[_id]->value();
 			}
@@ -44,6 +47,16 @@ namespace dls::core::wrappers {
 
 			void draw(std::string const& label) const override {
 
+			}
+
+			ref<T>& operator= (ref<T> const& rhs) {
+				_id = rhs._id;
+				return *this;
+			}
+
+			ref<T>& operator= (ref<T>&& rhs) {
+				_id = std::move(rhs._id);
+				return *this;
 			}
 
 			//static inline const ref<T> none{};

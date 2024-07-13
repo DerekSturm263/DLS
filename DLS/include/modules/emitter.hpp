@@ -6,9 +6,9 @@
 
 namespace dls::miscellaneous::functions {
 	template <typename T, typename Decimal>
-	class emit : public core::interfaces::function {
+	class emit : public core::interfaces::function<std::tuple<int>, std::tuple<>> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
 
 			}
 
