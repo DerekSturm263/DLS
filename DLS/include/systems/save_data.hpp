@@ -1,7 +1,7 @@
 #pragma once
 
-#include "wrappers/wrappers.hpp"
 #include "types/core/system.hpp"
+#include "wrappers/wrappers.hpp"
 #include "types/properties/property_group.hpp"
 
 namespace dls::serialization::systems {

@@ -9,16 +9,7 @@
 
 namespace dls::input::functions {
 	template <typename Decimal>
-	class send_haptic : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-            void draw(std::string const& label) const override {
-
-            }
-	};
+	class send_haptic;
 }
 
 namespace dls::input::modules {
@@ -42,6 +33,16 @@ namespace dls::input::modules {
 	};
 
 	using input_t = input<math::decimal>;
+}
+
+namespace dls::input::functions {
+	template <typename Decimal>
+	class send_haptic : public core::interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+
+			}
+	};
 }
 
 REGISTER_MODULE("Input", dls::input::modules::input_t);

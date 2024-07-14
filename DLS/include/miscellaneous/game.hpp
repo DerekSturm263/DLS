@@ -14,6 +14,7 @@ namespace dls::game {
 		public:
 			game() : _project(), _system_manager(), _tick() { }
 			game(core::wrappers::asset<core::types::project> const& prj) : _project(prj), _system_manager(systems::system_manager{ prj.value().systems() }), _tick() { }
+			game(core::wrappers::asset<core::types::project>&& prj) : _project(std::move(prj)), _system_manager(systems::system_manager{ prj.value().systems() }), _tick() { }
 
 			core::types::project const& project() const {
 				return _project.value();

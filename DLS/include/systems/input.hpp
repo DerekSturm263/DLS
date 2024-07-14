@@ -4,16 +4,7 @@
 #include "types/core/system.hpp"
 
 namespace dls::input::functions {
-	class set_max_players : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
+	class set_max_players;
 }
 
 namespace dls::input::systems {
@@ -35,6 +26,15 @@ namespace dls::input::systems {
 
 			}
     };
+}
+
+namespace dls::input::functions {
+	class set_max_players : public core::interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+				
+			}
+	};
 }
 
 REGISTER_SYSTEM("Input", dls::input::systems::input);

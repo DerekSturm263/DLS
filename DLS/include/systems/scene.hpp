@@ -3,38 +3,9 @@
 #include "types/core/system.hpp"
 
 namespace dls::core::functions {
-	class load : public interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
-
-	class spawn : public interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
-
-	class despawn : public interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
+	class load;
+	class spawn;
+	class despawn;
 }
 
 namespace dls::core::systems {
@@ -52,6 +23,29 @@ namespace dls::core::systems {
 			}
 
 			void draw(std::string const& label) const override {
+
+			}
+	};
+}
+
+namespace dls::core::functions {
+	class load : public interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+
+			}
+	};
+
+	class spawn : public interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+
+			}
+	};
+
+	class despawn : public interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
 
 			}
 	};

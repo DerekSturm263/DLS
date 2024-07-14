@@ -1,20 +1,12 @@
 #pragma once
 
+#include "miscellaneous/math_defines.hpp"
 #include "types/core/system.hpp"
 #include "miscellaneous/graphics_agent.hpp"
 
 namespace dls::graphics::functions {
 	template <typename Decimal, glm::length_t Size>
-	class render : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
+	class render;
 }
 
 namespace dls::graphics::systems {
@@ -48,6 +40,16 @@ namespace dls::graphics::systems {
 	};
 
 	using graphics_t = graphics<math::decimal, math::dimensions>;
+}
+
+namespace dls::graphics::functions {
+	template <typename Decimal, glm::length_t Size>
+	class render : public core::interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+
+			}
+	};
 }
 
 REGISTER_SYSTEM("Graphics", dls::graphics::systems::graphics_t);

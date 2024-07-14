@@ -7,6 +7,7 @@
 #include "../properties/property_group.hpp"
 #include "../state machines/state_machine.hpp"
 #include "scene.hpp"
+#include "system.hpp"
 
 namespace dls::core::types {
 	class project : public interfaces::serializable<project> {

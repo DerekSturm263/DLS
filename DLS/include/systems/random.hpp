@@ -2,59 +2,27 @@
 
 #include <random>
 #include <limits>
-#include "wrappers/wrappers.hpp"
 #include "types/core/system.hpp"
+#include "wrappers/wrappers.hpp"
+#include "miscellaneous/game.hpp"
 
 namespace dls::math::functions {
-	class next : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
+    template <typename T>
+    class next;
 
-			}
-
-            void draw(std::string const& label) const override {
-
-            }
-	};
-
-	class next_range : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-            void draw(std::string const& label) const override {
-
-            }
-	};
+    template <typename T>
+    class next_range;
 }
 
 namespace dls::math::systems {
-	class random : public core::types::system<functions::next, functions::next_range> {
+	class random : public core::types::system<functions::next<int>, functions::next_range<int>> {
         private:
             core::wrappers::type<unsigned int> _seed;
             std::default_random_engine _engine;
 
         public:
-            bool initialize(game::game& game) override {
+            void initialize(game::game& game) override {
                 _engine = std::default_random_engine{ _seed.value() };
-
-                auto optional = game.project().get_system<debug::systems::debug>();
-                if (optional.has_value())
-                {
-                    optional.value()->log_out("Initialized System: Random");
-                }
-
-                return true;
-            }
-
-            void shutdown(game::game& game) override {
-                auto optional = game.project().get_system<debug::systems::debug>();
-
-                if (optional.has_value())
-                {
-                    optional.value()->log_out("Shut Down System: Random");
-                }
             }
 
             template <typename T>
@@ -105,6 +73,36 @@ namespace dls::math::systems {
                 _seed.draw("Seed");
             }
 	};
+}
+
+namespace dls::math::functions {
+    template <typename T>
+    class next : public core::interfaces::function<T()> {
+        public:
+            T invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& func_args) const override {
+                auto random = game.project().get_system<systems::random>();
+
+                if (random.has_value()) {
+                    return random.value()->next<T>();
+                }
+
+                return T{};
+            }
+    };
+
+    template <typename T>
+    class next_range : public core::interfaces::function<T(events::types::param_ref<T>, events::types::param_ref<T>)> {
+        public:
+            T invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<events::types::param_ref<T>, events::types::param_ref<T>> const& func_args) const override {
+                auto random = game.project().get_system<systems::random>();
+
+                if (random.has_value()) {
+                    return random.value()->next_range(std::get<0>(func_args).value(event_args), std::get<1>(func_args).value(event_args));
+                }
+
+                return T{};
+            }
+    };
 }
 
 REGISTER_SYSTEM("Random", dls::math::systems::random);

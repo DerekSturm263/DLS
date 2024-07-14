@@ -1,5 +1,6 @@
 #pragma once
 
+#include "interfaces/serializable.hpp"
 #include "interfaces/unique.hpp"
 #include "val.hpp"
 

@@ -2,8 +2,16 @@
 
 #include "types/core/module.hpp"
 #include "wrappers/wrappers.hpp"
-#include "types/nodes/node_group.hpp"
-#include "types/events/event.hpp"
+
+namespace dls::nodes::types {
+	template <typename T>
+	class node_group;
+}
+
+namespace dls::events::types {
+	template <typename TFunc>
+	class event;
+}
 
 namespace dls::nodes::modules {
 	template <typename T>

@@ -2,17 +2,17 @@
 
 #include "types/core/module.hpp"
 #include "wrappers/wrappers.hpp"
-#include "types/miscellaneous/processor.hpp"
+
+namespace dls::miscellaneous::types {
+	template <typename T>
+	class processor;
+}
 
 namespace dls::send_receive::functions {
 	template <typename T>
-	class send : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class send : public core::interfaces::function<void(T)> {
 		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<T> const& args) const override {
 
 			}
 	};

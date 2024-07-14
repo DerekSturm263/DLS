@@ -6,19 +6,10 @@
 
 namespace dls::simulation::functions {
 	template <typename Decimal, glm::length_t Size>
-	class shape_cast : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-            void draw(std::string const& label) const override {
-
-            }
-	};
+	class shape_cast;
 }
 
-namespace dls::simulation::systems {
+namespace dls::simulation::systems {\
 	template <typename Decimal, glm::length_t Size>
 	class simulation : public core::types::system<functions::shape_cast<Decimal, Size>> {
 		private:
@@ -49,6 +40,16 @@ namespace dls::simulation::systems {
 	};
 
 	using simulation_t = simulation<math::decimal, math::dimensions>;
+}
+
+namespace dls::simulation::functions {
+	template <typename Decimal, glm::length_t Size>
+	class shape_cast : public core::interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+
+			}
+	};
 }
 
 REGISTER_SYSTEM("Simulation", dls::simulation::systems::simulation_t);

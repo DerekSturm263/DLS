@@ -32,16 +32,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\types\animation\animation.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\modules\appearance.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\audio\clip.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\callbacks\collision_callback_context.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\graphics\color.hpp">
@@ -57,9 +51,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\events\event.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\types\events\event_func.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\types\math\fixed.hpp">
@@ -86,16 +77,10 @@
     <ClInclude Include="include\types\input\input_trigger.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\callbacks\input_callback_context.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\types\input\input_event_group.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\interfaces\interpolatable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\types\animation\keyframe_data.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\layout.hpp">
@@ -200,9 +185,6 @@
     <ClInclude Include="include\modules\ui_element.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\callbacks\ui_element_callback_context.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\interfaces\unique.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -215,7 +197,7 @@
     <ClInclude Include="include\miscellaneous\window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\types\events\event_statement.hpp">
+    <ClInclude Include="include\types\events\statement.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\modules\modules.hpp">
@@ -315,6 +297,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\miscellaneous\functions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\helpers\functions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\miscellaneous\param_ref.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

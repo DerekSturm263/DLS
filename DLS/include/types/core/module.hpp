@@ -7,16 +7,7 @@
 #include "wrappers/wrappers.hpp"
 
 namespace dls::core::functions {
-	class set_mod_enabled : public interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
+	class set_mod_enabled;
 }
 
 namespace dls::core::types {
@@ -61,7 +52,16 @@ namespace dls::core::types {
 	};
 }
 
-#define REGISTER_MODULE(name, derived)														\
-	CEREAL_REGISTER_TYPE_WITH_NAME(derived, name);											\
-	CEREAL_REGISTER_POLYMORPHIC_RELATION(derived::base_type, derived);						\
-	CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::core::types::module_base, derived::base_type);
+namespace dls::core::functions {
+	class set_mod_enabled : public interfaces::function<void(bool)> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<bool> const& args) const override {
+
+			}
+	};
+}
+
+#define REGISTER_MODULE(Name, Derived)														\
+	CEREAL_REGISTER_TYPE_WITH_NAME(Derived, Name);											\
+	CEREAL_REGISTER_POLYMORPHIC_RELATION(Derived::base_type, Derived);						\
+	CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::core::types::module_base, Derived::base_type);

@@ -1,31 +1,15 @@
 #pragma once
 
-#include "types/graphics/texture.hpp"
 #include "types/core/system.hpp"
 #include "types/math/vector.hpp"
 
+namespace dls::graphics::types {
+	class texture;
+}
+
 namespace dls::graphics::functions {
-	class open : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
-	
-	class close : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
+	class open;
+	class close;
 }
 
 namespace dls::graphics::systems {
@@ -52,6 +36,22 @@ namespace dls::graphics::systems {
 				_title.draw("Title");
 				_icon.draw("Icon");
 				_dimensions.draw("Dimensions");
+			}
+	};
+}
+
+namespace dls::graphics::functions {
+	class open : public core::interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+
+			}
+	};
+	
+	class close : public core::interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+
 			}
 	};
 }

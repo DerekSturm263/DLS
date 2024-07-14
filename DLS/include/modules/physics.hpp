@@ -2,32 +2,22 @@
 
 #include "miscellaneous/math_defines.hpp"
 #include "types/core/module.hpp"
-#include "wrappers/wrappers.hpp"
 #include "types/math/vector.hpp"
+#include "wrappers/wrappers.hpp"
 
 namespace dls::simulation::functions {
 	template <typename Decimal, glm::length_t Size>
-	class set_acceleration : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class set_acceleration : public core::interfaces::function<void(math::types::vector<Decimal, Size>)> {
 		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-				//systems::simulation_agent* rb = static_cast<systems::simulation_agent*>(inputs[0]);
-				//math::types::vector<Decimal, Size>* acc = static_cast<math::types::vector<Decimal, Size>*>(inputs[1]);
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<math::types::vector<Decimal, Size>> const& args) const override {
 
 			}
 	};
 
 	template <typename Decimal, glm::length_t Size>
-	class set_velocity : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class set_velocity : public core::interfaces::function<void(math::types::vector<Decimal, Size>)> {
 		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-				//systems::simulation_agent* rb = static_cast<systems::simulation_agent*>(inputs[0]);
-				//math::types::vector<Decimal, Size>* vel = static_cast<math::types::vector<Decimal, Size>*>(inputs[1]);
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<math::types::vector<Decimal, Size>> const& args) const override {
 
 			}
 	};

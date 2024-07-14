@@ -10,7 +10,7 @@ namespace dls::engine {
 		private:
 			static game::game _game;
 
-			static bool initialize(int, char* []);
+			static void initialize(int, char*[]);
 			static void tick();
 			static void shutdown();
 	};

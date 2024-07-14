@@ -6,16 +6,7 @@
 
 namespace dls::audio::functions {
     template <typename Decimal>
-	class play : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-            void draw(std::string const& label) const override {
-
-            }
-	};
+    class play;
 }
 
 namespace dls::audio::systems {
@@ -39,6 +30,16 @@ namespace dls::audio::systems {
 	};
 
     using audio_t = audio<math::decimal>;
+}
+
+namespace dls::audio::functions {
+    template <typename Decimal>
+	class play : public core::interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+
+			}
+	};
 }
 
 REGISTER_SYSTEM("Audio", dls::audio::systems::audio_t);

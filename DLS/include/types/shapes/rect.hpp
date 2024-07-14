@@ -1,6 +1,5 @@
 #pragma once
 
-#include <vector>
 #include "interfaces/serializable.hpp"
 #include "wrappers/wrappers.hpp"
 #include "../math/vector.hpp"

@@ -7,16 +7,7 @@
 #include "wrappers/wrappers.hpp"
 
 namespace dls::core::functions {
-	class set_sys_enabled : public interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-            void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-            }
-
-            void draw(std::string const& label) const override {
-
-            }
-	};
+    class set_sys_enabled;
 }
 
 namespace dls::core::types {
@@ -34,7 +25,7 @@ namespace dls::core::types {
             /// <summary>
             /// Initialize is called immediately when the application is loaded. This is useful for initializing global logic and data.
             /// </summary>
-            virtual bool initialize(game::game& game) { return true; }
+            virtual void initialize(game::game& game) { }
 
             /// <summary>
             /// On Scene Load is called when a scene is loaded. This is useful for initializing scene-specific values like lists of vals.
@@ -87,7 +78,16 @@ namespace dls::core::types {
     };
 }
 
-#define REGISTER_SYSTEM(name, derived)								                        \
-	CEREAL_REGISTER_TYPE_WITH_NAME(derived, name);									        \
-	CEREAL_REGISTER_POLYMORPHIC_RELATION(derived::base_type, derived);			            \
-	CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::core::types::system_base, derived::base_type);
+namespace dls::core::functions {
+	class set_sys_enabled : public interfaces::function<void(bool)> {
+		public:
+            void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<bool> const& args) const override {
+
+            }
+	};
+}
+
+#define REGISTER_SYSTEM(Name, Derived)								                        \
+	CEREAL_REGISTER_TYPE_WITH_NAME(Derived, Name);									        \
+	CEREAL_REGISTER_POLYMORPHIC_RELATION(Derived::base_type, Derived);			            \
+	CEREAL_REGISTER_POLYMORPHIC_RELATION(dls::core::types::system_base, Derived::base_type);

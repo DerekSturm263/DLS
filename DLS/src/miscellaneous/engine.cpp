@@ -7,16 +7,15 @@ namespace dls::engine {
 	game::game _game{};
 
 	int engine::execute(int argc, char* argv[]) {
-		if (initialize(argc, argv)) {
-
-		}
-
+		initialize(argc, argv);
+		tick();
 		shutdown();
+
 		return 0;
 	}
 
-	bool engine::initialize(int argc, char* argv[]) {
-		_game = game::game(core::wrappers::asset<core::types::project>{ "assets/project1.project.asset", core::types::project{ std::vector<core::wrappers::ref<core::types::scene>>{},
+	void engine::initialize(int argc, char* argv[]) {
+		_game = game::game(core::wrappers::asset<core::types::project>{ argv[1], core::types::project{std::vector<core::wrappers::ref<core::types::scene>>{},
 			audio::systems::audio_t{},
 			debug::systems::debug{},
 			graphics::systems::graphics_t{},
@@ -29,7 +28,7 @@ namespace dls::engine {
 			graphics::systems::window{}
 		} });
 
-		return _game.system_manager().initialize(_game);
+		_game.system_manager().initialize(_game);
 	}
 
 	void engine::tick() {

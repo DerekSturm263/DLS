@@ -1,11 +1,9 @@
 #pragma once
 
 #include <variant>
-#include <tuple>
 #include "interfaces/serializable.hpp"
 #include "wrappers/wrappers.hpp"
 
-#include "../animation/animation.hpp"
 #include "../audio/clip.hpp"
 #include "../events/event.hpp"
 #include "../math/fixed.hpp"
@@ -32,7 +30,7 @@
 namespace dls::properties::types {
 	class property : public core::interfaces::serializable<property> {
 		public:
-			using any = std::variant<animation::types::animation, audio::types::clip, input::types::input_trigger, graphics::types::material, graphics::types::mesh, graphics::types::texture, std::string, int, bool>;
+			using any = std::variant<audio::types::clip, input::types::input_trigger, graphics::types::material, graphics::types::mesh, graphics::types::texture, std::string, int, bool>;
 
 		private:
 			core::wrappers::val<any> _value;

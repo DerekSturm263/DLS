@@ -2,8 +2,16 @@
 
 #include "types/core/module.hpp"
 #include "wrappers/wrappers.hpp"
-#include "types/state machines/state_machine.hpp"
-#include "types/events/event.hpp"
+
+namespace dls::state_machines::types {
+	template <typename T>
+	class state_machine;
+}
+
+namespace dls::events::types {
+	template <typename TFunc>
+	class event;
+}
 
 namespace dls::state_machines::modules {
 	template <typename T>

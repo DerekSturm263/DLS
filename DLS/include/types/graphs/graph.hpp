@@ -2,10 +2,12 @@
 
 #include <map>
 #include "interfaces/serializable.hpp"
-#include "graph_point.hpp"
 #include "../math/vector.hpp"
 
 namespace dls::graph::types {
+	template <typename T>
+	class graph_point;
+
 	template <typename T, typename U, glm::length_t Size>
 	class graph : public core::interfaces::serializable<graph<T, U, Size>> {
 		private:

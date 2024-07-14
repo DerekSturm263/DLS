@@ -4,53 +4,41 @@
 #include "miscellaneous/math_defines.hpp"
 #include "types/core/module.hpp"
 #include "wrappers/wrappers.hpp"
-#include "types/events/event.hpp"
+
+namespace dls::events::types {
+	template <typename TFunc>
+	class event;
+}
 
 namespace dls::time::functions {
 	template <typename Decimal>
-	class begin : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class begin : public core::interfaces::function<void()> {
 		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
 
 			}
 	};
 
 	template <typename Decimal>
-	class pause : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class pause : public core::interfaces::function<void()> {
 		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
 
 			}
 	};
 
 	template <typename Decimal>
-	class resume : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class resume : public core::interfaces::function<void()> {
 		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
 
 			}
 	};
 
 	template <typename Decimal>
-	class stop : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class stop : public core::interfaces::function<void()> {
 		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
 
 			}
 	};

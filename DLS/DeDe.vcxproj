@@ -161,6 +161,7 @@
     <None Include="lib\glm\gtx\wrap.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\helpers\functions.hpp" />
     <ClInclude Include="include\miscellaneous\engine.hpp" />
     <ClInclude Include="include\miscellaneous\functions.hpp" />
     <ClInclude Include="include\miscellaneous\game.hpp" />
@@ -181,18 +182,16 @@
     <ClInclude Include="include\miscellaneous\system_manager.hpp" />
     <ClInclude Include="include\systems\time.hpp" />
     <ClInclude Include="include\systems\window.hpp" />
-    <ClInclude Include="include\types\animation\animation.hpp" />
     <ClInclude Include="include\modules\appearance.hpp" />
     <ClInclude Include="include\types\audio\clip.hpp" />
-    <ClInclude Include="include\callbacks\collision_callback_context.hpp" />
     <ClInclude Include="include\types\core\system.hpp" />
+    <ClInclude Include="include\miscellaneous\param_ref.hpp" />
     <ClInclude Include="include\types\graphics\color.hpp" />
     <ClInclude Include="include\miscellaneous\drawable.hpp" />
     <ClInclude Include="include\modules\emitter.hpp" />
     <ClInclude Include="include\types\core\entity.hpp" />
     <ClInclude Include="include\types\events\event.hpp" />
-    <ClInclude Include="include\types\events\event_func.hpp" />
-    <ClInclude Include="include\types\events\event_statement.hpp" />
+    <ClInclude Include="include\types\events\statement.hpp" />
     <ClInclude Include="include\types\math\fixed.hpp" />
     <ClInclude Include="include\interfaces\function.hpp" />
     <ClInclude Include="include\types\graphs\graph.hpp" />
@@ -201,10 +200,8 @@
     <ClInclude Include="include\interfaces\gui_drawable.hpp" />
     <ClInclude Include="include\modules\input.hpp" />
     <ClInclude Include="include\types\input\input_trigger.hpp" />
-    <ClInclude Include="include\callbacks\input_callback_context.hpp" />
     <ClInclude Include="include\types\input\input_event_group.hpp" />
     <ClInclude Include="include\interfaces\interpolatable.hpp" />
-    <ClInclude Include="include\types\animation\keyframe_data.hpp" />
     <ClInclude Include="include\modules\layout.hpp" />
     <ClInclude Include="include\types\miscellaneous\mask.hpp" />
     <ClInclude Include="include\types\graphics\material.hpp" />
@@ -243,7 +240,6 @@
     <ClInclude Include="include\types\math\transform.hpp" />
     <ClInclude Include="include\modules\transform.hpp" />
     <ClInclude Include="include\modules\ui_element.hpp" />
-    <ClInclude Include="include\callbacks\ui_element_callback_context.hpp" />
     <ClInclude Include="include\interfaces\unique.hpp" />
     <ClInclude Include="include\types\miscellaneous\variants.hpp" />
     <ClInclude Include="include\types\math\vector.hpp" />

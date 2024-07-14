@@ -3,79 +3,53 @@
 #include "interfaces/function.hpp"
 
 namespace dls::math::functions {
-	class compare : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	template <typename T, typename U>
+	class compare : public core::interfaces::function<bool(T, U)> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
-	
-	class math : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			bool invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<T, U> const& args) const override {
 
 			}
 	};
 
-	class branch : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	template <typename Result, typename T, typename U>
+	class math : public core::interfaces::function<Result(T, U)> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			Result invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<T, U> const& args) const override {
 
 			}
 	};
 
-	class wait : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class branch : public core::interfaces::function<void()> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+			
 			}
+	};
 
-			void draw(std::string const& label) const override {
+	class wait : public core::interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
 
 			}
 	};
 
-	class iterate : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class iterate : public core::interfaces::function<void()> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
 
 			}
 	};
 
-	class end : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class end : public core::interfaces::function<void()> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
 
 			}
 	};
 
-	class skip : public core::interfaces::function<std::tuple<>, std::tuple<>> {
+	class skip : public core::interfaces::function<void()> {
 		public:
-			void invoke(game::tick& tick, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
 
 			}
 	};

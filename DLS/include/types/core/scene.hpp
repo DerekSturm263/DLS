@@ -3,9 +3,16 @@
 #include <vector>
 #include "interfaces/serializable.hpp"
 #include "wrappers/wrappers.hpp"
-#include "../properties/property_group.hpp"
-#include "../events/event.hpp"
 #include "entity.hpp"
+
+namespace dls::properties::types {
+	class property_group;
+}
+
+namespace dls::events::types {
+	template <typename TFunc>
+	class event;
+}
 
 namespace dls::core::types {
 	class scene : public interfaces::serializable<scene> {

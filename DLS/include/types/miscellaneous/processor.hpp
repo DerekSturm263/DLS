@@ -2,7 +2,11 @@
 
 #include "interfaces/serializable.hpp"
 #include "wrappers/wrappers.hpp"
-#include "../events/event.hpp"
+
+namespace dls::events::types {
+	template <typename TFunc>
+	class event;
+}
 
 namespace dls::miscellaneous::types {
 	template <typename T>

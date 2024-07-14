@@ -4,33 +4,14 @@
 #include <iostream>
 #include "types/core/system.hpp"
 #include "wrappers/wrappers.hpp"
+#include "miscellaneous/game.hpp"
 
 namespace dls::debug::functions {
-	class out : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
-
-	class in : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
+	class log_out;
 }
 
 namespace dls::debug::systems {
-	class debug : public core::types::system<functions::out, functions::in> {
+	class debug : public core::types::system<functions::log_out> {
         private:
             core::wrappers::type<std::string> _file_name;
 
@@ -53,6 +34,19 @@ namespace dls::debug::systems {
 
 			void draw(std::string const& label) const override {
 				_file_name.draw("File Name");
+			}
+	};
+}
+
+namespace dls::debug::functions {
+	class log_out : public core::interfaces::function<void(events::types::param_ref<std::string>)> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<events::types::param_ref<std::string>> const& func_args) const override {
+				auto debug = game.project().get_system<systems::debug>();
+
+				if (debug.has_value()) {
+					debug.value()->log_out(std::get<0>(func_args).value(event_args));
+				}
 			}
 	};
 }

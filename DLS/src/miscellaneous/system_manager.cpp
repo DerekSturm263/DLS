@@ -1,13 +1,10 @@
 #include "miscellaneous/system_manager.hpp"
 
 namespace dls::systems {
-	bool system_manager::initialize(game::game& game) {
+	void system_manager::initialize(game::game& game) {
 		for (auto& system : _systems) {
-			if (!system->initialize(game))
-				return false;
+			system->initialize(game);
 		}
-
-		return true;
 	}
 
 	void system_manager::on_scene_load(game::game& game) {

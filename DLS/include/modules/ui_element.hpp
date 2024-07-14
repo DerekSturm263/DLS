@@ -2,20 +2,23 @@
 
 #include "types/core/module.hpp"
 #include "wrappers/wrappers.hpp"
-#include "types/events/event.hpp"
-#include "callbacks/ui_element_callback_context.hpp"
+
+namespace dls::events::types {
+	template <typename TFunc>
+	class event;
+}
 
 namespace dls::gui::modules {
 	template <typename T>
 	class ui_element : public core::types::module<> {
 		private:
-			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_hover;
-			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_select;
-			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_press;
-			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_hold_tick;
-			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_release;
-			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_deselect;
-			core::wrappers::type<events::types::event<void(callbacks::ui_element_callback_context<T> const&)>> _on_unhover;
+			core::wrappers::type<events::types::event<void()>> _on_hover;
+			core::wrappers::type<events::types::event<void()>> _on_select;
+			core::wrappers::type<events::types::event<void()>> _on_press;
+			core::wrappers::type<events::types::event<void()>> _on_hold_tick;
+			core::wrappers::type<events::types::event<void()>> _on_release;
+			core::wrappers::type<events::types::event<void()>> _on_deselect;
+			core::wrappers::type<events::types::event<void()>> _on_unhover;
 
 			T* _held_data;
 

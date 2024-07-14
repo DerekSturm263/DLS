@@ -2,10 +2,12 @@
 
 #include <vector>
 #include "interfaces/serializable.hpp"
-#include "node.hpp"
 #include "wrappers/wrappers.hpp"
 
 namespace dls::nodes::types {
+	template <typename T>
+	class node;
+
 	template <typename T>
 	class node_group : public core::interfaces::serializable<node_group<T>> {
 		private:

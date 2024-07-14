@@ -2,7 +2,11 @@
 
 #include "types/core/module.hpp"
 #include "wrappers/wrappers.hpp"
-#include "types/miscellaneous/processor.hpp"
+
+namespace dls::miscellaneous::types {
+	template <typename T>
+	class processor;
+}
 
 namespace dls::send_receive::modules {
 	template <typename T>

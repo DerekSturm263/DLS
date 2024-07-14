@@ -2,7 +2,6 @@
 
 #include <string>
 #include <fstream>
-#include "interfaces/serializable.hpp"
 #include "val.hpp"
 #include "instance.hpp"
 

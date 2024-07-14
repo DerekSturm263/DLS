@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "interfaces/serializable.hpp"
+#include "wrappers/wrappers.hpp"
 
 namespace dls::miscellaneous::types {
 	template <typename T>

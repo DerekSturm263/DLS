@@ -1,10 +1,10 @@
 #pragma once
 
 #include "interfaces/serializable.hpp"
-#include "vector.hpp"
-#include "quaternion.hpp"
-#include "matrix.hpp"
 #include "wrappers/wrappers.hpp"
+#include "vector.hpp"
+#include "matrix.hpp"
+#include "quaternion.hpp"
 
 namespace dls::math::types {
 	template <typename T, glm::length_t Size>

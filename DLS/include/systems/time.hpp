@@ -5,16 +5,7 @@
 
 namespace dls::time::functions {
 	template <typename Decimal>
-	class set_scale : public core::interfaces::function<std::tuple<>, std::tuple<>> {
-		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
-
-			}
-	};
+	class set_scale;
 }
 
 namespace dls::time::systems {
@@ -42,6 +33,16 @@ namespace dls::time::systems {
 	};
 
 	using time_t = time<math::decimal>;
+}
+
+namespace dls::time::functions {
+	template <typename Decimal>
+	class set_scale : public core::interfaces::function<void()> {
+		public:
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<> const& args) const override {
+
+			}
+	};
 }
 
 REGISTER_SYSTEM("Time", dls::time::systems::time_t);

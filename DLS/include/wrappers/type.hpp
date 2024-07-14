@@ -22,19 +22,30 @@ namespace dls::core::wrappers {
 			type(ref<T>&& reference) : _internal(std::move(reference)) { }
 
 			type(type<T> const& rhs) : _internal(rhs._internal) { }
+			type(type<T>&& rhs) : _internal(std::move(rhs._internal)) { }
 
 			T const& value() const {
-				if (_internal.index() == 0)
-					return std::get<val<T>>(_internal).value();
-				else
-					return std::get<ref<T>>(_internal).value();
+				switch (_internal.index()) {
+					case 0:
+						return std::get<val<T>>(_internal).value();
+						break;
+
+					case 1:
+						return std::get<ref<T>>(_internal).value();
+						break;
+				}
 			}
 
 			T& value() {
-				if (_internal.index() == 0)
-					return std::get<val<T>>(_internal).value();
-				else
-					return std::get<ref<T>>(_internal).value();
+				switch (_internal.index()) {
+					case 0:
+						return std::get<val<T>>(_internal).value();
+						break;
+
+					case 1:
+						return std::get<ref<T>>(_internal).value();
+						break;
+				}
 			}
 
 			void save(interfaces::serializable_base::os& file) const override {

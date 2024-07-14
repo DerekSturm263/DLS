@@ -2,17 +2,12 @@
 
 #include "types/core/module.hpp"
 #include "wrappers/wrappers.hpp"
-#include "types/core/entity.hpp"
 
 namespace dls::miscellaneous::functions {
 	template <typename T, typename Decimal>
-	class emit : public core::interfaces::function<std::tuple<int>, std::tuple<>> {
+	class emit : public core::interfaces::function<void(int)> {
 		public:
-			void invoke(game::game& game, std::vector<void*> const& inputs, std::vector<void*>& outputs) const override {
-
-			}
-
-			void draw(std::string const& label) const override {
+			void invoke(game::game& game, std::vector<void*> const& event_args, std::tuple<int> const& args) const override {
 
 			}
 	};
