@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\DLS",
-    "\\DLS\\include",
-    "\\DLS\\include\\interfaces",
-    "\\DLS\\include\\miscellaneous",
-    "\\DLS\\include\\types",
-    "\\DLS\\include\\types\\core",
-    "\\DLS\\include\\wrappers",
-    "\\DLS\\src",
-    "\\DLS\\src\\miscellaneous"
+    ""
   ],
-  "SelectedNode": "\\DLS\\include\\wrappers\\val.hpp",
+  "SelectedNode": "\\DLS.sln",
   "PreviewInSolutionExplorer": false
 }

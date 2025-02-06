@@ -1,1 +1,0 @@
-/usr/bin/clang++ -g CMakeFiles/DLS.dir/main.cpp.o CMakeFiles/DLS.dir/src/game.cpp.o CMakeFiles/DLS.dir/src/types/core/window.cpp.o -o DLS  /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so 

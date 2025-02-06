@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{0ab03c83-3a9b-4913-bb1f-0e18cf024808}</ProjectGuid>
+    <RootNamespace>DLS</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\derek\Desktop\C++ Projects\DLS\DLS\include;C:\Users\derek\Desktop\C++ Projects\DLS\DLS\lib;C:\Users\derek\Desktop\C++ Projects\DLS\DLS\lib\cereal-1.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="DLS.cpp" />
+    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\glad.cpp" />
+    <ClCompile Include="src\stb.cpp" />
+    <ClCompile Include="src\types\core\window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\helpers\gui.hpp" />
+    <ClInclude Include="include\helpers\math.hpp" />
+    <ClInclude Include="include\interfaces\function.hpp" />
+    <ClInclude Include="include\interfaces\gui_drawable.hpp" />
+    <ClInclude Include="include\interfaces\interpolatable.hpp" />
+    <ClInclude Include="include\interfaces\randomly_generatable.hpp" />
+    <ClInclude Include="include\interfaces\serializable.hpp" />
+    <ClInclude Include="include\interfaces\systems\on_entity_despawn.hpp" />
+    <ClInclude Include="include\interfaces\systems\on_entity_spawn.hpp" />
+    <ClInclude Include="include\interfaces\systems\on_scene_load.hpp" />
+    <ClInclude Include="include\interfaces\systems\on_scene_unload.hpp" />
+    <ClInclude Include="include\interfaces\unique.hpp" />
+    <ClInclude Include="include\miscellaneous\game.hpp" />
+    <ClInclude Include="include\miscellaneous\param_ref.hpp" />
+    <ClInclude Include="include\miscellaneous\tick.hpp" />
+    <ClInclude Include="include\modules\appearance.hpp" />
+    <ClInclude Include="include\modules\emitter.hpp" />
+    <ClInclude Include="include\modules\input.hpp" />
+    <ClInclude Include="include\modules\layout.hpp" />
+    <ClInclude Include="include\modules\receiver.hpp" />
+    <ClInclude Include="include\modules\resolver.hpp" />
+    <ClInclude Include="include\modules\sender.hpp" />
+    <ClInclude Include="include\modules\simulation.hpp" />
+    <ClInclude Include="include\modules\timer.hpp" />
+    <ClInclude Include="include\modules\transform.hpp" />
+    <ClInclude Include="include\modules\ui_element.hpp" />
+    <ClInclude Include="include\systems\audio.hpp" />
+    <ClInclude Include="include\systems\debug.hpp" />
+    <ClInclude Include="include\systems\graphics.hpp" />
+    <ClInclude Include="include\systems\input.hpp" />
+    <ClInclude Include="include\systems\network.hpp" />
+    <ClInclude Include="include\systems\random.hpp" />
+    <ClInclude Include="include\systems\receive.hpp" />
+    <ClInclude Include="include\systems\save_data.hpp" />
+    <ClInclude Include="include\systems\simulation.hpp" />
+    <ClInclude Include="include\systems\time.hpp" />
+    <ClInclude Include="include\types\audio\clip.hpp" />
+    <ClInclude Include="include\types\collections\array.hpp" />
+    <ClInclude Include="include\types\collections\list.hpp" />
+    <ClInclude Include="include\types\collections\map.hpp" />
+    <ClInclude Include="include\types\collections\queue.hpp" />
+    <ClInclude Include="include\types\collections\stack.hpp" />
+    <ClInclude Include="include\types\collections\tree.hpp" />
+    <ClInclude Include="include\types\collections\tuple.hpp" />
+    <ClInclude Include="include\types\core\entity.hpp" />
+    <ClInclude Include="include\types\core\module.hpp" />
+    <ClInclude Include="include\types\core\project.hpp" />
+    <ClInclude Include="include\types\core\scene.hpp" />
+    <ClInclude Include="include\types\core\system.hpp" />
+    <ClInclude Include="include\types\core\window.hpp" />
+    <ClInclude Include="include\types\events\event.hpp" />
+    <ClInclude Include="include\types\events\statement.hpp" />
+    <ClInclude Include="include\types\graphics\color.hpp" />
+    <ClInclude Include="include\types\graphics\material.hpp" />
+    <ClInclude Include="include\types\graphics\mesh.hpp" />
+    <ClInclude Include="include\types\graphics\shader.hpp" />
+    <ClInclude Include="include\types\graphics\texture.hpp" />
+    <ClInclude Include="include\types\graphs\graph.hpp" />
+    <ClInclude Include="include\types\graphs\point.hpp" />
+    <ClInclude Include="include\types\input\input_trigger.hpp" />
+    <ClInclude Include="include\types\math\decimal.hpp" />
+    <ClInclude Include="include\types\math\integer.hpp" />
+    <ClInclude Include="include\types\math\line.hpp" />
+    <ClInclude Include="include\types\math\matrix.hpp" />
+    <ClInclude Include="include\types\math\plane.hpp" />
+    <ClInclude Include="include\types\math\quaternion.hpp" />
+    <ClInclude Include="include\types\math\range.hpp" />
+    <ClInclude Include="include\types\math\tensor.hpp" />
+    <ClInclude Include="include\types\math\transformation.hpp" />
+    <ClInclude Include="include\types\math\vector.hpp" />
+    <ClInclude Include="include\types\miscellaneous\any.hpp" />
+    <ClInclude Include="include\types\miscellaneous\boolean.hpp" />
+    <ClInclude Include="include\types\miscellaneous\dropdown.hpp" />
+    <ClInclude Include="include\types\miscellaneous\mask.hpp" />
+    <ClInclude Include="include\types\miscellaneous\processor.hpp" />
+    <ClInclude Include="include\types\miscellaneous\text.hpp" />
+    <ClInclude Include="include\types\miscellaneous\type.hpp" />
+    <ClInclude Include="include\types\miscellaneous\variant.hpp" />
+    <ClInclude Include="include\types\node groups\node.hpp" />
+    <ClInclude Include="include\types\node groups\node_group.hpp" />
+    <ClInclude Include="include\types\physics\wave.hpp" />
+    <ClInclude Include="include\types\properties\property.hpp" />
+    <ClInclude Include="include\types\properties\property_group.hpp" />
+    <ClInclude Include="include\types\shapes\bounds.hpp" />
+    <ClInclude Include="include\types\shapes\shape.hpp" />
+    <ClInclude Include="include\types\state machines\state.hpp" />
+    <ClInclude Include="include\types\state machines\state_machine.hpp" />
+    <ClInclude Include="include\types\state machines\transition.hpp" />
+    <ClInclude Include="include\types\time\date.hpp" />
+    <ClInclude Include="include\types\time\duration.hpp" />
+    <ClInclude Include="include\types\time\time.hpp" />
+    <ClInclude Include="include\wrappers\asset.hpp" />
+    <ClInclude Include="include\wrappers\instance.hpp" />
+    <ClInclude Include="include\wrappers\ref.hpp" />
+    <ClInclude Include="include\wrappers\template.hpp" />
+    <ClInclude Include="include\wrappers\type.hpp" />
+    <ClInclude Include="include\wrappers\val.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
